@@ -1,0 +1,6 @@
+# Attention!
+#
+# Bien lancer le playbook de dernière version disponible !
+
+ansible-playbook -K -k -u fr-726-ansible -i inventaire.yml playbook.yml
+
