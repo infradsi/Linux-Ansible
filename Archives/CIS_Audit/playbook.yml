@@ -1,0 +1,46 @@
+---
+- name: Exécuter l'audit CIS et rapatrier les rapports LOG, CSV et HTML
+  hosts: all
+  become: yes
+  vars:
+    remote_script_path: /tmp/linux_cis_audit_v27.sh
+    remote_report_dir: /tmp
+    local_report_dir: ./reports
+
+  tasks:
+
+    - name: Créer le dossier local pour les rapports
+      delegate_to: localhost
+      run_once: true
+      ansible.builtin.file:
+        path: "{{ local_report_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Copier le script d’audit sur le serveur
+      ansible.builtin.copy:
+        src: linux_cis_audit_v27.sh
+        dest: "{{ remote_script_path }}"
+        mode: '0755'
+
+    - name: Exécuter le script d’audit
+      ansible.builtin.shell: "{{ remote_script_path }}"
+      args:
+        chdir: /tmp
+
+    - name: Rechercher les fichiers LOG, CSV et HTML générés
+      ansible.builtin.find:
+        paths: "{{ remote_report_dir }}"
+        patterns:
+          - "cis_audit_report_*.log"
+          - "cis_audit_report_*.csv"
+          - "cis_audit_report_*.html"
+        recurse: no
+      register: found_reports
+
+    - name: Rapatrier les fichiers vers le serveur Ansible
+      ansible.builtin.fetch:
+        src: "{{ item.path }}"
+        dest: "{{ local_report_dir }}/"
+        flat: yes
+      loop: "{{ found_reports.files }}"

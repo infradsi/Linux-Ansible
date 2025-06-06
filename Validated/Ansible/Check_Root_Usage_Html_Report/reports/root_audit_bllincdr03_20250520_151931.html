@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Linux Root Audit Report - bllincdr03</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .warn { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Linux Root Account Audit Report</h1>
+    <p><strong>Host:</strong> bllincdr03</p>
+    <p><strong>Date:</strong> 2025-05-20 15:19:31</p>
+<h2>1. SSH Root Login Policy</h2><p><span class='fail'>❌ SSH root login is NOT disabled!</span></p>
+<h2>2. Root Password Aging Policy</h2>
+<pre>Last password change					: mars 06, 2025
+Password expires					: juin 04, 2025
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 1
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 15</pre>
+<p class='pass'>✔️ Root password aging policy is acceptable.</p>
+<h2>3. Console-only Root Login (/etc/securetty)</h2>
+<p class='fail'>❌ /etc/securetty is missing. Root login is not restricted to console!</p>
+<h2>4. Direct Root Logins (last 10)</h2>
+<p class='warn'>⚠️ Direct root logins detected:</p><pre>root     tty1                          Tue Jul 16 17:02 - 17:02  (00:00)
+root     pts/1        199.191.45.83    Fri Apr 12 14:22 - 14:33  (00:11)
+root     pts/1        199.191.45.83    Fri Apr 12 14:16 - 14:22  (00:05)
+root     pts/0        199.191.45.83    Fri Apr 12 14:02 - 15:00  (00:57)
+root     pts/0        199.191.45.83    Fri Apr 12 14:00 - 14:00  (00:00)
+root     tty1                          Fri Nov 25 09:22 - 17:22  (08:00)
+root     pts/0        199.191.45.10    Fri May  6 14:32 - 16:09  (01:37)
+root     pts/0        199.191.45.10    Fri May  6 13:30 - 14:23  (00:53)
+root     pts/3        199.191.45.10    Fri May  6 11:33 - 13:14  (01:40)
+root     pts/0        199.191.45.10    Fri May  6 11:16 - 13:16  (02:00)</pre>
+<h2>5. Admin Sudo/Su Usage</h2>
+<pre>May 20 15:19:15 bllincdr03 sshd[32477]: debug1: subsystem: exec() /usr/libexec/openssh/sftp-server -m 644
+May 20 15:19:15 bllincdr03 sshd[32477]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 51974 id 0
+May 20 15:19:15 bllincdr03 sudo[32604]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/0 ruser=fr-726-ansible rhost= user=fr-726-ansible
+May 20 15:19:15 bllincdr03 sudo[32604]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-kmtqdruqkaqybpgzckkgyppckgvzynby ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1747747152.177257-2344407-140551111643720/AnsiballZ_copy.py'
+May 20 15:19:15 bllincdr03 sudo[32604]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+May 20 15:19:16 bllincdr03 sudo[32604]: pam_unix(sudo:session): session closed for user root
+May 20 15:19:17 bllincdr03 su[32576]: pam_unix(su:session): session closed for user nobody
+May 20 15:19:19 bllincdr03 su[32654]: pam_unix(su:session): session opened for user nobody by (uid=0)
+May 20 15:19:22 bllincdr03 su[32654]: pam_unix(su:session): session closed for user nobody
+May 20 15:19:24 bllincdr03 su[32680]: pam_unix(su:session): session opened for user nobody by (uid=0)
+May 20 15:19:26 bllincdr03 su[32680]: pam_unix(su:session): session closed for user nobody
+May 20 15:19:28 bllincdr03 su[32763]: pam_unix(su:session): session opened for user nobody by (uid=0)
+May 20 15:19:30 bllincdr03 sshd[32477]: debug1: server_input_channel_req: channel 0 request subsystem reply 1
+May 20 15:19:30 bllincdr03 sshd[32477]: debug1: session_input_channel_req: session 0 req subsystem
+May 20 15:19:30 bllincdr03 sshd[32477]: debug1: subsystem: exec() /usr/libexec/openssh/sftp-server -m 644
+May 20 15:19:30 bllincdr03 sshd[32477]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 51974 id 0
+May 20 15:19:30 bllincdr03 su[32763]: pam_unix(su:session): session closed for user nobody
+May 20 15:19:31 bllincdr03 sudo[32782]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/0 ruser=fr-726-ansible rhost= user=fr-726-ansible
+May 20 15:19:31 bllincdr03 sudo[32782]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-whbwmngnnnmhwnfqsufdiyvqnhaexoen ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1747747170.452671-2345338-105134048230179/AnsiballZ_command.py'
+May 20 15:19:31 bllincdr03 sudo[32782]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)\n</pre>
+<h2>6. Shared UID 0 Accounts</h2>
+<p class='pass'>✔️ Only root has UID 0.</p>
+<h2>✅ Audit Completed</h2>
+</body></html>

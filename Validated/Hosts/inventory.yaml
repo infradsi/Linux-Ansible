@@ -1,0 +1,5 @@
+---
+all:
+  children:
+    responsive_hosts:
+      hosts:

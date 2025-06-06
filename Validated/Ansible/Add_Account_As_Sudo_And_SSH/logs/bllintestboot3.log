@@ -1,0 +1,6 @@
+Utilisateur C95059561 déjà existant.
+Droits sudo accordés à C95059561 via /etc/sudoers.d/C95059561
+Backup de /etc/ssh/sshd_config -> /root/backup_sudo_ssh_20250603_153000/
+Utilisateur déjà autorisé en SSH.
+Redémarrage du service SSH...
+Opération terminée. Backup dans : /root/backup_sudo_ssh_20250603_153000

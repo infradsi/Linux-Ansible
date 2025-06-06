@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Linux Root Audit Report - bllinalm03</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .warn { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Linux Root Account Audit Report</h1>
+    <p><strong>Host:</strong> bllinalm03</p>
+    <p><strong>Date:</strong> 2025-05-20 15:19:26</p>
+<h2>1. SSH Root Login Policy</h2><p><span class='fail'>❌ SSH root login is NOT disabled!</span></p>
+<h2>2. Root Password Aging Policy</h2>
+<pre>Last password change					: mai 06, 2025
+Password expires					: août 04, 2025
+Password inactive					: août 11, 2025
+Account expires						: never
+Minimum number of days between password change		: 1
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 15</pre>
+<p class='pass'>✔️ Root password aging policy is acceptable.</p>
+<h2>3. Console-only Root Login (/etc/securetty)</h2>
+<p class='fail'>❌ /etc/securetty is missing. Root login is not restricted to console!</p>
+<h2>4. Direct Root Logins (last 10)</h2>
+<p class='warn'>⚠️ Direct root logins detected:</p><pre>root     pts/0        199.191.45.83    Sun Apr  6 16:49 - 21:10  (04:21)
+root     pts/1        199.191.45.83    Sun Apr  6 08:46 - 14:03  (05:16)
+root     pts/0        131.199.156.68   Sat Apr  5 19:49 - 20:52  (01:02)
+root     tty1                          Sat Apr  5 19:42 - 16:12  (20:30)</pre>
+<h2>5. Admin Sudo/Su Usage</h2>
+<pre>May 20 15:17:15 bllinalm03 su[445269]: pam_unix(su:session): session closed for user nobody
+May 20 15:17:50 bllinalm03 su[446076]: pam_unix(su:session): session opened for user nobody by (uid=0)
+May 20 15:17:51 bllinalm03 su[446076]: pam_unix(su:session): session closed for user nobody
+May 20 15:18:50 bllinalm03 sshd[449278]: pam_sss(sshd:auth): authentication success; logname= uid=0 euid=0 tty=ssh ruser= rhost=199.191.45.54 user=fr-726-ansible
+May 20 15:18:51 bllinalm03 sudo[449381]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-dzhuqeyyfseqwepojrcnwajzyfddtmkw ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1747747129.5116005-2343106-181426048838609/AnsiballZ_stat.py'
+May 20 15:18:51 bllinalm03 sudo[449381]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+May 20 15:18:51 bllinalm03 sudo[449381]: pam_unix(sudo:session): session closed for user root
+May 20 15:18:52 bllinalm03 sudo[449410]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-iswaudafnvsxnjghorlducebqykuxpjg ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1747747129.5116005-2343106-181426048838609/AnsiballZ_copy.py'
+May 20 15:18:52 bllinalm03 sudo[449410]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+May 20 15:18:52 bllinalm03 sudo[449410]: pam_unix(sudo:session): session closed for user root
+May 20 15:19:04 bllinalm03 su[450258]: pam_unix(su:session): session opened for user nobody by (uid=0)
+May 20 15:19:06 bllinalm03 su[450258]: pam_unix(su:session): session closed for user nobody
+May 20 15:19:08 bllinalm03 su[450311]: pam_unix(su:session): session opened for user nobody by (uid=0)
+May 20 15:19:10 bllinalm03 su[450311]: pam_unix(su:session): session closed for user nobody
+May 20 15:19:12 bllinalm03 su[450337]: pam_unix(su:session): session opened for user nobody by (uid=0)
+May 20 15:19:14 bllinalm03 su[450337]: pam_unix(su:session): session closed for user nobody
+May 20 15:19:16 bllinalm03 su[450363]: pam_unix(su:session): session opened for user nobody by (uid=0)
+May 20 15:19:18 bllinalm03 su[450363]: pam_unix(su:session): session closed for user nobody
+May 20 15:19:26 bllinalm03 sudo[451855]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-dnjaasvhfhpidmsmkpobsgdsemqpryqh ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1747747165.4805567-2345020-54753251322794/AnsiballZ_command.py'
+May 20 15:19:26 bllinalm03 sudo[451855]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)\n</pre>
+<h2>6. Shared UID 0 Accounts</h2>
+<p class='pass'>✔️ Only root has UID 0.</p>
+<h2>✅ Audit Completed</h2>
+</body></html>
