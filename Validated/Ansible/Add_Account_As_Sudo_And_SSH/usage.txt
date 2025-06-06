@@ -2,5 +2,11 @@
 #
 # Bien lancer le playbook de dernière version disponible !
 
-ansible-playbook -K -k -u fr-726-ansible -i inventaire.yml playbook-v3.yml
+# Avec création d'un compte
+ansible-playbook -K -k -u fr-726-ansible -i mini-inventaire.yml playbook.yml --extra-vars "utilisateur=C95059561 no_create=true"
+
+# Sans création du compte
+ansible-playbook -K -k -u fr-726-ansible -i mini-inventaire.yml playbook.yml
+
+
 
