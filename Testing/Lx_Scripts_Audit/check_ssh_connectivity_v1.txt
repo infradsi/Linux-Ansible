@@ -1,0 +1,149 @@
+#!/bin/bash
+
+# Script pour valider qu'un hôte répond au SSH
+# Usage: ./check_ssh.sh <hostname> [port] [timeout]
+
+# Paramètres par défaut
+DEFAULT_PORT=22
+DEFAULT_TIMEOUT=5
+
+# Fonction d'aide
+usage() {
+    echo "Usage: $0 <hostname> [port] [timeout]"
+    echo "  hostname : Adresse IP ou nom d'hôte à tester"
+    echo "  port     : Port SSH (défaut: 22)"
+    echo "  timeout  : Timeout en secondes (défaut: 5)"
+    echo ""
+    echo "Exemples:"
+    echo "  $0 192.168.1.100"
+    echo "  $0 serveur.example.com 2222"
+    echo "  $0 10.0.0.50 22 10"
+    exit 1
+}
+
+# Vérifier les paramètres
+if [ $# -lt 1 ]; then
+    echo "Erreur: Hostname requis"
+    usage
+fi
+
+HOST=$1
+PORT=${2:-$DEFAULT_PORT}
+TIMEOUT=${3:-$DEFAULT_TIMEOUT}
+
+echo "Test de connexion SSH vers $HOST:$PORT (timeout: ${TIMEOUT}s)"
+echo "----------------------------------------"
+
+# Méthode 1: Test avec nc (netcat)
+test_with_nc() {
+    if command -v nc >/dev/null 2>&1; then
+        echo -n "Test avec netcat: "
+        if timeout $TIMEOUT nc -z $HOST $PORT 2>/dev/null; then
+            echo "✓ Port accessible"
+            return 0
+        else
+            echo "✗ Port inaccessible"
+            return 1
+        fi
+    else
+        echo "netcat non disponible"
+        return 2
+    fi
+}
+
+# Méthode 2: Test avec telnet
+test_with_telnet() {
+    if command -v telnet >/dev/null 2>&1; then
+        echo -n "Test avec telnet: "
+        if timeout $TIMEOUT bash -c "echo '' | telnet $HOST $PORT" 2>/dev/null | grep -q "Connected"; then
+            echo "✓ Port accessible"
+            return 0
+        else
+            echo "✗ Port inaccessible"
+            return 1
+        fi
+    else
+        echo "telnet non disponible"
+        return 2
+    fi
+}
+
+# Méthode 3: Test avec ssh (vérification du banner)
+test_ssh_banner() {
+    echo -n "Test du banner SSH: "
+    SSH_OUTPUT=$(timeout $TIMEOUT ssh -o ConnectTimeout=$TIMEOUT -o BatchMode=yes -o StrictHostKeyChecking=no $HOST -p $PORT exit 2>&1)
+    
+    if echo "$SSH_OUTPUT" | grep -q "Permission denied\|Connection refused\|ssh_exchange_identification\|Connection closed"; then
+        if echo "$SSH_OUTPUT" | grep -q "ssh_exchange_identification"; then
+            echo "✓ Service SSH détecté"
+            return 0
+        elif echo "$SSH_OUTPUT" | grep -q "Permission denied"; then
+            echo "✓ Service SSH actif (authentification requise)"
+            return 0
+        else
+            echo "✗ Connexion refusée"
+            return 1
+        fi
+    elif echo "$SSH_OUTPUT" | grep -q "Connection timed out\|No route to host"; then
+        echo "✗ Timeout ou hôte injoignable"
+        return 1
+    else
+        echo "? Réponse inattendue"
+        return 2
+    fi
+}
+
+# Méthode 4: Test avec /dev/tcp (bash natif)
+test_with_bash() {
+    echo -n "Test avec bash natif: "
+    if timeout $TIMEOUT bash -c "exec 3<>/dev/tcp/$HOST/$PORT && echo 'test' >&3" 2>/dev/null; then
+        echo "✓ Port accessible"
+        return 0
+    else
+        echo "✗ Port inaccessible"
+        return 1
+    fi
+}
+
+# Exécution des tests
+echo ""
+nc_result=1
+telnet_result=1
+ssh_result=1
+bash_result=1
+
+# Test avec nc
+test_with_nc
+nc_result=$?
+
+# Test avec telnet si nc a échoué
+if [ $nc_result -ne 0 ]; then
+    test_with_telnet
+    telnet_result=$?
+fi
+
+# Test avec bash natif
+test_with_bash
+bash_result=$?
+
+# Test spécifique SSH
+test_ssh_banner
+ssh_result=$?
+
+echo ""
+echo "Résumé:"
+echo "-------"
+
+# Déterminer le résultat global
+if [ $nc_result -eq 0 ] || [ $telnet_result -eq 0 ] || [ $bash_result -eq 0 ]; then
+    if [ $ssh_result -eq 0 ]; then
+        echo "✓ SUCCÈS: SSH accessible sur $HOST:$PORT"
+        exit 0
+    else
+        echo "⚠ ATTENTION: Port accessible mais service SSH non confirmé"
+        exit 1
+    fi
+else
+    echo "✗ ÉCHEC: SSH non accessible sur $HOST:$PORT"
+    exit 1
+fi
