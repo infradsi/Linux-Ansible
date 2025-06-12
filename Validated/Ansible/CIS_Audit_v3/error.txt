@@ -1,0 +1,31 @@
+[C95059561@bllintestboot3 CIS_Audit_v3]$ ansible-playbook -K -k -u fr-726-ansible -i inventaire-test.yml playbook.yml
+SSH password:
+BECOME password[defaults to SSH password]:
+
+PLAY [CIS Linux Audit multi-format - /ansible-tmp sur chaque serveur] ****************************************************************************************************
+
+TASK [Créer le répertoire /ansible-tmp si absent] ************************************************************************************************************************
+ok: [artemis]
+ok: [bllinapp47]
+
+TASK [Copier le script d'audit dans /ansible-tmp] ************************************************************************************************************************
+changed: [artemis]
+changed: [bllinapp47]
+
+TASK [Lancer le script d'audit depuis /ansible-tmp] **********************************************************************************************************************
+ok: [bllinapp47]
+ok: [artemis]
+
+TASK [Chercher tous les fichiers de rapport générés (log, csv, html)] ************************************************************************************************************************
+ok: [artemis]
+ok: [bllinapp47]
+
+TASK [Créer le dossier local pour les rapports de ce serveur] ********************************************************************************************************************************
+fatal: [artemis -> localhost]: FAILED! => {"changed": false, "module_stderr": "\nDésolé, essayez de nouveau.\n[sudo via ansible, key=zgghpreksbyflhsjvbkgezczpxoveuca] password:\nsudo: délai d'attente dépassé durant la lecture du mot de passe\nsudo: 1 saisie de mot de passe incorrecte\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+fatal: [bllinapp47 -> localhost]: FAILED! => {"msg": "timeout waiting for privilege escalation password prompt:\n"}
+
+PLAY RECAP ***********************************************************************************************************************************************************************************
+artemis                    : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinapp47                 : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+[C95059561@bllintestboot3 CIS_Audit_v3]$

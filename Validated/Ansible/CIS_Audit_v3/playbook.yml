@@ -18,17 +18,14 @@
       file:
         path: "{{ remote_workdir }}"
         state: directory
-        mode: '0750'
-        owner: root
-        group: root
-
+        mode: '0755'
+ 
     - name: Copier le script d'audit dans /ansible-tmp
       copy:
         src: "{{ audit_script }}"
         dest: "{{ remote_workdir }}/{{ audit_script }}"
-        mode: '0750'
-        owner: root
-        group: root
+        mode: '0755'
+       
 
     - name: Lancer le script d'audit depuis /ansible-tmp
       command: "./{{ audit_script }}"
