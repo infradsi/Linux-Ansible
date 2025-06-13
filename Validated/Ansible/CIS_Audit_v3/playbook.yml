@@ -9,9 +9,9 @@
     audit_script: "linux_cis_audit_v27.sh"
     local_reports_dir: "./reports"
     report_patterns:
-      - "cis_audit_report_{{ inventory_hostname }}_*.log"
-      - "cis_audit_report_{{ inventory_hostname }}_*.csv"
-      - "cis_audit_report_{{ inventory_hostname }}_*.html"
+      - "cis_audit_report_*.log"
+      - "cis_audit_report_*.csv"
+      - "cis_audit_report_*.html"
 
   tasks:
     - name: Créer le répertoire /ansible-tmp si absent
