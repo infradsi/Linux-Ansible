@@ -1,0 +1,4 @@
+user,uid,gid,shell,source
+splunkfwd,1009,1007,/bin/bash,local
+sisips,1010,1008,/bin/bash,local
+dcscaf,1011,1010,/sbin/nologin,local

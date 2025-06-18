@@ -1,0 +1,8 @@
+Utilisateur fr-726-ansible déjà existant.
+L'utilisateur dispose déjà d'un fichier sudoers : /etc/sudoers.d/fr-726-ansible
+Backup de /etc/sudoers.d/fr-726-ansible -> /root/backup_sudo_ssh_20250605_135031/
+Droits sudo accordés à fr-726-ansible via /etc/sudoers.d/fr-726-ansible
+Backup de /etc/ssh/sshd_config -> /root/backup_sudo_ssh_20250605_135031/
+Utilisateur déjà autorisé en SSH.
+Redémarrage du service SSH...
+Opération terminée. Backup dans : /root/backup_sudo_ssh_20250605_135031

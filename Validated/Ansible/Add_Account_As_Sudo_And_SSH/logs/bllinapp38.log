@@ -1,6 +1,8 @@
-Utilisateur C95059561 déjà existant.
-Droits sudo accordés à C95059561 via /etc/sudoers.d/C95059561
-Backup de /etc/ssh/sshd_config -> /root/backup_sudo_ssh_20250603_152953/
-Ajout de C95059561 à la directive AllowUsers.
+Utilisateur fr-726-ansible déjà existant.
+L'utilisateur dispose déjà d'un fichier sudoers : /etc/sudoers.d/fr-726-ansible
+Backup de /etc/sudoers.d/fr-726-ansible -> /root/backup_sudo_ssh_20250605_135120/
+Droits sudo accordés à fr-726-ansible via /etc/sudoers.d/fr-726-ansible
+Backup de /etc/ssh/sshd_config -> /root/backup_sudo_ssh_20250605_135120/
+Utilisateur déjà autorisé en SSH.
 Redémarrage du service SSH...
-Opération terminée. Backup dans : /root/backup_sudo_ssh_20250603_152953
+Opération terminée. Backup dans : /root/backup_sudo_ssh_20250605_135120

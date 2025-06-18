@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Linux Root Audit Report - bllinapp48</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .warn { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Linux Root Account Audit Report</h1>
+    <p><strong>Host:</strong> bllinapp48</p>
+    <p><strong>Date:</strong> 2025-06-10 15:34:55</p>
+<h2>1. SSH Root Login Policy</h2><p><span class='pass'>✔️ SSH root login is disabled.</span></p>
+<h2>2. Root Password Aging Policy</h2>
+<pre>Last password change					: mars 06, 2025
+Password expires					: juin 04, 2025
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 1
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 15</pre>
+<p class='pass'>✔️ Root password aging policy is acceptable.</p>
+<h2>3. Console-only Root Login (/etc/securetty)</h2>
+<p class='pass'>✔️ /etc/securetty exists. Root login restricted to listed TTYs:</p>
+<pre>console
+vc/1
+vc/2
+vc/3
+vc/4
+vc/5
+vc/6
+vc/7
+vc/8
+vc/9
+vc/10
+vc/11</pre>
+<h2>4. Direct Root Logins (last 10)</h2>
+<p class='pass'>✔️ No direct root logins found in recent history.</p>
+<h2>5. Admin Sudo/Su Usage</h2>
+<pre>Jun 10 15:30:33 bllinapp48 su[2200056]: pam_unix(su:session): session opened for user nobody by (uid=0)
+Jun 10 15:30:37 bllinapp48 su[2200056]: pam_unix(su:session): session closed for user nobody
+Jun 10 15:30:38 bllinapp48 su[2200260]: pam_unix(su:session): session opened for user nobody by (uid=0)
+Jun 10 15:30:40 bllinapp48 su[2200260]: pam_unix(su:session): session closed for user nobody
+Jun 10 15:34:03 bllinapp48 sshd[2205465]: pam_sss(sshd:auth): authentication success; logname= uid=0 euid=0 tty=ssh ruser= rhost=199.191.45.54 user=fr-726-ansible
+Jun 10 15:34:05 bllinapp48 sudo[2205577]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/0 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 10 15:34:05 bllinapp48 sudo[2205577]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-ptuxhemwpyyrzbxohtrndwzsdqwrlpyv ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1749562442.5016558-1598296-41645325420236/AnsiballZ_file.py'
+Jun 10 15:34:05 bllinapp48 sudo[2205577]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+Jun 10 15:34:05 bllinapp48 sudo[2205577]: pam_unix(sudo:session): session closed for user root
+Jun 10 15:34:40 bllinapp48 sudo[2208660]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/0 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 10 15:34:40 bllinapp48 sudo[2208660]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-sxqoxqqxrkzgxddgdwozqswjovalobji ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1749562479.813235-1600447-84594377674086/AnsiballZ_stat.py'
+Jun 10 15:34:40 bllinapp48 sudo[2208660]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+Jun 10 15:34:40 bllinapp48 sudo[2208660]: pam_unix(sudo:session): session closed for user root
+Jun 10 15:34:41 bllinapp48 sudo[2208676]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/0 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 10 15:34:41 bllinapp48 sudo[2208676]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-fbhlrtjibxhrpvjhakcdmhjhshggxxrt ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1749562479.813235-1600447-84594377674086/AnsiballZ_copy.py'
+Jun 10 15:34:41 bllinapp48 sudo[2208676]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+Jun 10 15:34:41 bllinapp48 sudo[2208676]: pam_unix(sudo:session): session closed for user root
+Jun 10 15:34:54 bllinapp48 sudo[2209094]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/0 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 10 15:34:54 bllinapp48 sudo[2209094]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-ldstohlibvztcgqbhnvjcdijqubydygt ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1749562494.3163204-1601728-221577833238228/AnsiballZ_command.py'
+Jun 10 15:34:54 bllinapp48 sudo[2209094]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)\n</pre>
+<h2>6. Shared UID 0 Accounts</h2>
+<p class='pass'>✔️ Only root has UID 0.</p>
+<h2>✅ Audit Completed</h2>
+</body></html>

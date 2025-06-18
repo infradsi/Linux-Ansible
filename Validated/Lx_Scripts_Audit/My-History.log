@@ -1,0 +1,586 @@
+    1  top
+    2  htop
+    3  locate mc
+    4  dpkg -l
+    5  exit
+    6  pwd
+    7  ls
+    8  more /etc/redhat-release 
+    9  df -h
+   10  ip addr
+   11  mount 
+   12  vgs
+   13  sudo vgs
+   14  export DISPLAY=10.254.46.253:0.0
+   15  xterm &
+   16  exit
+   17  echo "export DISPLAY=10.254.46.253:0.0" > mg-init.sh
+   18  nano mg-init.sh 
+   19  chmod +x mg-init.sh 
+   20  ./mg-init.sh 
+   21  set
+   22  export
+   23  xterm &
+   24  xeyes &
+   25  n
+   26  who
+   27  pvs
+   28  sudo pvs
+   29  sudo pds
+   30  sudo pgs
+   31  sudo vgs
+   32  sudo fdisk -l
+   33  sudo vgs
+   34  df -h
+   35  vagrant -v
+   36  find / -name vagrant
+   37  more /etc/yum.conf 
+   38  find / -name ansible
+   39  locate ansible
+   40  /usr/share/doc/vdo/examples/ansible/test_vdoremove.yml
+   41  more /usr/share/doc/vdo/examples/ansible/test_vdoremove.yml
+   42  mount
+   43  mount | grep vdo
+   44  mount | grep v
+   45  ansible -v
+   46  ls
+   47  cd /
+   48  ls
+   49  cd /var
+   50  ls
+   51  cd /etc/ansible
+   52  ls
+   53  cd  /etc/sudoers
+   54  cd  /etc/sudoers.d/
+   55  sudo ls /etc/sudoers.d/
+   56  sudo more /etc/sudoers.d/
+   57  sudo more /etc/sudoers.d/rcf_admin
+   58  sudo more /etc/ssh/sshd_config
+   59  ers ecadic -- xgsa_cmdb ecadic dmechain C95059561 E40063753 fr-726-ansible ccibert kub c95044571
+   60  sudo aide --check
+   61  find / -name splunk
+   62  echo $SPLUNK_HOME
+   63  cd /etc/system/default
+   64  rpm -qa | grep smtp
+   65  rpm -qa | grep esmtp
+   66  rpm -qa | grep sendamil
+   67  rpm -qa | grep sendmail
+   68  ls
+   69  more hosts.prod.yml
+   70  ls
+   71  cd roles/
+   72  ls
+   73  more arillso.sudoers/
+   74  ls -alh arillso.sudoers
+   75  cd arillso.sudoers/
+   76  ls
+   77  ls -alh
+   78  ls tasks
+   79  ls
+   80  exit
+   81  docker ps
+   82  sudo docker ps
+   83  sudo docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" -a
+   84  lynx 127.0.0.1
+   85  dnf install lynx
+   86  sudo dnf install lynx
+   87  ip addr
+   88  sudo dnf install lynx
+   89  sudo docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" -a
+   90  sudo docker restart fleet_simu_1
+   91  sudo docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" -a
+   92  sudo docker logs 779e1d0d0a86
+   93  sudo docker logs 779e1d0d0a86 |grep err
+   94  sudo docker logs 779e1d0d0a86 --tail 10
+   95  sudo docker logs 779e1d0d0a86 > /tmp/docker.log
+   96  nano /tmp/docker.log 
+   97  tail /tmp/docker.log 
+   98  sudo docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" -a
+   99  docker inspect 779e1d0d0a86
+  100  sudo docker inspect fleet_simu_1
+  101  ping 172.17.0.13
+  102  sudo docker restart fleet_simu_1
+  103  sudo docker inspect fleet_simu_1
+  104  sudo docker ps -q | xargs -n 1 docker inspect --format '{{ .NetworkSettings.IPAddress }} {{ .Name }}' | sed 's/ \// /'
+  105  echo "docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /'" > list-dockers-ip.sh
+  106  nano list-dockers-ip.sh 
+  107  chmod +x list-dockers-ip.sh 
+  108  sudo ./list-dockers-ip.sh 
+  109  more /etc/hosts
+  110  elinks
+  111  links
+  112  lynx
+  113  sudo yum install lynx links elinks
+  114  iptables -L
+  115  sudo iptables -L
+  116  sudo docker inpect network bridge
+  117  sudo docker network inspect bridge
+  118  more /etc/yum.repos.d/
+  119  ls /etc/yum.repos.d/
+  120  more /etc/yum.repos.d/epel-testing.repo 
+  121  ls /etc/yum.repos.d/
+  122  more /etc/yum.repos.d/sdcss.repo 
+  123  sudo more /etc/yum.repos.d/sdcss.repo 
+  124  ls /etc/yum.repos.d/
+  125  sudo more /etc/yum.repos.d/redhat.repo 
+  126  echo "docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /'" > list-dockers-ip.sh
+  127  sudo ./list-dockers-ip.sh 
+  128  cd
+  129  history
+  130  docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" -a
+  131  sudo docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" -a
+  132  ls
+  133  nano list-docker-ports.sh
+  134  ls
+  135  chmod +x list-docker-ports.sh 
+  136  ls
+  137  sudo ./list-docker-ports.sh 
+  138  netstat -tulpn
+  139  netstat -tulpn | grep :80
+  140  sudo find / -name nginx
+  141  history
+  142  sudo docker inspect fleet_simu_1
+  143  ping 779e1d0d0a86
+  144  cd /etc/docker/
+  145  ls
+  146  cd /
+  147  ls
+  148  sudo find / -name docker-compose.yml 
+  149  sudo docker ps
+  150  iptables -L
+  151  sudo iptables -L
+  152  ssh 172.17.0.12
+  153  histroy | grep docker log
+  154  history | grep docker log
+  155  history | grep log
+  156  more /tmp/docker.log 
+  157  nano /tmp/docker.log 
+  158  sudo docker inspect fleet_simu -f "{{json .NetworkSettings.Networks }}"
+  159  sudo docker inspect fleet_simu 
+  160  sudo docker inspect fleet_simu -f "{{json.NetworkSettings.Networks }}"
+  161  sudo docker ps --format '{{ .ID }} {{ .Names }} {{ json .Networks }}'
+  162  docker network list
+  163  sudo docker network list
+  164  nano /tmp/docker.log 
+  165  docker inspect fleet_simu
+  166  sudo docker inspect fleet_simu
+  167  sudo docker inspect fleet_simu 
+  168  sudo docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /' 
+  169  sudo docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /'
+  170  ls
+  171  cd
+  172  ls
+  173  sudo ./list-docker-ip.sh
+  174  pwd
+  175  ls
+  176  sudo ./list-dockers-ip.sh 
+  177  cd /etc/yum.repos.d
+  178  ls
+  179  sudo cp redhat.repo /home/C95059561/
+  180  ls /home/C95059561/
+  181  sudo vi redhat.repo
+  182  sudo yum install lynx
+  183  sudo vi redhat.repo
+  184  lynx http://bllinapp47/fleet_simu
+  185  traceroute
+  186  tracert
+  187  traceroute
+  188  sudo yum install traceroute
+  189  traceroute 172.17.0.13
+  190  lynx http://bllinapp47
+  191  lynx http://bllinapp47:8085
+  192  ip addr
+  193  lynx 199.191.45.80
+  194  sudo iptables -L
+  195  cd /etc/rsyslog.d/
+  196  ls
+  197  sudo iptables -I INPUT -m tcp -p tcp --dport 80 -j ACCEPT
+  198  sudo iptables -L
+  199  sudo iptables-save > /root/firewall_rules.backup
+  200  sudo iptables-save > /home/C95059561/firewall_rules.backup
+  201  ls /home/C95059561/
+  202  more /home/C95059561/firewall_rules.backup 
+  203  sudo iptables -F
+  204  sudo iptables -L
+  205  lynx 199.191.45.80
+  206  cd /usr/local/etc/
+  207  ls
+  208  sudo systemctl list-unit-files | grep enabled
+  209  sudo systemctl list-unit-files | grep enabled | grep nginx
+  210  curl  199.191.45.80
+  211  ls
+  212  ls -alh
+  213  ip addr show bridge
+  214  ip addr show 
+  215  ip route
+  216  netstat
+  217  iftop
+  218  sudo who
+  219  exit
+  220  ping 172.17.0.13
+  221  history
+  222  exit
+  223  cd /etc/ansible/
+  224  ls
+  225  ls -alh
+  226  cd playbooks/
+  227  ls -alh
+  228  more change_esxi_root_passwd.yml
+  229  sudo more change_esxi_root_passwd.yml
+  230  ls 
+  231  sudo more change_root_pwd.yml 
+  232  ls
+  233  cd ..
+  234  du -sh ansible/
+  235  du -sh ansible
+  236  cd play
+  237  cd ansible/
+  238  c d playbooks/
+  239  ls -alh
+  240  cd audit
+  241  ls
+  242  ls -alh
+  243  cd artemis/
+  244  ls
+  245  cd etc
+  246  ls
+  247  cd audit/
+  248  ls
+  249  cd ..
+  250  ls
+  251  cd playbooks/
+  252  ls
+  253  more ssh_access.yml 
+  254  more get_ssh_sudo.yaml 
+  255  ls
+  256  more rcf_sudo.yml 
+  257  su fr-726-ansible
+  258  more show_rhel_version.yml 
+  259  cd ..
+  260  pwd
+  261  ls ansible/
+  262  sudo tar -acvf ansible-cfg.tar ansible
+  263  ls *.tar
+  264  sudo chmod ugo+rwx ansible-cfg.tar 
+  265  ls *.tar
+  266  ls -alh *.tar
+  267  mv ansible-cfg.tar ansible-cfg
+  268  sudo mv ansible-cfg.tar ansible-cfg
+  269  ls
+  270  cd /etc/
+  271  more sudoers.d/
+  272  ls sudoers.d/
+  273  sudo ls sudoers.d/
+  274  sudo ls sudoers.d/ls -alh
+  275  cd sudoers.d
+  276  sudo ls sudoers.d
+  277  sudo ls -alh ./sudoers.d/fr-726-ansible
+  278  sudo ls -alh ./sudoers.d/rcf_admin
+  279  sudo more  ./sudoers.d/rcf_admin
+  280  sudo more ./sudoers.d/fr-726-ansible
+  281  ls
+  282  cd ansible
+  283  ls
+  284  cd esx
+  285  ls
+  286  more /etc/ssh/sshd_config
+  287  sudo more /etc/ssh/sshd_config
+  288  sudo more /etc/ssh/sshd_config | grep AllowGroup
+  289  cd ansible
+  290  cd /etc/ansible
+  291  ls
+  292  find . -name rcf_sshd_sys_adm 
+  293  sudo find . -name rcf_sshd_sys_adm 
+  294  sudo find / -name rcf_sshd_sys_adm 
+  295  sudo more /etc/group
+  296  sudo find / -name rcf_* 
+  297  more /etc/ansible/configs/artemis/etc/sudoers.d/rcf_admin
+  298  crontab -l
+  299  ls
+  300  cd configs
+  301  ls
+  302  cd ssh
+  303  ls
+  304  ls -alh
+  305  cd ..
+  306  ls
+  307  cd ..
+  308  ls
+  309  more ansible.cfg
+  310  ls -alh
+  311  more add_ssh_match.yml 
+  312  ls -alh
+  313  ss -tulpen
+  314  ping bllinapp47
+  315  ping 172.17.0.13
+  316  lynx
+  317  sudo yum install lynx
+  318  ping bllinapp47cd
+  319  cd
+  320  ls
+  321  mv list-dockers-ip.sh list-docker-ip.sh 
+  322  rpm -Uvh lynx-2.8.9-4.el8.x86_64.rpm 
+  323  rm lynx-2.8.9-4.el8.x86_64.rpm 
+  324  rpm -Uvh lynx-2.9.2-3.3.x86_64.rpm 
+  325  rm lynx-2.9.2-3.3.x86_64.rpm 
+  326  cd /etc/yum.repos.d/
+  327  ls
+  328  more redhat.repo 
+  329  sudo more redhat.repo 
+  330  sudo cp redhat.repo /home/C95059561/
+  331  ls /home/C95059561/
+  332  sudo nano redhat.repo 
+  333  sudo vi redhat.repo 
+  334  sudo yum install lynx
+  335  sudo vi redhat.repo 
+  336  lynx
+  337  lynx 199.191.45.80
+  338  sudo iptables-restore < /root/firewall_rules.backup
+  339  sudo iptables-restore < /home/C95059561/firewall_rules.backup
+  340  iptables -L
+  341  sudo iptables -L
+  342  exit
+  343  cd /var/log/
+  344  ls
+  345  journalctl
+  346  tail /var/log/messages
+  347  sudo tail /var/log/messages
+  348  more tail /var/log/messages
+  349  sudo more tail /var/log/messages
+  350  sudo more tail /var/log/messages |grep 10.254.46.253
+  351  sudo more /var/log/messages |grep 10.254.46.253
+  352  sudo more /var/log/messages |grep IPATLES
+  353  sudo more /var/log/messages |grep IPTABLES
+  354  sudo more /var/log/messages |grep iptable
+  355  more /etc/sysctl.conf 
+  356  sudo iptables -L
+  357  journalctl -k
+  358  sudo journalctl -k
+  359  sudo journalctl -k |grep 10.254.46.253
+  360  sudo journalctl -k |grep iptables
+  361  sudo journalctl -k |grep fleet
+  362  sudo journalctl -k |grep drop
+  363  lynx 199.191.45.80
+  364  sudo docker ps
+  365  sudo docker run fleet_simu
+  366  sudo docker ps
+  367  lynx 199.191.45.80
+  368  sudo docker ps
+  369  sudo docker run fleet_simu
+  370  sudo docker ps
+  371  sudo docker inspect fleet_simu
+  372  history | grep log
+  373  sudo docker logs 779e1d0d0a86
+  374  sudo docker logs fleet_simu
+  375  sudo docker ps -a --filter "status=exited" --filter "status=created"
+  376  sudo docker run
+  377  sudo docker ps -a --filter "status=exited" --filter "status=created"
+  378  sudo docker ps 
+  379  sudo docker run fleet_simu
+  380  sudo docker ps 
+  381  sudo docker run web_api_simu_1
+  382  sudo docker ps 
+  383  sudo docker run fleet_simu_1
+  384  sudo docker images ls
+  385  sudo docker images 
+  386  sudo docker ps 
+  387  rpm -qa docker*
+  388  sudo docker images 
+  389  sudo docker ps
+  390  clear
+  391  sudo docker ps
+  392  docker container ls -q |   xargs docker container inspect --format           '{{ .Name }}: {{.HostConfig.RestartPolicy.Name}}'
+  393  sudo docker container ls -q |   xargs docker container inspect --format '{{ .Name }}: {{.HostConfig.RestartPolicy.Name}}'
+  394  sudo docker container ls -q 
+  395  echo "docker container ls -q | xargs docker container inspect --format '{{ .Name }}: {{.HostConfig.RestartPolicy.Name}}'" > /home/C95059561/list-docker-startup-policy.sh
+  396  chmod +x /home/C95059561/list-docker-startup-policy.sh
+  397  cd
+  398  ls
+  399  more list-docker-startup-policy.sh 
+  400  sud ./list-docker-startup-policy.sh 
+  401  sudo ./list-docker-startup-policy.sh 
+  402  ls
+  403  exit
+  404  rpm -qa docker*
+  405  exit
+  406  sudo more /var/log/secure | grep dmechain
+  407  sudo more /var/log/secure | grep root
+  408  more /etc/redhat-release 
+  409  lslogins
+  410  lslogins | grep root | grep -v grep
+  411  lslogins | grep root 
+  412  lslogins  -o LAST-LOGIN --noheadings --time-format iso -l root
+  413  lslogins  -o LAST-LOGIN --noheadings --time-format iso -l *
+  414  lslogins  -o LAST-LOGIN --noheadings --time-format iso 
+  415  lslogins  -o LAST-LOGIN --time-format iso 
+  416  lslogins --help
+  417  lslogins -O USER
+  418  lslogins  USER
+  419  lslogins  -o USER
+  420  lslogins --help
+  421  lslogins -o USER UID GECOS NOLOGIN PWD-LOCK PWD-EMPTY PWD-DENY LAST-LOGIN LAST-TTY LAST-HOSTNAME FAILED-LOGIN PWD-WARN PWD-CHANGE PWD-MIN PWD-MAX PWD-EXPIR
+  422  lslogins -o USER UID GECOS NOLOGIN PWD-LOCK PWD-EMPTY PWD-DENY LAST-LOGIN LAST-TTY LAST-HOSTNAME FAILED-LOGIN PWD-WARN PWD-CHANGE PWD-MIN PWD-MAX PWD-EXPIR -l
+  423  lslogins -o USER UID GECOS PWD-MAX PWD-EXPIR -l
+  424  lslogins -o USER UID GECOS PWD-MAX PWD-EXPIR
+  425  lslogins
+  426  tail /var/log/secure
+  427  sudo tail /var/log/secure
+  428  more tail /var/log/secure | grep root
+  429  sudo more tail /var/log/secure | grep root
+  430  cd /etc/ansible
+  431  ls
+  432  cd playbooks/
+  433  ls
+  434  ls -alh
+  435  cd ..
+  436  ls -alh
+  437  cd tests/
+  438  ls
+  439  more test.yml 
+  440  chage -l root
+  441  sudo chage -l root
+  442  slogin
+  443  lslogins
+  444  lslogins  -o LAST-LOGIN --noheadings --time-format iso -l root
+  445  lslogins  -o LAST-LOGIN --noheadings --time-format iso -l 
+  446  lslogins  -o LAST-LOGIN --noheadings --time-format iso 
+  447  lslogins  -o LAST-LOGIN  --time-format iso 
+  448  lslogins  -o LAST-LOGIN 
+  449  lslogins  -o LAST-LOGIN -o USER
+  450  lslogins  -o LAST-LOGIN -o USER -o PID
+  451  lslogins  -o LAST-LOGIN -o USER -o UID
+  452  lslogins  -o LAST-LOGIN USER UID
+  453  lslogins  -o LAST-LOGIN,USER,UID
+  454  lslogins  -o LAST-LOGIN,USER,UID,GECOS
+  455  ls
+  456  mkdir Lx_Scripts_Docker
+  457  rm mg-init.sh 
+  458  ls
+  459  mv *.sh ./Lx_Scripts_Docker/
+  460  ls
+  461  chmod +x check_root_console_and_ssh_access-v2.sh 
+  462  ./check_root_console_and_ssh_access-v2.sh 
+  463  sudo ./check_root_console_and_ssh_access-v2.sh 
+  464  more /etc/redhat-release 
+  465  lsls
+  466  ls
+  467  chmod +x check_root_console_and_ssh_access-v4.sh 
+  468  ls
+  469  ./check_root_console_and_ssh_access-v4.sh 
+  470  sudo ./check_root_console_and_ssh_access-v4.sh 
+  471  chmod +x review_users_and_access-v2.sh 
+  472  sudo ./review_users_and_access-v2.sh 
+  473  ls /etc/sssd/
+  474  sudo ls /etc/sssd/
+  475  more /etc/sssd/sssd.conf
+  476  sudo more /etc/sssd/sssd.conf
+  477  sudo ./review_users_and_access-v2.sh 
+  478  ls -l
+  479  vi fr-726
+  480  ls -l
+  481  chown o-r fr-726 
+  482  chmod o-r fr-726 
+  483  ls -l
+  484  chmod g-r fr-726 
+  485  ls -l
+  486  ls
+  487  sudo ./review_users_and_access-v2.sh 
+  488  sudo more /etc/sssd/sssd.conf
+  489  chmod +x review_users_and_access-v3.sh 
+  490  ./review_users_and_access-v3.sh 
+  491  more ./review_users_and_access-v3.sh 
+  492  sudo ./review_users_and_access-v3.sh 
+  493  getent C95059561
+  494  realme
+  495  sssctl domain-list
+  496  sudo sssctl domain-list
+  497  sudo more /etc/ssh/sshd_config |grep AllowUsers
+  498  sudo more /etc/ssh/sshd_config |grep AllowGroups
+  499  chmod +x review_all_accounts.sh 
+  500  sudo ./review_all_accounts.sh 
+  501  ls
+  502  pwd
+  503  ls -alh
+  504  rm fr-726 
+  505  ls -alh
+  506  ls
+  507  chmod +x retrieve_smtp_address_from_linux_account.sh 
+  508  ls
+  509  nano retrieve_smtp_address_from_linux_account.sh 
+  510  nano retrieve_smtp_address_from_linux_account.sh
+  511  vi retrieve_smtp_address_from_linux_account.sh
+  512  ls
+  513  ./retrieve_smtp_address_from_linux_account.sh 
+  514  more audit_
+  515  ls
+  516  more audit_emails.csv 
+  517  vi retrieve_smtp_address_from_linux_account.sh
+  518  exit
+  519  ls
+  520  ls -alh
+  521  sudi ./review_all_accounts.sh 
+  522  sudo ./review_all_accounts.sh 
+  523  vi retrieve_smtp_address_from_linux_account.sh 
+  524  ./retrieve_smtp_address_from_linux_account.sh 
+  525  more audit_
+  526  more audit_emails.csv 
+  527  exit
+  528  ls
+  529  mount
+  530  mount | grep home
+  531  ldpapsearch
+  532  cd /asnsible
+  533  cd /etc/asnsible
+  534  cd /etc/ansible
+  535  ls
+  536  more *
+  537  more * |grep ldap
+  538  more * |grep ssh
+  539  ls
+  540  ldapseacrh
+  541  ldapsearch
+  542  exit
+  543  df-
+  544  df -h
+  545  cd /
+  546  ls
+  547  ls -alh
+  548  du -sh tmp
+  549  du -sh sat_tmp/
+  550  du -sh sat_tmp
+  551  du -sh *
+  552  du -sh /*
+  553  du -h
+  554  du -h -d 1
+  555  du -h -d 0 *
+  556  man du
+  557  du -h --summarize
+  558  du --human-readable --all --max-depth=1 | sort --human-numeric-sort --reverse
+  559  cd /tmp
+  560  ls
+  561  du --human-readable --all --max-depth=1 | sort --human-numeric-sort --reverse
+  562  du -sh *
+  563  ncdu
+  564  sudo du --human-readable --all --max-depth=1 | sort --human-numeric-sort --reverse
+  565  cd ..
+  566  sudo du --human-readable --all --max-depth=1 | sort --human-numeric-sort --reverse
+  567  cd /home
+  568  ls
+  569  ls /var
+  570  ls /var/tmp
+  571  cd /var/tmp
+  572  ls
+  573  ls -alh
+  574  du -sh *
+  575  sudo du --human-readable --all --max-depth=1 | sort --human-numeric-sort --reverse
+  576  cd  ./gdma_volumes
+  577  ls
+  578  ls -alh
+  579  cd ..
+  580  ls
+  581  pwd
+  582  sudo du -sh
+  583  pwd
+  584  cd /etc/ansible
+  585  history
+  586  history > ~/Lx_Scripts_Audit/My-History.log

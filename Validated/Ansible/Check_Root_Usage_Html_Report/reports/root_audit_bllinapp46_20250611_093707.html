@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Linux Root Audit Report - bllinapp46</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .warn { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Linux Root Account Audit Report</h1>
+    <p><strong>Host:</strong> bllinapp46</p>
+    <p><strong>Date:</strong> 2025-06-11 09:37:07</p>
+<h2>1. SSH Root Login Policy</h2><p><span class='pass'>✔️ SSH root login is disabled.</span></p>
+<h2>2. Root Password Aging Policy</h2>
+<pre>Last password change					: juin 10, 2025
+Password expires					: sept. 08, 2025
+Password inactive					: sept. 15, 2025
+Account expires						: never
+Minimum number of days between password change		: 1
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 15</pre>
+<p class='pass'>✔️ Root password aging policy is acceptable.</p>
+<h2>3. Console-only Root Login (/etc/securetty)</h2>
+<p class='fail'>❌ /etc/securetty is missing. Root login is not restricted to console!</p>
+<h2>4. Direct Root Logins (last 10)</h2>
+<p class='pass'>✔️ No direct root logins found in recent history.</p>
+<h2>5. Admin Sudo/Su Usage</h2>
+<pre>Jun 11 09:28:56 bllinapp46 su[4171246]: pam_unix(su:session): session opened for user nobody by (uid=0)
+Jun 11 09:28:58 bllinapp46 su[4171246]: pam_unix(su:session): session closed for user nobody
+Jun 11 09:36:12 bllinapp46 sshd[4180983]: pam_sss(sshd:auth): authentication success; logname= uid=0 euid=0 tty=ssh ruser= rhost=199.191.45.54 user=fr-726-ansible
+Jun 11 09:36:12 bllinapp46 sshd[4181004]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 41092 id 0
+Jun 11 09:36:13 bllinapp46 sudo[4181067]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/0 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 11 09:36:13 bllinapp46 sudo[4181067]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-eqaxthinitofljrsrucamahopqpeqnye ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1749627371.0496266-1944835-149019980075204/AnsiballZ_file.py'
+Jun 11 09:36:13 bllinapp46 sudo[4181067]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+Jun 11 09:36:13 bllinapp46 sudo[4181067]: pam_unix(sudo:session): session closed for user root
+Jun 11 09:36:53 bllinapp46 sshd[4181004]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 41092 id 0
+Jun 11 09:36:53 bllinapp46 sudo[4182448]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/0 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 11 09:36:53 bllinapp46 sudo[4182448]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-ipfivnlhijgfjxebtachxvznhnlthnyw ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1749627413.0204742-1948517-57893881815209/AnsiballZ_stat.py'
+Jun 11 09:36:53 bllinapp46 sudo[4182448]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+Jun 11 09:36:53 bllinapp46 sudo[4182448]: pam_unix(sudo:session): session closed for user root
+Jun 11 09:36:53 bllinapp46 sshd[4181004]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 41092 id 0
+Jun 11 09:36:53 bllinapp46 sshd[4181004]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 41092 id 0
+Jun 11 09:36:54 bllinapp46 sudo[4182462]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/0 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 11 09:36:54 bllinapp46 sudo[4182462]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-ypzukhdeaymdwgoailcqrwxjjgbrzvhf ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1749627413.0204742-1948517-57893881815209/AnsiballZ_copy.py'
+Jun 11 09:36:54 bllinapp46 sudo[4182462]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+Jun 11 09:36:54 bllinapp46 sudo[4182462]: pam_unix(sudo:session): session closed for user root
+Jun 11 09:37:06 bllinapp46 sshd[4181004]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 41092 id 0\n</pre>
+<h2>6. Shared UID 0 Accounts</h2>
+<p class='pass'>✔️ Only root has UID 0.</p>
+<h2>✅ Audit Completed</h2>
+</body></html>
