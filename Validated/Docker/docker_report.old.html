@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rapport Docker</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        code { background-color: #eee; padding: 2px 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+<h1>Rapport des Conteneurs Docker</h1>
+<p>Généré le : jeu. juin 19 16:02:04 CEST 2025</p>
+<table>
+<tr>
+    <th>Nom</th>
+    <th>État</th>
+    <th>Dernier démarrage</th>
+    <th>Adresse IP</th>
+    <th>Ports</th>
+    <th>Emplacement</th>
+    <th>Propriétaire</th>
+    <th>Log path</th>
+    <th>Commande pour lire le log</th>
+</tr>
+<tr>
+    <td>fleet_simu_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:32:47.224797632Z</td>
+    <td>172.17.0.2 </td>
+    <td>80/tcp -> 0.0.0.0:80,80/tcp -> [::]:80</td>
+    <td>/var/tmp/sla_files /var/tmp/airline_files /var/tmp/gdma_volumes/export /var/FOMAX/SFTP_servers/share </td>
+    <td>root</td>
+    <td>/var/lib/docker/containers/f979f43f5fbbdcf2fe3c9377b2bb563dc0b33ac07e15747fdfa6899e848e9d9c/f979f43f5fbbdcf2fe3c9377b2bb563dc0b33ac07e15747fdfa6899e848e9d9c-json.log</td>
+    <td><code>docker logs fleet_simu_1</code></td>
+</tr>
+<tr>
+    <td>gmat_hmi_nginx_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:22.264078249Z</td>
+    <td>172.27.0.2 </td>
+    <td>80/tcp -> 0.0.0.0:6080,80/tcp -> [::]:6080,443/tcp -> 0.0.0.0:6081,443/tcp -> [::]:6081</td>
+    <td>/var/FOMAX/GMAT/hmi/etc/hmi_nginx.conf.http.template /var/lib/docker/volumes/gmat_hmi_ssl_certs/_data /var/lib/docker/volumes/gmat_hmi_static/_data </td>
+    <td>root</td>
+    <td>/var/lib/docker/containers/d56d62f969d14c459244ea7b72ec778adfddf8322d58f418a7ac92ccfa5dbc97/d56d62f969d14c459244ea7b72ec778adfddf8322d58f418a7ac92ccfa5dbc97-json.log</td>
+    <td><code>docker logs gmat_hmi_nginx_1</code></td>
+</tr>
+<tr>
+    <td>gmat_hmi_web_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:28.286468501Z</td>
+    <td>172.27.0.4 </td>
+    <td>N/A</td>
+    <td>/var/FOMAX/GMAT/hmi/etc/hmi.yml /var/lib/docker/volumes/gmat_hmi_saml/_data /var/lib/docker/volumes/gmat_hmi_static/_data </td>
+    <td>gdma_user</td>
+    <td>/var/lib/docker/containers/cd616898f5434966e943cdedfe37c2571b03fe3000ab0216ce2a3113dcd08ea0/cd616898f5434966e943cdedfe37c2571b03fe3000ab0216ce2a3113dcd08ea0-json.log</td>
+    <td><code>docker logs gmat_hmi_web_1</code></td>
+</tr>
+<tr>
+    <td>gmat_hmi_db_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:28.305518628Z</td>
+    <td>172.27.0.3 </td>
+    <td>N/A</td>
+    <td>/var/lib/docker/volumes/gmat_hmi_pg_backups/_data /var/lib/docker/volumes/gmat_hmi_pg_data/_data </td>
+    <td>70</td>
+    <td>/var/lib/docker/containers/06758abbdd37fb33eef7fa1055ead332e9f84ac633a6e257f33561eef479902f/06758abbdd37fb33eef7fa1055ead332e9f84ac633a6e257f33561eef479902f-json.log</td>
+    <td><code>docker logs gmat_hmi_db_1</code></td>
+</tr>
+<tr>
+    <td>cnc_web_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:28.245390182Z</td>
+    <td>172.19.0.5 </td>
+    <td>N/A</td>
+    <td>/var/lib/docker/volumes/cnc_www/_data </td>
+    <td>root</td>
+    <td>/var/lib/docker/containers/f0c8e8385dc4b82c507b26e515ffeb510eeb456e49e635c135cb70740381cd73/f0c8e8385dc4b82c507b26e515ffeb510eeb456e49e635c135cb70740381cd73-json.log</td>
+    <td><code>docker logs cnc_web_1</code></td>
+</tr>
+<tr>
+    <td>cnc_redis_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:19.580999633Z</td>
+    <td>172.19.0.4 </td>
+    <td>N/A</td>
+    <td>/var/lib/docker/volumes/2f58196af89274f8c3d80c6dfe8952ffa4bf800c915cadc62da00ddf7147ce6a/_data </td>
+    <td>systemd-coredump</td>
+    <td>/var/lib/docker/containers/89c69697161cc84fc72e32b577395ff00064b754ad010d23c8b4afc61336615c/89c69697161cc84fc72e32b577395ff00064b754ad010d23c8b4afc61336615c-json.log</td>
+    <td><code>docker logs cnc_redis_1</code></td>
+</tr>
+<tr>
+    <td>cnc_nginx_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:28.258539101Z</td>
+    <td>172.19.0.2 </td>
+    <td>80/tcp -> 0.0.0.0:5080,80/tcp -> [::]:5080,443/tcp -> 0.0.0.0:5082,443/tcp -> [::]:5082</td>
+    <td>/var/lib/docker/volumes/cnc_www/_data /var/FOMAX/CnC-IS10/nginx_templates/django.conf.http.template </td>
+    <td>root</td>
+    <td>/var/lib/docker/containers/8d3c20c2817dec48492c95117a7dfff1d5dd3be1e7113bc659bdeef9c6519ffc/8d3c20c2817dec48492c95117a7dfff1d5dd3be1e7113bc659bdeef9c6519ffc-json.log</td>
+    <td><code>docker logs cnc_nginx_1</code></td>
+</tr>
+<tr>
+    <td>cnc_db_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:19.57599711Z</td>
+    <td>172.19.0.3 </td>
+    <td>N/A</td>
+    <td>/var/lib/docker/volumes/cnc_pg_backups/_data /var/lib/docker/volumes/cnc_pg_data/_data </td>
+    <td>70</td>
+    <td>/var/lib/docker/containers/48e298fa0279c0f3ad5bd33945150bbee6e36da62d0be034d0b9920f4e3cf0fc/48e298fa0279c0f3ad5bd33945150bbee6e36da62d0be034d0b9920f4e3cf0fc-json.log</td>
+    <td><code>docker logs cnc_db_1</code></td>
+</tr>
+<tr>
+    <td>glmf_web_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:28.331857763Z</td>
+    <td>172.18.0.4 </td>
+    <td>N/A</td>
+    <td>/var/lib/docker/volumes/glmf_www/_data </td>
+    <td>root</td>
+    <td>N/A</td>
+    <td><code>docker logs glmf_web_1</code></td>
+</tr>
+<tr>
+    <td>glmf_db_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:20.290803817Z</td>
+    <td>172.18.0.3 </td>
+    <td>N/A</td>
+    <td>/var/lib/docker/volumes/glmf_pg_backups/_data /var/lib/docker/volumes/glmf_pg_data/_data </td>
+    <td>70</td>
+    <td>/var/lib/docker/containers/507028d73ddc39659a84ad3f5e9e9a6aaa9e9ccebf923862e0bca4c44737dfc3/507028d73ddc39659a84ad3f5e9e9a6aaa9e9ccebf923862e0bca4c44737dfc3-json.log</td>
+    <td><code>docker logs glmf_db_1</code></td>
+</tr>
+<tr>
+    <td>glmf_nginx_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:20.483566286Z</td>
+    <td>172.18.0.2 </td>
+    <td>80/tcp -> 0.0.0.0:6082,80/tcp -> [::]:6082,443/tcp -> 0.0.0.0:6083,443/tcp -> [::]:6083</td>
+    <td>/var/lib/docker/volumes/glmf_www/_data /var/FOMAX/G-LMF-IS10/nginx_templates/django.conf.http.template </td>
+    <td>root</td>
+    <td>/var/lib/docker/containers/e5d20a23e73d690a32d965f941dab0496a3bf1a224e9f57d894f7e022623d5dd/e5d20a23e73d690a32d965f941dab0496a3bf1a224e9f57d894f7e022623d5dd-json.log</td>
+    <td><code>docker logs glmf_nginx_1</code></td>
+</tr>
+<tr>
+    <td>gmat_aggregator_nginx_1</td>
+    <td>restarting</td>
+    <td>2025-06-19T14:01:28.734563691Z</td>
+    <td> </td>
+    <td>N/A</td>
+    <td>/var/FOMAX/GMAT/dmz_aggregator/etc/aggregator_nginx.conf /var/FOMAX/GMAT/dmz_aggregator/var/www/files </td>
+    <td>(inconnu ou arrêté)</td>
+    <td>/var/lib/docker/containers/4186f170de42787ee866459cc51d3ad2f0087503a64cca965ecf3553c2a9ff0e/4186f170de42787ee866459cc51d3ad2f0087503a64cca965ecf3553c2a9ff0e-json.log</td>
+    <td><code>docker logs gmat_aggregator_nginx_1</code></td>
+</tr>
+<tr>
+    <td>gmat_lan_aggregator_nginx_1</td>
+    <td>restarting</td>
+    <td>2025-06-19T14:01:28.792335034Z</td>
+    <td> </td>
+    <td>N/A</td>
+    <td>/var/FOMAX/GMAT/lan_aggregator/etc/aggregator_nginx.conf /var/FOMAX/GMAT/lan_aggregator/var/www/files </td>
+    <td>(inconnu ou arrêté)</td>
+    <td>/var/lib/docker/containers/40cc27378c4adf4bfaadf0e4371872b52f48fe70a47fe4fe12897b6b59fd2aec/40cc27378c4adf4bfaadf0e4371872b52f48fe70a47fe4fe12897b6b59fd2aec-json.log</td>
+    <td><code>docker logs gmat_lan_aggregator_nginx_1</code></td>
+</tr>
+<tr>
+    <td>gdma_load_aircrafts_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:28.30349499Z</td>
+    <td>192.168.112.7 </td>
+    <td>N/A</td>
+    <td>/var/lib/docker/volumes/gdma_www/_data /data/gdma_volumes </td>
+    <td>gdma_user</td>
+    <td>/var/lib/docker/containers/ecab7860632256febfcd62c5fdfb34440447c3ed9e0116da1485ac21a172b5a7/ecab7860632256febfcd62c5fdfb34440447c3ed9e0116da1485ac21a172b5a7-json.log</td>
+    <td><code>docker logs gdma_load_aircrafts_1</code></td>
+</tr>
+<tr>
+    <td>gdma_nginx_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:28.330585563Z</td>
+    <td>192.168.112.2 </td>
+    <td>80/tcp -> 0.0.0.0:5083,80/tcp -> [::]:5083,443/tcp -> 0.0.0.0:5081,443/tcp -> [::]:5081</td>
+    <td>/var/lib/docker/volumes/gdma_www/_data /var/FOMAX/GDMA-003A/nginx_templates/django.conf.http.template </td>
+    <td>root</td>
+    <td>/var/lib/docker/containers/7f997c8f7ecd37e56dd8198cecc02ff913b1db1d388b50e1d375ef9b4386d471/7f997c8f7ecd37e56dd8198cecc02ff913b1db1d388b50e1d375ef9b4386d471-json.log</td>
+    <td><code>docker logs gdma_nginx_1</code></td>
+</tr>
+<tr>
+    <td>gdma_sftp_service_1</td>
+    <td>running</td>
+    <td>2025-06-19T14:00:37.600668877Z</td>
+    <td>192.168.112.5 </td>
+    <td>N/A</td>
+    <td>/data/gdma_volumes /var/lib/docker/volumes/gdma_www/_data </td>
+    <td>gdma_user</td>
+    <td>/var/lib/docker/containers/67fc32b0828ab73034b4a42fb5bfc3c3477dbd6ae44705059454e8652408bff5/67fc32b0828ab73034b4a42fb5bfc3c3477dbd6ae44705059454e8652408bff5-json.log</td>
+    <td><code>docker logs gdma_sftp_service_1</code></td>
+</tr>
+<tr>
+    <td>gdma_web_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:28.306109949Z</td>
+    <td>192.168.112.8 </td>
+    <td>N/A</td>
+    <td>/var/lib/docker/volumes/gdma_www/_data /data/gdma_volumes </td>
+    <td>gdma_user</td>
+    <td>/var/lib/docker/containers/a9f606c2e53c5b7ebaec588f5346863acad6856236cd7a90fe782687ef014823/a9f606c2e53c5b7ebaec588f5346863acad6856236cd7a90fe782687ef014823-json.log</td>
+    <td><code>docker logs gdma_web_1</code></td>
+</tr>
+<tr>
+    <td>gdma_file_service_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:28.304718133Z</td>
+    <td>192.168.112.6 </td>
+    <td>N/A</td>
+    <td>/data/gdma_volumes </td>
+    <td>gdma_user</td>
+    <td>/var/lib/docker/containers/fed9ea084f9d3d2eaad05e537d5417128de9b44802ddeaf8bf7975f22f17c0e9/fed9ea084f9d3d2eaad05e537d5417128de9b44802ddeaf8bf7975f22f17c0e9-json.log</td>
+    <td><code>docker logs gdma_file_service_1</code></td>
+</tr>
+<tr>
+    <td>gdma_db_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:22.447726357Z</td>
+    <td>192.168.112.3 </td>
+    <td>N/A</td>
+    <td>/var/lib/docker/volumes/gdma_pg_data/_data /var/lib/docker/volumes/gdma_pg_backups/_data </td>
+    <td>70</td>
+    <td>/var/lib/docker/containers/332ee13bb616f836afb124fd3a9819dab44063d05b54ea1b64f421422721d12f/332ee13bb616f836afb124fd3a9819dab44063d05b54ea1b64f421422721d12f-json.log</td>
+    <td><code>docker logs gdma_db_1</code></td>
+</tr>
+<tr>
+    <td>gdma_redis_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:25.173735456Z</td>
+    <td>192.168.112.4 </td>
+    <td>N/A</td>
+    <td>/var/lib/docker/volumes/a0e10cc148b5aea43666d08c480db1806afeb69369326cec4d24eacaba761ee0/_data </td>
+    <td>systemd-coredump</td>
+    <td>/var/lib/docker/containers/c8b74d10029231efc919a0adf804d9224f4545099a4d17e9a90644f97dd4e17b/c8b74d10029231efc919a0adf804d9224f4545099a4d17e9a90644f97dd4e17b-json.log</td>
+    <td><code>docker logs gdma_redis_1</code></td>
+</tr>
+<tr>
+    <td>gpfc_1</td>
+    <td>running</td>
+    <td>2025-06-19T13:11:25.347761656Z</td>
+    <td>172.26.0.2 </td>
+    <td>3000/tcp -> 0.0.0.0:3001,3000/tcp -> [::]:3001,8200/tcp -> 0.0.0.0:8200,8200/tcp -> [::]:8200,8300/tcp -> 0.0.0.0:8300,8300/tcp -> [::]:8300,8400/tcp -> 0.0.0.0:8400,8400/tcp -> [::]:8400</td>
+    <td>/var/FOMAX/G-PFC/gpfc.ini /var/FOMAX/G-PFC/internalconfigs.ini /var/FOMAX/G-PFC/taillist.ini /var/FOMAX/G-PFC/var/log/gpfc </td>
+    <td>root</td>
+    <td>/var/lib/docker/containers/330a5ff5177e3c1054775397c72aa751e81b0b634e7fd9864607863a296737e6/330a5ff5177e3c1054775397c72aa751e81b0b634e7fd9864607863a296737e6-json.log</td>
+    <td><code>docker logs gpfc_1</code></td>
+</tr>
+</table>
+</body>
+</html>
