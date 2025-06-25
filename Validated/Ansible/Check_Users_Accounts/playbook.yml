@@ -4,7 +4,7 @@
   gather_facts: no
 
   vars:
-    remote_path: "/tmp"
+    remote_path: "/ansible-tmp"
     script_name: "check_users_security_v2.sh"
     local_report_dir: "./reports"
 
