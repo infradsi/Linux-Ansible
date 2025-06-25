@@ -30,7 +30,7 @@
       changed_when: false
 
     - name: Créer un dossier local pour les rapports de chaque hôte
-      ansible.builtin.local_action:
+      local_action:
         module: file
         path: "{{ local_report_dir }}/{{ inventory_hostname }}"
         state: directory
