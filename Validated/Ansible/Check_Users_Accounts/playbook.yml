@@ -1,0 +1,49 @@
+- name: Lancer le script d'audit utilisateur sur plusieurs hôtes
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  vars:
+    remote_path: "/tmp"
+    script_name: "check_users_security_v2.sh"
+    local_report_dir: "./reports"
+
+  tasks:
+
+    - name: Créer le répertoire de script distant
+      ansible.builtin.file:
+        path: "{{ remote_path }}"
+        state: directory
+        mode: '0755'
+
+    - name: Copier le script d'audit sur le serveur distant
+      ansible.builtin.copy:
+        src: "files/{{ script_name }}"
+        dest: "{{ remote_path }}/{{ script_name }}"
+        mode: '0755'
+
+    - name: Exécuter le script d’audit
+      ansible.builtin.shell: "bash {{ remote_path }}/{{ script_name }}"
+      args:
+        chdir: "{{ remote_path }}"
+      register: audit_run
+      changed_when: false
+
+    - name: Créer un dossier local pour les rapports de chaque hôte
+      ansible.builtin.local_action:
+        module: file
+        path: "{{ local_report_dir }}/{{ inventory_hostname }}"
+        state: directory
+        mode: '0755'
+
+    - name: Récupérer le rapport CSV
+      ansible.builtin.fetch:
+        src: "{{ remote_path }}/user_account_audit.csv"
+        dest: "{{ local_report_dir }}/{{ inventory_hostname }}/"
+        flat: yes
+
+    - name: Récupérer le rapport HTML
+      ansible.builtin.fetch:
+        src: "{{ remote_path }}/user_account_audit.html"
+        dest: "{{ local_report_dir }}/{{ inventory_hostname }}/"
+        flat: yes
