@@ -27,13 +27,12 @@
         executable: /bin/bash
 
     - name: Créer le répertoire local pour les rapports de cet hôte
-      delegate_to: localhost
-      run_once: false
-      become: false  # Désactive sudo pour les tâches locales
       ansible.builtin.file:
-        path: "{{ local_report_dir }}/{{ inventory_hostname }}"
+        path: "./reports/{{ inventory_hostname }}"
         state: directory
-        mode: '0755'
+      delegate_to: localhots
+      become: false
+      
 
 
     - name: Récupérer le rapport CSV
