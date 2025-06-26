@@ -29,6 +29,7 @@
     - name: Créer le répertoire local pour les rapports de cet hôte
       delegate_to: localhost
       run_once: false
+      become: false  # Désactive sudo pour les tâches locales
       ansible.builtin.file:
         path: "{{ local_report_dir }}/{{ inventory_hostname }}"
         state: directory
