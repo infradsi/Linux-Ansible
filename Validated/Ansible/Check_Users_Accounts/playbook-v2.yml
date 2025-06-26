@@ -27,13 +27,13 @@
         executable: /bin/bash
 
     - name: Créer le répertoire local pour les rapports de cet hôte
+      delegate_to: localhost
+      run_once: false
       ansible.builtin.file:
         path: "{{ local_report_dir }}/{{ inventory_hostname }}"
         state: directory
         mode: '0755'
-        recurse: yes
-        delegate_to: localhost
-        run_once: false
+
 
     - name: Récupérer le rapport CSV
       fetch:
