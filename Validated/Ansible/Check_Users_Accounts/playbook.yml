@@ -36,6 +36,11 @@
         state: directory
         mode: '0755'
 
+    - name: Mettre les permissions sur les rapports
+      ansible.builtin.file:
+        path: "{{ remote_path }}/user_account_audit.*"
+        mode: '0644'
+    
     - name: Récupérer le rapport CSV
       ansible.builtin.fetch:
         src: "{{ remote_path }}/user_account_audit.csv"
