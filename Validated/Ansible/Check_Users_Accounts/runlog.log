@@ -1,0 +1,456 @@
+<cfrc10353ap011> SSH: EXEC sshpass -d27 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/709a557d48"' cfrc10353ap011 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo $HOME/.ansible/tmp `"&& mkdir "` echo $HOME/.ansible/tmp/ansible-tmp-1750924218.9686596-3360717-85644355346908 `" && echo ansible-tmp-1750924218.9686596-3360717-85644355346908="` echo $HOME/.ansible/tmp/ansible-tmp-1750924218.9686596-3360717-85644355346908 `" ) && sleep 0'"'"''
+Escalation succeeded
+Escalation succeeded
+<cfrc10353ap018> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<cfrc10353ap018> SSH: EXEC sshpass -d28 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/b76d6b0eb4"' cfrc10353ap018 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo $HOME/.ansible/tmp `"&& mkdir "` echo $HOME/.ansible/tmp/ansible-tmp-1750924219.0278022-3360720-73981489794206 `" && echo ansible-tmp-1750924219.0278022-3360720-73981489794206="` echo $HOME/.ansible/tmp/ansible-tmp-1750924219.0278022-3360720-73981489794206 `" ) && sleep 0'"'"''
+<cfrc10353ap018> (0, b'ansible-tmp-1750924219.0278022-3360720-73981489794206=/home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.0278022-3360720-73981489794206\n', b'')
+Using module file /usr/lib/python3.12/site-packages/ansible/modules/file.py
+<cfrc10353ap018> PUT /home/C95059561/.ansible/C95059561/tmp/ansible-local-33536017ijms6rg/tmp0yen72bp TO /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.0278022-3360720-73981489794206/AnsiballZ_file.py
+<cfrc10353ap018> SSH: EXEC sshpass -d28 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/b76d6b0eb4"' '[cfrc10353ap018]'
+<cfrc10353ap011> (0, b'ansible-tmp-1750924218.9686596-3360717-85644355346908=/home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924218.9686596-3360717-85644355346908\n', b'')
+Using module file /usr/lib/python3.12/site-packages/ansible/modules/file.py
+<cfrc10353ap011> PUT /home/C95059561/.ansible/C95059561/tmp/ansible-local-33536017ijms6rg/tmphzcjwwxh TO /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924218.9686596-3360717-85644355346908/AnsiballZ_file.py
+<cfrc10353ap011> SSH: EXEC sshpass -d27 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/709a557d48"' '[cfrc10353ap011]'
+<cfrc10353ap009> (1, b'\r\n{"failed": true, "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).", "invocation": {"module_args": {"path": "./reports/cfrc10353ap009", "state": "directory", "mode": "0755", "recurse": true, "delegate_to": "localhost", "run_once": false, "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_original_basename": null, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\r\n', b'Shared connection to cfrc10353ap009 closed.\r\n')
+<cfrc10353ap009> Failed to connect to the host via ssh: Shared connection to cfrc10353ap009 closed.
+<cfrc10353ap009> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<cfrc10353ap009> SSH: EXEC sshpass -d26 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/abfe1ece2b"' cfrc10353ap009 '/bin/sh -c '"'"'rm -f -r /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924218.461568-3360668-223693115708722/ > /dev/null 2>&1 && sleep 0'"'"''
+<cfrc10353ap018> (0, b'sftp> put /home/C95059561/.ansible/C95059561/tmp/ansible-local-33536017ijms6rg/tmp0yen72bp /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.0278022-3360720-73981489794206/AnsiballZ_file.py\n', b'')
+<cfrc10353ap018> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<cfrc10353ap018> SSH: EXEC sshpass -d28 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/b76d6b0eb4"' cfrc10353ap018 '/bin/sh -c '"'"'chmod u+x /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.0278022-3360720-73981489794206/ /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.0278022-3360720-73981489794206/AnsiballZ_file.py && sleep 0'"'"''
+<cfrc10353ap018> (0, b'', b'')
+<cfrc10353ap018> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<cfrc10353ap018> SSH: EXEC sshpass -d28 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/b76d6b0eb4"' -tt cfrc10353ap018 '/bin/sh -c '"'"'sudo -H -S -p "[sudo via ansible, key=snzdmuuemwjxiykxtpuvlxfyjnvokjhr] password:" -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-snzdmuuemwjxiykxtpuvlxfyjnvokjhr ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.0278022-3360720-73981489794206/AnsiballZ_file.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<cfrc10353ap009> (0, b'', b'')
+fatal: [blnis01]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "delegate_to": "localhost",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0755",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "./reports/blnis01",
+            "recurse": true,
+            "run_once": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name)."
+}
+<cfrc10353ap011> (0, b'sftp> put /home/C95059561/.ansible/C95059561/tmp/ansible-local-33536017ijms6rg/tmphzcjwwxh /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924218.9686596-3360717-85644355346908/AnsiballZ_file.py\n', b'')
+<cfrc10353ap011> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<cfrc10353ap011> SSH: EXEC sshpass -d27 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/709a557d48"' cfrc10353ap011 '/bin/sh -c '"'"'chmod u+x /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924218.9686596-3360717-85644355346908/ /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924218.9686596-3360717-85644355346908/AnsiballZ_file.py && sleep 0'"'"''
+<buzet> (1, b'\r\n\r\n{"msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).", "failed": true, "invocation": {"module_args": {"delegate_to": "localhost", "force": false, "_original_basename": null, "owner": null, "follow": true, "group": null, "unsafe_writes": false, "serole": null, "state": "directory", "selevel": null, "setype": null, "access_time": null, "access_time_format": "%Y%m%d%H%M.%S", "run_once": false, "path": "./reports/buzet", "src": null, "modification_time": null, "seuser": null, "recurse": true, "_diff_peek": null, "mode": "0755", "modification_time_format": "%Y%m%d%H%M.%S", "attributes": null}}}\r\n', b'Shared connection to buzet closed.\r\n')
+<buzet> Failed to connect to the host via ssh: Shared connection to buzet closed.
+<buzet> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<buzet> SSH: EXEC sshpass -d24 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/03f543acb4"' buzet '/bin/sh -c '"'"'rm -f -r /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924218.1723106-3360639-212565333124805/ > /dev/null 2>&1 && sleep 0'"'"''
+<pallas-new> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<pallas-new> SSH: EXEC sshpass -d26 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/a253fd60b2"' pallas-new '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo $HOME/.ansible/tmp `"&& mkdir "` echo $HOME/.ansible/tmp/ansible-tmp-1750924219.244741-3360737-112498700679462 `" && echo ansible-tmp-1750924219.244741-3360737-112498700679462="` echo $HOME/.ansible/tmp/ansible-tmp-1750924219.244741-3360737-112498700679462 `" ) && sleep 0'"'"''
+Escalation succeeded
+<buzet> (0, b'', b'')
+<cfrc10353ap011> (0, b'', b'')
+fatal: [cfrc10353ap009]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "delegate_to": "localhost",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0755",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "./reports/cfrc10353ap009",
+            "recurse": true,
+            "run_once": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name)."
+}
+<cfrc10353ap011> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<cfrc10353ap011> SSH: EXEC sshpass -d27 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/709a557d48"' -tt cfrc10353ap011 '/bin/sh -c '"'"'sudo -H -S -p "[sudo via ansible, key=uxunpjlqeuunnjltenhkauavkuyrnwgi] password:" -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-uxunpjlqeuunnjltenhkauavkuyrnwgi ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924218.9686596-3360717-85644355346908/AnsiballZ_file.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<fr7ulr7se01> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<pallas-new> (0, b'ansible-tmp-1750924219.244741-3360737-112498700679462=/home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.244741-3360737-112498700679462\n', b'')
+Using module file /usr/lib/python3.12/site-packages/ansible/modules/file.py
+<fr7ulr7se01> SSH: EXEC sshpass -d24 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/feaf48c55c"' fr7ulr7se01 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo $HOME/.ansible/tmp `"&& mkdir "` echo $HOME/.ansible/tmp/ansible-tmp-1750924219.306015-3360746-128314019017561 `" && echo ansible-tmp-1750924219.306015-3360746-128314019017561="` echo $HOME/.ansible/tmp/ansible-tmp-1750924219.306015-3360746-128314019017561 `" ) && sleep 0'"'"''
+<pallas-new> PUT /home/C95059561/.ansible/C95059561/tmp/ansible-local-33536017ijms6rg/tmp76hqzeej TO /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.244741-3360737-112498700679462/AnsiballZ_file.py
+<cfrc10353ap010> (1, b'\r\n{"failed": true, "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).", "invocation": {"module_args": {"path": "./reports/cfrc10353ap010", "state": "directory", "mode": "0755", "recurse": true, "delegate_to": "localhost", "run_once": false, "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_original_basename": null, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\r\n', b'Shared connection to cfrc10353ap010 closed.\r\n')
+<cfrc10353ap010> Failed to connect to the host via ssh: Shared connection to cfrc10353ap010 closed.
+<pallas-new> SSH: EXEC sshpass -d26 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/a253fd60b2"' '[pallas-new]'
+<cfrc10353ap010> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<cfrc10353ap010> SSH: EXEC sshpass -d25 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/c45e72aa94"' cfrc10353ap010 '/bin/sh -c '"'"'rm -f -r /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924218.7045972-3360684-274372680242275/ > /dev/null 2>&1 && sleep 0'"'"''
+<cfrc10353ap010> (0, b'', b'')
+fatal: [buzet]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "delegate_to": "localhost",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0755",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "./reports/buzet",
+            "recurse": true,
+            "run_once": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name)."
+}
+fatal: [cfrc10353ap010]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "delegate_to": "localhost",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0755",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "./reports/cfrc10353ap010",
+            "recurse": true,
+            "run_once": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name)."
+}
+Escalation succeeded
+<fr7ulr7se01> (0, b'ansible-tmp-1750924219.306015-3360746-128314019017561=/accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.306015-3360746-128314019017561\n', b'')
+Using module file /usr/lib/python3.12/site-packages/ansible/modules/file.py
+<fr7ulr7se01> PUT /home/C95059561/.ansible/C95059561/tmp/ansible-local-33536017ijms6rg/tmp5tzfsuq4 TO /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.306015-3360746-128314019017561/AnsiballZ_file.py
+<fr7ulr7se01> SSH: EXEC sshpass -d24 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/feaf48c55c"' '[fr7ulr7se01]'
+<fr7ulr7se02> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<fr7ulr7se02> SSH: EXEC sshpass -d25 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/40dd6bb2c3"' fr7ulr7se02 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo $HOME/.ansible/tmp `"&& mkdir "` echo $HOME/.ansible/tmp/ansible-tmp-1750924219.4072857-3360756-102139226001571 `" && echo ansible-tmp-1750924219.4072857-3360756-102139226001571="` echo $HOME/.ansible/tmp/ansible-tmp-1750924219.4072857-3360756-102139226001571 `" ) && sleep 0'"'"''
+<pallas-new> (0, b'sftp> put /home/C95059561/.ansible/C95059561/tmp/ansible-local-33536017ijms6rg/tmp76hqzeej /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.244741-3360737-112498700679462/AnsiballZ_file.py\n', b'')
+<cfrc10353ap018> (1, b'\r\n{"failed": true, "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).", "invocation": {"module_args": {"path": "./reports/cfrc10353ap018", "state": "directory", "mode": "0755", "recurse": true, "delegate_to": "localhost", "run_once": false, "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_original_basename": null, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\r\n', b'Shared connection to cfrc10353ap018 closed.\r\n')
+<cfrc10353ap018> Failed to connect to the host via ssh: Shared connection to cfrc10353ap018 closed.
+<cfrc10353ap018> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<cfrc10353ap018> SSH: EXEC sshpass -d28 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/b76d6b0eb4"' cfrc10353ap018 '/bin/sh -c '"'"'rm -f -r /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.0278022-3360720-73981489794206/ > /dev/null 2>&1 && sleep 0'"'"''
+<pallas-new> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<pallas-new> SSH: EXEC sshpass -d26 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/a253fd60b2"' pallas-new '/bin/sh -c '"'"'chmod u+x /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.244741-3360737-112498700679462/ /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.244741-3360737-112498700679462/AnsiballZ_file.py && sleep 0'"'"''
+<cfrc10353ap018> (0, b'', b'')
+fatal: [cfrc10353ap018]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "delegate_to": "localhost",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0755",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "./reports/cfrc10353ap018",
+            "recurse": true,
+            "run_once": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name)."
+}
+<pallas-new> (0, b'', b'')
+<pallas-new> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<pallas-new> SSH: EXEC sshpass -d26 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/a253fd60b2"' -tt pallas-new '/bin/sh -c '"'"'sudo -H -S -p "[sudo via ansible, key=ikkwognftcjhgubcpznvcaqxeeqkgefn] password:" -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-ikkwognftcjhgubcpznvcaqxeeqkgefn ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.244741-3360737-112498700679462/AnsiballZ_file.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<fr7ulr7se02> (0, b'ansible-tmp-1750924219.4072857-3360756-102139226001571=/accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.4072857-3360756-102139226001571\n', b'')
+Using module file /usr/lib/python3.12/site-packages/ansible/modules/file.py
+<fr7ulr7se02> PUT /home/C95059561/.ansible/C95059561/tmp/ansible-local-33536017ijms6rg/tmps9shq7n2 TO /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.4072857-3360756-102139226001571/AnsiballZ_file.py
+<fr7ulr7se02> SSH: EXEC sshpass -d25 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/40dd6bb2c3"' '[fr7ulr7se02]'
+Escalation succeeded
+<cfrc10353ap011> (1, b'\r\n{"failed": true, "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).", "invocation": {"module_args": {"path": "./reports/cfrc10353ap011", "state": "directory", "mode": "0755", "recurse": true, "delegate_to": "localhost", "run_once": false, "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_original_basename": null, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\r\n', b'Shared connection to cfrc10353ap011 closed.\r\n')
+<cfrc10353ap011> Failed to connect to the host via ssh: Shared connection to cfrc10353ap011 closed.
+<cfrc10353ap011> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<cfrc10353ap011> SSH: EXEC sshpass -d27 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/709a557d48"' cfrc10353ap011 '/bin/sh -c '"'"'rm -f -r /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924218.9686596-3360717-85644355346908/ > /dev/null 2>&1 && sleep 0'"'"''
+<cfrc10353ap011> (0, b'', b'')
+fatal: [cfrc10353ap011]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "delegate_to": "localhost",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0755",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "./reports/cfrc10353ap011",
+            "recurse": true,
+            "run_once": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name)."
+}
+<fr7ulr7se01> (0, b'sftp> put /home/C95059561/.ansible/C95059561/tmp/ansible-local-33536017ijms6rg/tmp5tzfsuq4 /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.306015-3360746-128314019017561/AnsiballZ_file.py\n', b'')
+<fr7ulr7se01> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<fr7ulr7se01> SSH: EXEC sshpass -d24 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/feaf48c55c"' fr7ulr7se01 '/bin/sh -c '"'"'chmod u+x /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.306015-3360746-128314019017561/ /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.306015-3360746-128314019017561/AnsiballZ_file.py && sleep 0'"'"''
+<fr7ulr7se01> (0, b'', b'')
+<fr7ulr7se01> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<fr7ulr7se01> SSH: EXEC sshpass -d24 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/feaf48c55c"' -tt fr7ulr7se01 '/bin/sh -c '"'"'sudo -H -S -p "[sudo via ansible, key=aohjwaistlfxblofczttbnkmhrmrrbvw] password:" -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-aohjwaistlfxblofczttbnkmhrmrrbvw ; /usr/libexec/platform-python /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.306015-3360746-128314019017561/AnsiballZ_file.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+<fr7ulr7se02> (0, b'sftp> put /home/C95059561/.ansible/C95059561/tmp/ansible-local-33536017ijms6rg/tmps9shq7n2 /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.4072857-3360756-102139226001571/AnsiballZ_file.py\n', b'')
+<fr7ulr7se02> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<fr7ulr7se02> SSH: EXEC sshpass -d25 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/40dd6bb2c3"' fr7ulr7se02 '/bin/sh -c '"'"'chmod u+x /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.4072857-3360756-102139226001571/ /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.4072857-3360756-102139226001571/AnsiballZ_file.py && sleep 0'"'"''
+<fr7ulr7se02> (0, b'', b'')
+<fr7ulr7se02> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<fr7ulr7se02> SSH: EXEC sshpass -d25 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/40dd6bb2c3"' -tt fr7ulr7se02 '/bin/sh -c '"'"'sudo -H -S -p "[sudo via ansible, key=frbkhrkolzeinrfjiixyzbuvthlfkjck] password:" -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-frbkhrkolzeinrfjiixyzbuvthlfkjck ; /usr/libexec/platform-python /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.4072857-3360756-102139226001571/AnsiballZ_file.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<pallas-new> (1, b'\r\n{"failed": true, "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).", "invocation": {"module_args": {"path": "./reports/pallas-new", "state": "directory", "mode": "0755", "recurse": true, "delegate_to": "localhost", "run_once": false, "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_original_basename": null, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\r\n', b'Shared connection to pallas-new closed.\r\n')
+<pallas-new> Failed to connect to the host via ssh: Shared connection to pallas-new closed.
+<pallas-new> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<pallas-new> SSH: EXEC sshpass -d26 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/a253fd60b2"' pallas-new '/bin/sh -c '"'"'rm -f -r /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.244741-3360737-112498700679462/ > /dev/null 2>&1 && sleep 0'"'"''
+<pallas-new> (0, b'', b'')
+fatal: [pallas-new]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "delegate_to": "localhost",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0755",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "./reports/pallas-new",
+            "recurse": true,
+            "run_once": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name)."
+}
+Escalation succeeded
+<fr7ulr7se01> (1, b'\r\n{"failed": true, "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).", "invocation": {"module_args": {"path": "./reports/fr7ulr7se01", "state": "directory", "mode": "0755", "recurse": true, "delegate_to": "localhost", "run_once": false, "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_original_basename": null, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\r\n', b'Shared connection to fr7ulr7se01 closed.\r\n')
+<fr7ulr7se01> Failed to connect to the host via ssh: Shared connection to fr7ulr7se01 closed.
+<fr7ulr7se01> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<fr7ulr7se01> SSH: EXEC sshpass -d24 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/feaf48c55c"' fr7ulr7se01 '/bin/sh -c '"'"'rm -f -r /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.306015-3360746-128314019017561/ > /dev/null 2>&1 && sleep 0'"'"''
+<fr7ulr7se02> (1, b'\r\n{"failed": true, "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name).", "invocation": {"module_args": {"path": "./reports/fr7ulr7se02", "state": "directory", "mode": "0755", "recurse": true, "delegate_to": "localhost", "run_once": false, "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_original_basename": null, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\r\n', b'Shared connection to fr7ulr7se02 closed.\r\n')
+<fr7ulr7se02> Failed to connect to the host via ssh: Shared connection to fr7ulr7se02 closed.
+<fr7ulr7se01> (0, b'', b'')
+<fr7ulr7se02> ESTABLISH SSH CONNECTION FOR USER: fr-726-ansible
+<fr7ulr7se02> SSH: EXEC sshpass -d25 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=keyboard-interactive -o StrictHostKeyChecking=no -o 'User="fr-726-ansible"' -o ConnectTimeout=10 -o 'ControlPath="/home/C95059561/.ansible/cp/40dd6bb2c3"' fr7ulr7se02 '/bin/sh -c '"'"'rm -f -r /accts/fr-726-ansible/.ansible/tmp/ansible-tmp-1750924219.4072857-3360756-102139226001571/ > /dev/null 2>&1 && sleep 0'"'"''
+fatal: [fr7ulr7se01]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "delegate_to": "localhost",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0755",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "./reports/fr7ulr7se01",
+            "recurse": true,
+            "run_once": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name)."
+}
+<fr7ulr7se02> (0, b'', b'')
+fatal: [fr7ulr7se02]: FAILED! => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null,
+            "_original_basename": null,
+            "access_time": null,
+            "access_time_format": "%Y%m%d%H%M.%S",
+            "attributes": null,
+            "delegate_to": "localhost",
+            "follow": true,
+            "force": false,
+            "group": null,
+            "mode": "0755",
+            "modification_time": null,
+            "modification_time_format": "%Y%m%d%H%M.%S",
+            "owner": null,
+            "path": "./reports/fr7ulr7se02",
+            "recurse": true,
+            "run_once": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "directory",
+            "unsafe_writes": false
+        }
+    },
+    "msg": "Unsupported parameters for (ansible.builtin.file) module: delegate_to, run_once. Supported parameters include: _diff_peek, _original_basename, access_time, access_time_format, attributes, follow, force, group, mode, modification_time, modification_time_format, owner, path, recurse, selevel, serole, setype, seuser, src, state, unsafe_writes (attr, dest, name)."
+}
+
+PLAY RECAP ****************************************************************************************************************************************************************************************
+artemis                    : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+blcflin03                  : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllina350rpm01             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinalm01                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinalm02                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinalm03                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinalm04                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinalm05                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinalmqa01               : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinalmqa02               : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinalmqa03               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinalmqa04               : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinalmqa05               : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinalmqa06               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinapp37                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinapp38                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinapp40                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinapp42                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinapp45                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinapp46                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinapp47                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinapp48                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinapp49                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinapp50                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinapp53                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinapp54                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+bllinapp55                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinapp56                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinapp57                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinapp58                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllincdr03                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinelk01                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinelk02                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinelk03                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinelk04                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinelk05                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinsatel01               : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinsvn02                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllinsvnqa01               : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllintestboot              : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+bllintestboot3             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+blnis01                    : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+blvmware-tmpl              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+buzet                      : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap007             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap008             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap009             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap010             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap011             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap012             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap013             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap014             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap016             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap017             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353ap018             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353aq012             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353aq013             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353aq014             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353aq016             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353aq017             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353aq019             : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+cfrc10353aq022             : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+cfrc10353dp003             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+cfrc10353dq003             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+fr7ulr7se01                : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+fr7ulr7se02                : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+pallas-new                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+[C95059561@bllintestboot3 Check_Users_Accounts]$
