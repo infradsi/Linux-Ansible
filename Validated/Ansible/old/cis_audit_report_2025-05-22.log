@@ -1,0 +1,851 @@
+Starting CIS audit on jeu. mai 22 11:10:10 CEST 2025
+=========================================
+Auditing: 1.10 Ensure system-wide crypto policy is not legacy
+Result: OK
+-----------------------------------------
+Auditing: 1.1.10 Ensure noexec option set on /var/tmp partition
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.1.1 Ensure mounting of cramfs filesystems is disabled
+Result: OK
+-----------------------------------------
+Auditing: 1.1.11 Ensure separate partition exists for /var/log
+Result: OK
+-----------------------------------------
+Auditing: 1.1.1.2 Ensure mounting of vFAT filesystems is limited
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.12 Ensure separate partition exists for /var/log/audit
+Result: OK
+-----------------------------------------
+Auditing: 1.1.1.3 Ensure mounting of squashfs filesystems is disabled
+Result: OK
+-----------------------------------------
+Auditing: 1.1.13 Ensure separate partition exists for /home
+Result: OK
+-----------------------------------------
+Auditing: 1.1.1.4 Ensure mounting of udf filesystems is disabled
+Result: OK
+-----------------------------------------
+Auditing: 1.1.14 Ensure nodev option set on /home partition
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.15 Ensure nodev option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.16 Ensure nosuid option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.17 Ensure noexec option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.18 Ensure nodev option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.1.19 Ensure nosuid option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.11 Ensure system-wide crypto policy is FUTURE or FIPS
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.20 Ensure noexec option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.1.21 Ensure sticky bit is set on all world-writable directories
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.22 Disable Automounting
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.23 Disable USB Storage
+Result: OK
+-----------------------------------------
+Auditing: 1.1.2 Ensure /tmp is configured
+✔️  /tmp has nodev option
+❌ /tmp is missing noexec option
+✔️  /tmp has nosuid option
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.6 Ensure separate partition exists for /var
+✔️  /var is on a separate partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.7 Ensure separate partition exists for /var/tmp
+✔️  /var/tmp is on a separate partition
+Result: OK
+-----------------------------------------
+Auditing: 1.2.1 Ensure Red Hat Subscription Manager connection is configured
+❌ System is NOT registered or not current with Red Hat
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.2.2 Disable the rhnsd Daemon
+✔️  rhnsd service is disabled
+Result: OK
+-----------------------------------------
+Auditing: 1.2.3 Ensure GPG keys are configured
+✔️  GPG public keys are installed
+Result: OK
+-----------------------------------------
+Auditing: 1.2.4 Ensure gpgcheck is globally activated
+✔️  gpgcheck is enabled in yum/dnf configuration
+Result: OK
+-----------------------------------------
+Auditing: 1.2.5 Ensure package manager repositories are configured
+✔️  Package manager repositories are correctly configured
+Result: OK
+-----------------------------------------
+Auditing: 1.3.1 Ensure sudo is installed
+Result: OK
+-----------------------------------------
+Auditing: 1.3.2 Ensure sudo commands use pty
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.3.3 Ensure sudo log file exists
+❌ sudo log file path defined as "/var/log/sudo.log" but file does not exist
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.4.1 Ensure AIDE is installed
+Result: OK
+-----------------------------------------
+Auditing: 1.4.2 Ensure filesystem integrity is regularly checked
+❌ No scheduled AIDE check found (neither cron nor systemd timer)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.5.1 Ensure permissions on bootloader config are configured
+✔️  /boot/grub2/grub.cfg is correctly owned and permissioned
+❌ /boot/efi/EFI/redhat/grub.cfg permissions are 700, should be 600 or more restrictive
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.5.2 Ensure bootloader password is set
+❌ GRUB password is NOT configured in /boot/efi/EFI/redhat/grub.cfg
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.5.3 Ensure authentication required for single user mode
+✔️  /usr/lib/systemd/system/rescue.service requires sulogin for authentication
+✔️  /usr/lib/systemd/system/emergency.service requires sulogin for authentication
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.6.1 Ensure core dumps are restricted
+✔️  fs.suid_dumpable is set to 0
+✔️  Core dump limit is set to 0 in PAM limits
+Result: OK
+-----------------------------------------
+Auditing: 1.6.2 Ensure address space layout randomization (ASLR) is enabled
+✔️  ASLR is fully enabled (kernel.randomize_va_space = 2)
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.1 Ensure SELinux is installed
+✔️  SELinux package is installed (libselinux)
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.2 Ensure SELinux is not disabled in bootloader configuration
+✔️  SELinux is not disabled in GRUB config
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.3 Ensure SELinux policy is configured
+✔️  SELinux policy is set (targeted or mls)
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.4 Ensure the SELinux state is enforcing
+❌ SELinux is not enforcing (runtime: Permissive / config: permissive)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.7.1.5 Ensure no unconfined services exist
+❌ Unconfined services found:
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3381061 ? 00:00:00 systemd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3381068 ? 00:00:00 sshd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3381069 pts/0 00:00:00 bash
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3597387 ? 00:00:00 sshd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3597388 ? 00:00:00 sftp-server
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3600629 ? 00:00:00 sshd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3600631 pts/1 00:00:00 bash
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3600662 ? 00:00:00 sshd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3600663 ? 00:00:00 sftp-server
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3600895 pts/1 00:00:00 sudo
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3600980 pts/1 00:00:00 linux_cis_audit
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3601339 pts/1 00:00:00 linux_cis_audit
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3601340 pts/1 00:00:00 ps
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3601341 pts/1 00:00:00 awk
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.7.1.6 Ensure SETroubleshoot is not installed
+✔️  setroubleshoot is not installed
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.7 Ensure the MCS Translation Service (mcstrans) is not installed
+✔️  mcstrans is not installed
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.1 Ensure message of the day is configured properly
+✔️  /etc/motd is properly configured (no system info disclosure)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.2 Ensure local login warning banner is configured properly
+❌ /etc/issue contains system information variables (\v, \r, \m, \s)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.8.1.3 Ensure remote login warning banner is configured properly
+❌ /etc/issue.net contains system information variables (\v, \r, \m, \s)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.8.1.4 Ensure permissions on /etc/motd are configured
+✔️  /etc/motd permissions are secure (644, owned by root:root)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.5 Ensure permissions on /etc/issue are configured
+✔️  /etc/issue permissions are secure (444, owned by root:root)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.6 Ensure permissions on /etc/issue.net are configured
+✔️  /etc/issue.net permissions are secure (444, owned by root:root)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.2 Ensure GDM login banner is configured
+✔️  GDM is not installed — not applicable
+Result: OK
+-----------------------------------------
+Auditing: 1.9 Ensure updates, patches, and additional security software are installed
+✔️  No pending security updates
+Result: OK
+-----------------------------------------
+Auditing: 2.1.1 Ensure xinetd is not installed
+✔️  xinetd is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.10 Ensure FTP Server is not enabled
+✔️  vsftpd is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.1.1 Ensure time synchronization is in use
+✔️  chronyd is installed and enabled
+Result: OK
+-----------------------------------------
+Auditing: 2.2.11 Ensure DNS Server is not enabled
+✔️  bind is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.12 Ensure NFS is not enabled
+✔️  nfs-server is installed but disabled
+Result: OK
+-----------------------------------------
+Auditing: 2.2.13 Ensure RPC is not enabled
+❌ rpcbind is installed and enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 2.2.14 Ensure LDAP server is not enabled
+✔️  LDAP server is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.15 Ensure DHCP Server is not enabled
+✔️  DHCP server is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.16 Ensure CUPS is not enabled
+✔️  cups is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.17 Ensure NIS Server is not enabled
+✔️  ypserv is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.18 Ensure mail transfer agent is configured for local-only mode
+✔️  Postfix is restricted to localhost or not running
+Result: OK
+-----------------------------------------
+Auditing: 2.2.2 Ensure X Window System is not installed
+✔️  X Window System is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.3 Ensure rsync service is not enabled
+✔️  rsync is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.4 Ensure Avahi Server is not enabled
+✔️  avahi is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.5 Ensure SNMP Server is not enabled (if not required)
+❌ snmpd is enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 2.2.6 Ensure HTTP Proxy Server is not enabled
+✔️  squid is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.7 Ensure Samba is not enabled
+✔️  Samba is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.8 Ensure IMAP and POP3 server is not enabled
+✔️  IMAP/POP3 server not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.9 Ensure HTTP server is not enabled (if not web server)
+✔️  httpd is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.3.1 Ensure NIS client is not installed
+❌ ypbind (NIS client) is installed
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 2.3.2 Ensure rsh client is not installed
+✔️  rsh client is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.3.3 Ensure talk client is not installed
+✔️  talk client is not installed
+Result: OK
+-----------------------------------------
+Auditing: 3.1.1 Ensure IP forwarding is disabled
+✔️  IPv4 forwarding is disabled
+✔️  IPv6 forwarding is disabled
+Result: OK
+-----------------------------------------
+Auditing: 3.1.2 Ensure packet redirect sending is disabled
+✔️  net.ipv4.conf.all.send_redirects is set to 0
+✔️  net.ipv4.conf.default.send_redirects is set to 0
+Result: OK
+-----------------------------------------
+Auditing: 3.2.1 Ensure wireless interfaces are disabled (if not used)
+✔️  No wireless interfaces detected
+Result: OK
+-----------------------------------------
+Auditing: 3.2.2 Ensure IPv6 router advertisements are not accepted
+✔️  net.ipv6.conf.all.accept_ra is set to 0
+✔️  net.ipv6.conf.default.accept_ra is set to 0
+Result: OK
+-----------------------------------------
+Auditing: 3.2.3 Ensure IPv6 redirects are not accepted
+✔️  net.ipv6.conf.all.accept_redirects is set to 0
+✔️  net.ipv6.conf.default.accept_redirects is set to 0
+Result: OK
+-----------------------------------------
+Auditing: 3.2.4 Ensure suspicious packets are logged
+✔️  log_martians is enabled for all and default
+Result: OK
+-----------------------------------------
+Auditing: 3.2.5 Ensure broadcast ICMP requests are ignored
+✔️  Broadcast ICMP requests are ignored
+Result: OK
+-----------------------------------------
+Auditing: 3.2.6 Ensure bogus ICMP responses are ignored
+✔️  Bogus ICMP error responses are ignored
+Result: OK
+-----------------------------------------
+Auditing: 3.2.7 Ensure Reverse Path Filtering is enabled
+✔️  net.ipv4.conf.all.rp_filter is set to 1
+✔️  net.ipv4.conf.default.rp_filter is set to 1
+Result: OK
+-----------------------------------------
+Auditing: 3.2.8 Ensure TCP SYN Cookies is enabled
+✔️  TCP SYN cookies are enabled
+Result: OK
+-----------------------------------------
+Auditing: 3.2.9 Ensure IPv6 is disabled (if required)
+⚠️  IPv6 is enabled (this may be acceptable if IPv6 is in use)
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.3.1 Ensure DCCP is disabled
+✔️  DCCP module is not loaded
+❌ DCCP module is not blacklisted in /etc/modprobe.d
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.3.2 Ensure SCTP is disabled
+✔️  SCTP module is not loaded
+❌ SCTP module is not blacklisted in /etc/modprobe.d
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.3.3 Ensure RDS is disabled
+✔️  RDS module is not loaded
+❌ RDS module is not blacklisted in /etc/modprobe.d
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.3.4 Ensure TIPC is disabled
+✔️  TIPC module is not loaded
+❌ TIPC module is not blacklisted in /etc/modprobe.d
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.1.1 Ensure a Firewall package is installed
+✔️  At least one firewall package is installed (nftables, firewalld, or iptables)
+Result: OK
+-----------------------------------------
+Auditing: 3.4.2.1 Ensure nftables is installed
+✔️  nftables is installed
+Result: OK
+-----------------------------------------
+Auditing: 3.4.2.2 Ensure iptables is not enabled
+❌ iptables service is enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.2.3 Ensure nftables is enabled
+❌ nftables service is not enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.2.4 Ensure default zone is set in firewalld
+❌ firewalld default zone is not set
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.2.5 Ensure firewalld interfaces are assigned to zones
+Result: OK
+-----------------------------------------
+Auditing: 3.4.2.6 Ensure unnecessary services and ports are not accepted
+❌ Unable to determine default firewalld zone
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.3.1 Ensure iptables are flushed
+❌ iptables is enabled and contains active rules:
+-A INPUT -p icmp -m icmp --icmp-type 13 -j DROP
+-A OUTPUT -p icmp -m icmp --icmp-type 14 -j DROP
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.3.2 Ensure a nftables table exists
+✔️  At least one nftables table exists:
+table ip filter
+Result: OK
+-----------------------------------------
+Auditing: 3.4.3.3 Ensure base chains exist in nftables
+✔️  nftables has base chains with hooks:
+		type filter hook input priority filter; policy accept;
+		type filter hook forward priority filter; policy accept;
+		type filter hook output priority filter; policy accept;
+Result: OK
+-----------------------------------------
+Auditing: 3.4.3.4 Ensure loopback traffic is configured in nftables
+❌ No rule found to allow loopback interface (iif "lo" accept)
+❌ No rule found to block spoofed 127.0.0.0/8 packets
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.3.5 Ensure outbound and established connections are configured in nftables
+❌ No rule found to allow ct state established on input chain
+❌ No rule found to allow outbound new/established traffic on output chain
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.3.6 Ensure default deny firewall policy in nftables
+❌ Missing or incorrect 'policy drop' on hook input
+❌ Missing or incorrect 'policy drop' on hook forward
+❌ Missing or incorrect 'policy drop' on hook output
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.3.7 Ensure nftables service is enabled
+❌ nftables service is installed but not enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.3.8 Ensure nftables rules are permanent
+⚠️  Config file /etc/sysconfig/nftables.conf found but does not define any table
+❌ No nftables rules found in expected config files
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.4.1.1 Ensure default deny firewall policy in firewalld
+❌ Could not determine default firewalld zone
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.4.1.2 Ensure loopback traffic is configured in firewalld
+❌ No rule found to explicitly allow loopback traffic on lo
+❌ No rule found to drop spoofed 127.0.0.0/8 packets not via lo
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.4.1.3 Ensure outbound and established connections are configured in firewalld
+❌ No rule found for accepting ESTABLISHED or RELATED traffic
+❌ No rule found to allow outbound connections (OUTPUT chain)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.4.1.4 Ensure firewall rules exist for all open ports
+❌ Open tcp port 111 is NOT covered by firewalld
+❌ Open tcp port 17472 is NOT covered by firewalld
+❌ Open tcp port 17473 is NOT covered by firewalld
+❌ Open tcp port 199 is NOT covered by firewalld
+❌ Open tcp port 22 is NOT covered by firewalld
+❌ Open tcp port 45869 is NOT covered by firewalld
+❌ Open tcp port 46039 is NOT covered by firewalld
+❌ Open tcp port 49389 is NOT covered by firewalld
+❌ Open tcp port 5666 is NOT covered by firewalld
+❌ Open tcp port 638 is NOT covered by firewalld
+❌ Open udp port 111 is NOT covered by firewalld
+❌ Open udp port 161 is NOT covered by firewalld
+❌ Open udp port 31400 is NOT covered by firewalld
+❌ Open udp port 323 is NOT covered by firewalld
+❌ Open udp port 44686 is NOT covered by firewalld
+❌ Open udp port 47820 is NOT covered by firewalld
+❌ Open udp port 638 is NOT covered by firewalld
+❌ Open udp port 876 is NOT covered by firewalld
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.4.2.1 Ensure IPv6 default deny firewall policy in firewalld
+❌ Unable to determine default firewalld zone
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.4.2.2 Ensure IPv6 loopback traffic is configured in firewalld
+❌ No rule found to allow IPv6 loopback (::1) traffic on lo
+❌ No rule found to drop spoofed ::1 packets not via lo
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.4.2.3 Ensure IPv6 outbound and established connections are configured in firewalld
+❌ No IPv6 rule found to accept ESTABLISHED or RELATED input traffic
+❌ No IPv6 rule found to allow outbound traffic
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.4.2.4 Ensure IPv6 firewall rules exist for all open ports
+❌ IPv6 tcp port 111 is NOT explicitly allowed by firewalld
+❌ IPv6 tcp port 22 is NOT explicitly allowed by firewalld
+❌ IPv6 tcp port 49389 is NOT explicitly allowed by firewalld
+❌ IPv6 tcp port 5666 is NOT explicitly allowed by firewalld
+❌ IPv6 tcp port 638 is NOT explicitly allowed by firewalld
+❌ IPv6 udp port 111 is NOT explicitly allowed by firewalld
+❌ IPv6 udp port 323 is NOT explicitly allowed by firewalld
+❌ IPv6 udp port 44686 is NOT explicitly allowed by firewalld
+❌ IPv6 udp port 638 is NOT explicitly allowed by firewalld
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.5 Ensure wireless interfaces are disabled
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 3.6 Disable IPv6
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.10 Ensure unsuccessful unauthorized file access attempts are collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.1.1 Ensure auditd is installed
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.11 Ensure events that modify user/group information are collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.1.2 Ensure auditd service is enabled
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.12 Ensure successful file system mounts are collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.1.3 Ensure auditing for processes that start prior to auditd is enabled
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.13 Ensure use of privileged commands is collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.1.4 Ensure audit_backlog_limit is sufficient
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.14 Ensure file deletion events by users are collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.15 Ensure kernel module loading and unloading is collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.16 Ensure system administrator actions (sudolog) are collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.17 Ensure the audit configuration is immutable
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.2.1 Ensure audit log storage size is configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.2.2 Ensure audit logs are not automatically deleted
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.2.3 Ensure system is disabled when audit logs are full
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.3 Ensure changes to system administration scope (sudoers) is collected
+Result: OK
+-----------------------------------------
+Auditing: 4.1.4 Ensure login and logout events are collected
+Result: OK
+-----------------------------------------
+Auditing: 4.1.5 Ensure session initiation information is collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.6 Ensure events that modify date and time information are collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.7 Ensure events that modify the system's Mandatory Access Controls are collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.8 Ensure events that modify the system's network environment are collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.1.9 Ensure discretionary access control permission modification events are collected
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.2.1.1 Ensure rsyslog is installed
+Result: OK
+-----------------------------------------
+Auditing: 4.2.1.2 Ensure rsyslog Service is enabled
+Result: OK
+-----------------------------------------
+Auditing: 4.2.1.3 Ensure rsyslog default file permissions configured
+Result: OK
+-----------------------------------------
+Auditing: 4.2.1.4 Ensure logging is configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.2.1.5 Ensure rsyslog is configured to send logs to a remote log host
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.2.1.6 Ensure remote rsyslog messages are only accepted on designated log hosts.
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.2.2.1 Ensure journald is configured to send logs to rsyslog
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.2.2.2 Ensure journald is configured to compress large log files
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.2.2.3 Ensure journald is configured to write logfiles to persistent disk
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.2.3 Ensure permissions on all logfiles are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 4.3 Ensure logrotate is configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.1.1 Ensure cron daemon is enabled
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.1.2 Ensure permissions on /etc/crontab are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.1.3 Ensure permissions on /etc/cron.hourly are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.1.4 Ensure permissions on /etc/cron.daily are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.1.5 Ensure permissions on /etc/cron.weekly are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.1.6 Ensure permissions on /etc/cron.monthly are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.1.7 Ensure permissions on /etc/cron.d are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.1.8 Ensure at/cron is restricted to authorized users
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.2.10 Ensure SSH root login is disabled
+Result: PermitRootLogin no
+OK
+-----------------------------------------
+Auditing: 5.2.11 Ensure SSH PermitEmptyPasswords is disabled
+Result: PermitEmptyPasswords no
+OK
+-----------------------------------------
+Auditing: 5.2.12 Ensure SSH PermitUserEnvironment is disabled
+Result: PermitUserEnvironment no
+OK
+-----------------------------------------
+Auditing: 5.2.13 Ensure SSH Idle Timeout Interval is configured
+Result: IgnoreRhosts yes
+OK
+-----------------------------------------
+Auditing: 5.2.14 Ensure SSH LoginGraceTime is set to one minute or less
+Result: HostbasedAuthentication no
+OK
+-----------------------------------------
+Auditing: 5.2.15 Ensure SSH warning banner is configured
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.16 Ensure SSH PAM is enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.17 Ensure SSH AllowTcpForwarding is disabled
+Result: OK
+-----------------------------------------
+Auditing: 5.2.18 Ensure SSH MaxStartups is configured
+Result: Banner /etc/issue.net
+OK
+-----------------------------------------
+Auditing: 5.2.19 Ensure SSH MaxSessions is set to 4 or less
+Result: AllowTcpForwarding no 
+OK
+-----------------------------------------
+Auditing: 5.2.1 Ensure permissions on /etc/ssh/sshd_config are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.2.20 Ensure system-wide crypto policy is not over-ridden
+Result: MaxStartups 10:30:60
+OK
+-----------------------------------------
+Auditing: 5.2.2 Ensure SSH access is limited
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.2.3 Ensure permissions on SSH private host key files are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.2.4 Ensure permissions on SSH public host key files are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.2.5 Ensure SSH LogLevel is appropriate
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.2.6 Ensure SSH X11 forwarding is disabled
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.2.7 Ensure SSH MaxAuthTries is set to 4 or less
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.2.8 Ensure SSH IgnoreRhosts is enabled
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.2.9 Ensure SSH HostbasedAuthentication is disabled
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.3.1 Create custom authselect profile
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.3.2 Select authselect profile
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.3.3 Ensure authselect includes with-faillock
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.4.1 Ensure password creation requirements are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.4.2 Ensure lockout for failed password attempts is configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.4.3 Ensure password reuse is limited
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.4.4 Ensure password hashing algorithm is SHA-512
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.5.1.1 Ensure password expiration is 365 days or less
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.5.1.2 Ensure minimum days between password changes is 7 or more
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.5.1.3 Ensure password expiration warning days is 7 or more
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.5.1.4 Ensure inactive password lock is 30 days or less
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.5.1.5 Ensure all users last password change date is in the past
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.5.2 Ensure system accounts are secured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.5.3 Ensure default user shell timeout is 900 seconds or less
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.5.4 Ensure default group for the root account is GID 0
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.5.5 Ensure default user umask is 027 or more restrictive
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.6 Ensure root login is restricted to system console
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 5.7 Ensure access to the su command is restricted
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.10 Ensure no world writable files exist
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.11 Ensure no unowned files or directories exist
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.12 Ensure no ungrouped files or directories exist
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.13 Audit SUID executables
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.14 Audit SGID executables
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.1 Audit system file permissions
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.2 Ensure permissions on /etc/passwd are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.3 Ensure permissions on /etc/shadow are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.4 Ensure permissions on /etc/group are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.5 Ensure permissions on /etc/gshadow are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.6 Ensure permissions on /etc/passwd- are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.7 Ensure permissions on /etc/shadow- are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.8 Ensure permissions on /etc/group- are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.1.9 Ensure permissions on /etc/gshadow- are configured
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.10 Ensure no users have .forward files
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.11 Ensure no users have .netrc files
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.12 Ensure users' .netrc Files are not group or world accessible
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.13 Ensure no users have .rhosts files
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.14 Ensure all groups in /etc/passwd exist in /etc/group
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.15 Ensure no duplicate UIDs exist
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.16 Ensure no duplicate GIDs exist
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.17 Ensure no duplicate user names exist
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.18 Ensure no duplicate group names exist
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.19 Ensure shadow group is empty
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.1 Ensure password fields are not empty
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.20 Ensure all users' home directories exist
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.2 Ensure no legacy "+" entries exist in /etc/passwd
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.3 Ensure root PATH Integrity
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.4 Ensure no legacy "+" entries exist in /etc/shadow
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.5 Ensure no legacy "+" entries exist in /etc/group
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.6 Ensure root is the only UID 0 account
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.7 Ensure users' home directories permissions are 750 or more restrictive
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.8 Ensure users own their home directories
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------
+Auditing: 6.2.9 Ensure users' dot files are not group or world writable
+Result: [MANUAL CHECK REQUIRED]
+-----------------------------------------

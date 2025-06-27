@@ -1,0 +1,7 @@
+[
+  {"user": "splunkfwd", "uid": 1009, "gid": 1007, "shell": "/bin/bash", "source": "local"}
+,
+  {"user": "sisips", "uid": 1010, "gid": 1008, "shell": "/bin/bash", "source": "local"}
+,
+  {"user": "dcscaf", "uid": 1011, "gid": 1010, "shell": "/sbin/nologin", "source": "local"}
+]

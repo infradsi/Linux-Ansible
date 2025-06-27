@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Linux Root Audit Report - bllina350rpm01</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .warn { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Linux Root Account Audit Report</h1>
+    <p><strong>Host:</strong> bllina350rpm01</p>
+    <p><strong>Date:</strong> 2025-06-18 16:58:39</p>
+<h2>1. SSH Root Login Policy</h2><p><span class='fail'>❌ SSH root login is NOT disabled!</span></p>
+<h2>2. Root Password Aging Policy</h2>
+<pre>Last password change					: juin 10, 2025
+Password expires					: sept. 08, 2025
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 1
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 15</pre>
+<p class='pass'>✔️ Root password aging policy is acceptable.</p>
+<h2>3. Console-only Root Login (/etc/securetty)</h2>
+<p class='pass'>✔️ /etc/securetty exists. Root login restricted to listed TTYs:</p>
+<pre># /etc/securetty: list of terminals on which root is allowed to login.
+# See securetty(5) and login(1).
+
+console
+
+# Local X displays (allows empty passwords with pam_unix's nullok_secure)
+:0
+:0.0
+:0.1
+:1
+:1.0
+:1.1
+:2
+:2.0
+:2.1
+:3
+:3.0
+:3.1
+#...
+
+
+# ==========================================================
+#
+# TTYs sorted by major number according to Documentation/devices.txt
+#
+# ==========================================================
+
+# Virtual consoles
+tty1
+tty2
+tty3
+tty4
+tty5
+tty6
+tty7
+tty8
+tty9
+tty10
+tty11
+tty12
+tty13
+tty14
+tty15
+tty16
+tty17
+tty18
+tty19
+tty20
+tty21
+tty22
+tty23
+tty24
+tty25
+tty26
+tty27
+tty28
+tty29
+tty30
+tty31
+tty32
+tty33
+tty34
+tty35
+tty36
+tty37
+tty38
+tty39
+tty40
+tty41
+tty42
+tty43
+tty44
+tty45
+tty46
+tty47
+tty48
+tty49
+tty50
+tty51
+tty52
+tty53
+tty54
+tty55
+tty56
+tty57
+tty58
+tty59
+tty60
+tty61
+tty62
+tty63
+
+# UART serial ports
+ttyS0
+ttyS1
+ttyS2
+ttyS3
+ttyS4
+ttyS5
+#...ttyS191
+
+# Serial Mux devices	(Linux/PA-RISC only)
+ttyB0
+ttyB1
+#...
+
+# Chase serial card
+ttyH0
+ttyH1
+#...
+
+# Cyclades serial cards
+ttyC0
+ttyC1
+#...ttyC31
+
+# Digiboard serial cards
+ttyD0
+ttyD1
+#...
+
+# Stallion serial cards
+ttyE0
+ttyE1
+#...ttyE255
+
+# Specialix serial cards
+ttyX0
+ttyX1
+#...
+
+# Comtrol Rocketport serial cards
+ttyR0
+ttyR1
+#...
+
+# SDL RISCom serial cards
+ttyL0
+ttyL1
+#...
+
+# Hayes ESP serial card
+ttyP0
+ttyP1
+#...
+
+# Computone IntelliPort II serial card
+ttyF0
+ttyF1
+#...ttyF255
+
+# Specialix IO8+ serial card
+ttyW0
+ttyW1
+#...
+
+# Comtrol VS-1000 serial controller
+ttyV0
+ttyV1
+#...
+
+# ISI serial card
+ttyM0
+ttyM1
+#...
+
+# Technology Concepts serial card
+ttyT0
+ttyT1
+#...
+
+# Specialix RIO serial card
+ttySR0
+ttySR1
+#...ttySR511
+
+# Chase Research AT/PCI-Fast serial card
+ttyCH0
+ttyCH1
+#...ttyCH63
+
+# Moxa Intellio serial card
+ttyMX0
+ttyMX1
+#...ttyMX127
+
+# SmartIO serial card
+ttySI0
+ttySI1
+#...
+
+# USB dongles
+ttyUSB0
+ttyUSB1
+ttyUSB2
+#...
+
+# LinkUp Systems L72xx UARTs
+ttyLU0
+ttyLU1
+ttyLU2
+ttyLU3
+
+# StrongARM builtin serial ports
+ttySA0
+ttySA1
+ttySA2
+
+# SCI serial port (SuperH) ports and SC26xx serial ports
+ttySC0
+ttySC1
+ttySC2
+ttySC3
+ttySC4
+ttySC5
+ttySC6
+ttySC7
+ttySC8
+ttySC9
+
+# ARM "AMBA" serial ports
+ttyAM0
+ttyAM1
+ttyAM2
+ttyAM3
+ttyAM4
+ttyAM5
+ttyAM6
+ttyAM7
+ttyAM8
+ttyAM9
+ttyAM10
+ttyAM11
+ttyAM12
+ttyAM13
+ttyAM14
+ttyAM15
+
+# Embedded ARM AMBA PL011 ports (e.g. emulated by QEMU)
+ttyAMA0
+ttyAMA1
+ttyAMA2
+ttyAMA3
+
+# DataBooster serial ports
+ttyDB0
+ttyDB1
+ttyDB2
+ttyDB3
+ttyDB4
+ttyDB5
+ttyDB6
+ttyDB7
+
+# SGI Altix console ports
+ttySG0
+
+# Motorola i.MX ports
+ttySMX0
+ttySMX1
+ttySMX2
+
+# Marvell MPSC ports
+ttyMM0
+ttyMM1
+
+# PPC CPM (SCC or SMC) ports
+ttyCPM0
+ttyCPM1
+ttyCPM2
+ttyCPM3
+ttyCPM4
+ttyCPM5
+
+# Altix serial cards
+ttyIOC0
+ttyIOC1
+#...ttyIOC31
+
+# NEC VR4100 series SIU
+ttyVR0
+
+# NEC VR4100 series SSIU
+ttyVR1
+
+# Altix ioc4 serial cards
+ttyIOC84
+ttyIOC85
+#...ttyIOC115
+
+# Altix ioc3 serial cards
+ttySIOC0
+ttySIOC1
+#...ttySIOC31
+
+# PPC PSC ports
+ttyPSC0
+ttyPSC1
+ttyPSC2
+ttyPSC3
+ttyPSC4
+ttyPSC5
+
+# ATMEL serial ports
+ttyAT0
+ttyAT1
+#...ttyAT15
+
+# Hilscher netX serial port
+ttyNX0
+ttyNX1
+#...ttyNX15
+
+# Xilinx uartlite - port
+ttyUL0
+ttyUL1
+ttyUL2
+ttyUL3
+
+# Xen virtual console - port 0
+xvc0
+
+# pmac_zilog - port
+ttyPZ0
+ttyPZ1
+ttyPZ2
+ttyPZ3
+
+# TX39/49 serial port
+ttyTX0
+ttyTX1
+ttyTX2
+ttyTX3
+ttyTX4
+ttyTX5
+ttyTX6
+ttyTX7
+
+# SC26xx serial ports (see SCI serial ports (SuperH))
+
+# MAX3100 serial ports
+ttyMAX0
+ttyMAX1
+ttyMAX2
+ttyMAX3
+
+# OMAP serial ports
+ttyO0
+ttyO1
+ttyO2
+ttyO3
+
+# User space serial ports
+ttyU0
+ttyU1
+
+# A2232 serial card
+ttyY0
+ttyY1
+
+# IBM 3270 terminal Unix tty access
+3270/tty1
+3270/tty2
+#...
+
+# IBM iSeries/pSeries virtual console
+hvc0
+hvc1
+#...
+#IBM pSeries console ports
+hvsi0
+hvsi1
+hvsi2
+
+# Equinox SST multi-port serial boards
+ttyEQ0
+ttyEQ1
+#...ttyEQ1027
+
+# ==========================================================
+#
+# Not in Documentation/Devices.txt
+#
+# ==========================================================
+
+# Embedded Freescale i.MX ports
+ttymxc0
+ttymxc1
+ttymxc2
+ttymxc3
+ttymxc4
+ttymxc5
+
+# LXC (Linux Containers)
+lxc/console
+lxc/tty1
+lxc/tty2
+lxc/tty3
+lxc/tty4
+
+# Serial Console for MIPS Swarm
+duart0
+duart1
+
+# s390 and s390x ports in LPAR mode
+ttysclp0
+
+# ODROID XU4 serial console
+ttySAC0
+ttySAC1
+ttySAC2
+ttySAC3</pre>
+<h2>4. Direct Root Logins (last 10)</h2>
+<p class='pass'>✔️ No direct root logins found in recent history.</p>
+<h2>5. Admin Sudo/Su Usage</h2>
+<pre>Jun 18 16:58:27 bllina350rpm01 sudo[14331]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-dxroqpjintegqoczqokhmwqwazmsaxaj ; /usr/bin/python3 /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750258707.365275-1372808-19872231166392/AnsiballZ_copy.py
+Jun 18 16:58:27 bllina350rpm01 audit[14331]: USER_CMD pid=14331 uid=1868 auid=1868 ses=71227 msg='cwd="/home/fr-726-ansible" cmd=2F62696E2F7368202D63206563686F204245434F4D452D535543434553532D6478726F71706A696E746567716F637A716F6B686D777177617A6D736178616A203B202F7573722F62696E2F707974686F6E33202F686F6D652F66722D3732362D616E7369626C652F2E616E7369626C652F746D702F616E7369626C652D746D702D313735303235383730372E3336353237352D313337323830382D31393837323233313136363339322F416E736962616C6C5A5F636F70792E7079 terminal=pts/0 res=success'
+Jun 18 16:58:27 bllina350rpm01 audit[14331]: CRED_REFR pid=14331 uid=0 auid=1868 ses=71227 msg='op=PAM:setcred acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jun 18 16:58:27 bllina350rpm01 sudo[14331]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=0)
+Jun 18 16:58:27 bllina350rpm01 audit[14331]: USER_START pid=14331 uid=0 auid=1868 ses=71227 msg='op=PAM:session_open acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jun 18 16:58:27 bllina350rpm01 sudo[14331]: pam_unix(sudo:session): session closed for user root
+Jun 18 16:58:27 bllina350rpm01 audit[14331]: USER_END pid=14331 uid=0 auid=1868 ses=71227 msg='op=PAM:session_close acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jun 18 16:58:27 bllina350rpm01 audit[14331]: CRED_DISP pid=14331 uid=0 auid=1868 ses=71227 msg='op=PAM:setcred acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jun 18 16:58:38 bllina350rpm01 sshd[14271]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 33080 id 0
+Jun 18 16:58:38 bllina350rpm01 audit[14257]: USER_LOGIN pid=14257 uid=0 auid=1868 ses=71227 msg='op=login id=1868 exe="/usr/sbin/sshd" hostname=199.191.45.54 addr=199.191.45.54 terminal=/dev/pts/0 res=success'
+Jun 18 16:58:38 bllina350rpm01 sudo[14358]: pam_unix(sudo:auth): authentication failure; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/0 ruser=fr-726-ansible rhost=  user=fr-726-ansible
+Jun 18 16:58:39 bllina350rpm01 sudo[14358]: pam_krb5(sudo:auth): user fr-726-ansible authenticated as fr-726-ansible@RCFNET.ROCKWELLCOLLINS.COM
+Jun 18 16:58:39 bllina350rpm01 audit[14358]: USER_AUTH pid=14358 uid=1868 auid=1868 ses=71227 msg='op=PAM:authentication acct="fr-726-ansible" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jun 18 16:58:39 bllina350rpm01 audit[14358]: USER_ACCT pid=14358 uid=1868 auid=1868 ses=71227 msg='op=PAM:accounting acct="fr-726-ansible" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jun 18 16:58:39 bllina350rpm01 sudo[14358]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-umrlntneumnsraqfyxezeaxiqxbbqhjz ; /usr/bin/python3 /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750258719.6266403-1374114-29039063795627/AnsiballZ_command.py
+Jun 18 16:58:39 bllina350rpm01 audit[14358]: USER_CMD pid=14358 uid=1868 auid=1868 ses=71227 msg='cwd="/home/fr-726-ansible" cmd=2F62696E2F7368202D63206563686F204245434F4D452D535543434553532D756D726C6E746E65756D6E73726171667978657A656178697178626271686A7A203B202F7573722F62696E2F707974686F6E33202F686F6D652F66722D3732362D616E7369626C652F2E616E7369626C652F746D702F616E7369626C652D746D702D313735303235383731392E363236363430332D313337343131342D32393033393036333739353632372F416E736962616C6C5A5F636F6D6D616E642E7079 terminal=pts/0 res=success'
+Jun 18 16:58:39 bllina350rpm01 audit[14358]: CRED_REFR pid=14358 uid=0 auid=1868 ses=71227 msg='op=PAM:setcred acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jun 18 16:58:39 bllina350rpm01 sudo[14358]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=0)
+Jun 18 16:58:39 bllina350rpm01 audit[14358]: USER_START pid=14358 uid=0 auid=1868 ses=71227 msg='op=PAM:session_open acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=/dev/pts/0 res=success'
+Jun 18 16:58:39 bllina350rpm01 audit[14370]: USER_CHAUTHTOK pid=14370 uid=0 auid=1868 ses=71227 msg='op=display aging info id=0 exe="/usr/bin/chage" hostname=bllina350rpm01 addr=? terminal=pts/0 res=success'\n</pre>
+<h2>6. Shared UID 0 Accounts</h2>
+<p class='pass'>✔️ Only root has UID 0.</p>
+<h2>✅ Audit Completed</h2>
+</body></html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Linux Root Audit Report - bllinelk03.rockwellcollins.com</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .warn { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Linux Root Account Audit Report</h1>
+    <p><strong>Host:</strong> bllinelk03.rockwellcollins.com</p>
+    <p><strong>Date:</strong> 2025-06-19 10:13:37</p>
+<h2>1. SSH Root Login Policy</h2><p><span class='pass'>✔️ SSH root login is disabled.</span></p>
+<h2>2. Root Password Aging Policy</h2>
+<pre>Last password change					: juin 10, 2025
+Password expires					: sept. 08, 2025
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 1
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 15</pre>
+<p class='pass'>✔️ Root password aging policy is acceptable.</p>
+<h2>3. Console-only Root Login (/etc/securetty)</h2>
+<p class='fail'>❌ /etc/securetty is missing. Root login is not restricted to console!</p>
+<h2>4. Direct Root Logins (last 10)</h2>
+<p class='warn'>⚠️ Direct root logins detected:</p><pre>root     tty1                          Mon Jan  9 16:59 - 17:01  (00:02)
+root     pts/0        199.191.45.144   Thu Mar 17 16:09 - 16:10  (00:00)
+root     pts/0        199.191.45.144   Thu Mar 17 16:08 - 16:08  (00:00)
+root     pts/0        199.191.45.144   Thu Mar 17 16:07 - 16:07  (00:00)
+root     pts/0        199.191.45.144   Thu Mar 17 16:04 - 16:05  (00:00)
+root     pts/0        199.191.45.134   Thu Mar 17 15:44 - 15:46  (00:02)
+root     pts/0        199.191.45.134   Thu Mar 17 14:56 - 15:14  (00:18)
+root     pts/2        199.191.45.146   Tue Feb 22 17:21 - 17:32  (00:10)
+root     pts/2        199.191.45.146   Tue Feb 22 17:06 - 17:11  (00:04)
+root     pts/0        10.254.46.34     Tue Feb 22 16:51 - 17:35  (00:43)</pre>
+<h2>5. Admin Sudo/Su Usage</h2>
+<pre>Jun 19 10:08:41 bllinelk03 sudo[1341769]: fr-726-ansible : TTY=pts/1 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-ihyokiachybiolorewjuncywrgepqtgo ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750320519.544305-3516063-110919608031142/AnsiballZ_file.py'
+Jun 19 10:08:56 bllinelk03 sshd[1341719]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 54530 id 0
+Jun 19 10:08:57 bllinelk03 sudo[1341807]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/1 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 19 10:08:57 bllinelk03 sudo[1341807]: fr-726-ansible : TTY=pts/1 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-thsrwmgeynfxqjvzaeoclcfcneiwhuqh ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750320536.3275604-3517226-206989513401523/AnsiballZ_command.py'
+Jun 19 10:09:06 bllinelk03 sshd[1341719]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 54530 id 0
+Jun 19 10:09:06 bllinelk03 sudo[1341850]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/1 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 19 10:09:06 bllinelk03 sudo[1341850]: fr-726-ansible : TTY=pts/1 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-qbjeovhcltqekzcyuwmvvqcxtzjzbxpa ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750320546.1866102-3518127-10596366059193/AnsiballZ_command.py'
+Jun 19 10:10:52 bllinelk03 sudo[1342372]: C95059561 : TTY=pts/0 ; PWD=/ansible-tmp ; USER=root ; COMMAND=./check_root_usage_html.sh
+Jun 19 10:12:24 bllinelk03 sudo[1342765]: C95059561 : TTY=pts/0 ; PWD=/ansible-tmp ; USER=root ; COMMAND=/bin/rm root_audit_bllinelk03.rockwellcollins.com_20250618_165834.html root_audit_bllinelk03.rockwellcollins.com_20250619_094115.html root_audit_bllinelk03.rockwellcollins.com_20250619_100857.html root_audit_bllinelk03.rockwellcollins.com_20250619_101052.html
+Jun 19 10:13:01 bllinelk03 sshd[1342828]: pam_sss(sshd:auth): authentication success; logname= uid=0 euid=0 tty=ssh ruser= rhost=199.191.45.54 user=fr-726-ansible
+Jun 19 10:13:01 bllinelk03 sshd[1342841]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 50474 id 0
+Jun 19 10:13:01 bllinelk03 sudo[1342858]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/1 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 19 10:13:01 bllinelk03 sudo[1342858]: fr-726-ansible : TTY=pts/1 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-dqdiajlpefieumwzefeoivvyfqmrwnfg ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750320780.6164563-3529243-83311542772348/AnsiballZ_file.py'
+Jun 19 10:13:20 bllinelk03 sshd[1342841]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 50474 id 0
+Jun 19 10:13:21 bllinelk03 sudo[1342898]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/1 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 19 10:13:21 bllinelk03 sudo[1342898]: fr-726-ansible : TTY=pts/1 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-bofcbhbthysuubkyzldhbopdfxgcpdum ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750320800.5838141-3530371-86884141553003/AnsiballZ_stat.py'
+Jun 19 10:13:21 bllinelk03 sshd[1342841]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 50474 id 0
+Jun 19 10:13:21 bllinelk03 sudo[1342910]: pam_sss(sudo:auth): authentication success; logname=fr-726-ansible uid=1868 euid=0 tty=/dev/pts/1 ruser=fr-726-ansible rhost= user=fr-726-ansible
+Jun 19 10:13:21 bllinelk03 sudo[1342910]: fr-726-ansible : TTY=pts/1 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-uwrjidfbgziciciydfltighctpghgeyb ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750320800.5838141-3530371-86884141553003/AnsiballZ_file.py'
+Jun 19 10:13:36 bllinelk03 sshd[1342841]: Starting session: subsystem 'sftp' for fr-726-ansible from 199.191.45.54 port 50474 id 0\n</pre>
+<h2>6. Shared UID 0 Accounts</h2>
+<p class='pass'>✔️ Only root has UID 0.</p>
+<h2>✅ Audit Completed</h2>
+</body></html>

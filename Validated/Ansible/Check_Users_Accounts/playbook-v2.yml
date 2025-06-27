@@ -30,7 +30,7 @@
       ansible.builtin.file:
         path: "./reports/{{ inventory_hostname }}"
         state: directory
-      delegate_to: localhots
+      delegate_to: localhost
       become: false
       
 

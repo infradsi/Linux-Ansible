@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Linux Root Audit Report - bllinalm01</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .warn { color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Linux Root Account Audit Report</h1>
+    <p><strong>Host:</strong> bllinalm01</p>
+    <p><strong>Date:</strong> 2025-06-19 09:41:14</p>
+<h2>1. SSH Root Login Policy</h2><p><span class='fail'>❌ SSH root login is NOT disabled!</span></p>
+<h2>2. Root Password Aging Policy</h2>
+<pre>Last password change					: juin 10, 2025
+Password expires					: sept. 08, 2025
+Password inactive					: sept. 15, 2025
+Account expires						: never
+Minimum number of days between password change		: 1
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 15</pre>
+<p class='pass'>✔️ Root password aging policy is acceptable.</p>
+<h2>3. Console-only Root Login (/etc/securetty)</h2>
+<p class='fail'>❌ /etc/securetty is missing. Root login is not restricted to console!</p>
+<h2>4. Direct Root Logins (last 10)</h2>
+<p class='warn'>⚠️ Direct root logins detected:</p><pre>root     pts/0        199.191.45.83    Sun Apr  6 16:45 - 21:10  (04:24)
+root     pts/2        199.191.45.84    Sat Apr  5 18:55 - 19:01  (00:06)
+root     pts/0        199.191.45.83    Sat Apr  5 16:29 - 22:13  (05:43)
+root     pts/1        199.191.45.83    Sat Apr  5 10:08 - 16:27  (06:19)
+root     pts/0        10.227.164.210   Sat Apr  5 10:01 - 16:27  (06:26)
+root     pts/2        10.227.164.210   Sat Apr  5 08:59 - 16:27  (07:28)
+root     pts/0        10.227.164.210   Sat Apr  5 08:59 - 10:01  (01:01)
+root     pts/0        199.191.45.83    Sat Apr  5 08:09 - 08:49  (00:39)
+root     pts/0        199.191.45.83    Sat Apr  5 07:28 - down   (00:31)
+root     pts/1        199.191.45.83    Mon Mar 31 09:52 - 09:52  (00:00)</pre>
+<h2>5. Admin Sudo/Su Usage</h2>
+<pre>Jun 19 09:37:40 bllinalm01 su[3165855]: pam_unix(su:session): session opened for user nobody by (uid=0)
+Jun 19 09:37:45 bllinalm01 su[3165855]: pam_unix(su:session): session closed for user nobody
+Jun 19 09:39:03 bllinalm01 su[3169382]: pam_unix(su:session): session opened for user nobody by (uid=0)
+Jun 19 09:39:05 bllinalm01 su[3169382]: pam_unix(su:session): session closed for user nobody
+Jun 19 09:39:54 bllinalm01 su[3170441]: pam_unix(su:session): session opened for user nobody by (uid=0)
+Jun 19 09:39:56 bllinalm01 su[3170441]: pam_unix(su:session): session closed for user nobody
+Jun 19 09:39:57 bllinalm01 su[3170546]: pam_unix(su:session): session opened for user nobody by (uid=0)
+Jun 19 09:39:59 bllinalm01 su[3170546]: pam_unix(su:session): session closed for user nobody
+Jun 19 09:40:54 bllinalm01 sshd[3170714]: pam_sss(sshd:auth): authentication success; logname= uid=0 euid=0 tty=ssh ruser= rhost=199.191.45.54 user=fr-726-ansible
+Jun 19 09:40:54 bllinalm01 sudo[3171463]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-qnoknvlhdhpgaophzwrxbgmsvjubhnzm ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750318816.6044095-3448884-84066146076051/AnsiballZ_file.py'
+Jun 19 09:40:54 bllinalm01 sudo[3171463]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+Jun 19 09:40:55 bllinalm01 sudo[3171463]: pam_unix(sudo:session): session closed for user root
+Jun 19 09:40:56 bllinalm01 sudo[3171497]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-ddtwwkbgclajfrfumvprnusnmlzypqdm ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750318855.612378-3450734-65777193467287/AnsiballZ_stat.py'
+Jun 19 09:40:56 bllinalm01 sudo[3171497]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+Jun 19 09:40:56 bllinalm01 sudo[3171497]: pam_unix(sudo:session): session closed for user root
+Jun 19 09:40:57 bllinalm01 sudo[3171533]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-uohnjairunahppaskqlzmihjwdwllkxn ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750318855.612378-3450734-65777193467287/AnsiballZ_copy.py'
+Jun 19 09:40:57 bllinalm01 sudo[3171533]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)
+Jun 19 09:40:57 bllinalm01 sudo[3171533]: pam_unix(sudo:session): session closed for user root
+Jun 19 09:41:13 bllinalm01 sudo[3171603]: fr-726-ansible : TTY=pts/0 ; PWD=/home/fr-726-ansible ; USER=root ; COMMAND=/bin/sh -c 'echo BECOME-SUCCESS-lwbixdnqxjledoajbzexxiunknibccfr ; /usr/libexec/platform-python /home/fr-726-ansible/.ansible/tmp/ansible-tmp-1750318873.269526-3452362-261405756912099/AnsiballZ_command.py'
+Jun 19 09:41:13 bllinalm01 sudo[3171603]: pam_unix(sudo:session): session opened for user root by fr-726-ansible(uid=1868)\n</pre>
+<h2>6. Shared UID 0 Accounts</h2>
+<p class='pass'>✔️ Only root has UID 0.</p>
+<h2>✅ Audit Completed</h2>
+</body></html>

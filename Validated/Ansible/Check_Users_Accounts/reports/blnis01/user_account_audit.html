@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>User Account Audit Report</title>
+<style>
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ccc; padding: 6px; }
+th { background-color: #f2f2f2; }
+.ok { color: green; }
+.warn { color: red; font-weight: bold; }
+</style>
+</head>
+<body>
+<h2>User Account Audit Report (blnis01.rockwellcollins.com)</h2>
+<table>
+<tr>
+  <th>Username</th>
+  <th>UID</th>
+  <th>Shell</th>
+  <th>MinPwdAge</th>
+  <th>MaxPwdAge</th>
+  <th>InactiveDays</th>
+  <th>InteractiveShell</th>
+  <th>PasswordComplexity</th>
+  <th>UserType</th>
+  <th>Compliance</th>
+</tr>
+<tr class="warn"><td>nobody</td><td>65534</td><td>/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>NO</td><td>OK</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="ok"><td>systemd-coredump</td><td>999</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>systemd-resolve</td><td>193</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>polkitd</td><td>998</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>unbound</td><td>997</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>sssd</td><td>996</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>chrony</td><td>995</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>pesign</td><td>994</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>splunk</td><td>899</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>nrpe</td><td>898</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="warn"><td>sisips</td><td>1000</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>OK</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="ok"><td>dcscaf</td><td>1003</td><td>/sbin/nologin</td><td>1</td><td>60</td><td></td><td>NO</td><td>OK</td><td>Regular</td><td>OK</td></tr>
+</table><br>
+<b>Global password inactivity default (useradd):</b> -1<br>
+<b>Password complexity PAM status:</b> OK<br>
+<pre>minlen = 14</pre>
+<hr><i>Report generated on mer. juin 25 16:07:33 CEST 2025</i></body></html>

@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>User Account Audit Report</title>
+<style>
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ccc; padding: 6px; }
+th { background-color: #f2f2f2; }
+.ok { color: green; }
+.warn { color: red; font-weight: bold; }
+</style>
+</head>
+<body>
+<h2>User Account Audit Report (bllinsatel01.rockwellcollins.com)</h2>
+<table>
+<tr>
+  <th>Username</th>
+  <th>UID</th>
+  <th>Shell</th>
+  <th>MinPwdAge</th>
+  <th>MaxPwdAge</th>
+  <th>InactiveDays</th>
+  <th>InteractiveShell</th>
+  <th>PasswordComplexity</th>
+  <th>UserType</th>
+  <th>Compliance</th>
+</tr>
+<tr class="ok"><td>systemd-network</td><td>192</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>polkitd</td><td>999</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>chrony</td><td>998</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>geoclue</td><td>997</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>saslauth</td><td>996</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>qpidd</td><td>995</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>qdrouterd</td><td>994</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>mongodb</td><td>184</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>foreman-proxy</td><td>993</td><td>/bin/false</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>foreman</td><td>992</td><td>/bin/false</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>redis</td><td>991</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>puppet</td><td>990</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>nfsnobody</td><td>65534</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Regular</td><td>OK</td></tr>
+<tr class="ok"><td>nrpe</td><td>989</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="warn"><td>splunkfwd</td><td>1000</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="ok"><td>monuser</td><td>1003</td><td>/bin/bash</td><td>1</td><td>90</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>OK</td></tr>
+</table><br>
+<b>Global password inactivity default (useradd):</b> -1<br>
+<b>Password complexity PAM status:</b> PARTIAL<br>
+<hr><i>Report generated on mer. juin 25 16:07:22 CEST 2025</i></body></html>

@@ -1,0 +1,35 @@
+- name: CIS Linux Audit Playbook
+  hosts: all
+  become: true
+  vars:
+    remote_script_path: /tmp/linux_cis_audit.sh
+    local_report_dir: ./cis_reports
+  tasks:
+    - name: Create remote script from local file
+      copy:
+        src: files/linux_cis_audit_v27.sh
+        dest: "{{ remote_script_path }}"
+        mode: '0755'
+
+    - name: Run the CIS audit script
+      shell: "bash {{ remote_script_path }}"
+      register: audit_result
+      args:
+        executable: /bin/bash
+
+    - name: Find generated report files on remote host
+      find:
+        paths: /tmp
+        patterns: 'cis_audit_report_*'
+      register: report_files
+
+    - name: Fetch reports from remote host
+      fetch:
+        src: "{{ item.path }}"
+        dest: "{{ local_report_dir }}/{{ inventory_hostname }}/"
+        flat: yes
+      loop: "{{ report_files.files }}"
+
+    - name: Display execution result
+      debug:
+        var: audit_result.stdout_lines

@@ -1,7 +1,3 @@
-# production inventory
-# hosts can be in multiple groups 
-# example: we could create a group pdm: including pdm_prod and pdm_dev
-# you can also define variables here
 all:
   children:
     satellite:
@@ -104,21 +100,4 @@ all:
       hosts:
         fr7ulr7se01:
         fr7ulr7se02:
-#    solaris_hosts:
-#      hosts:
-#        # Hyperviseur pour Solaris
-#        blsunldom01:
-#        # LDOM pour engineering and flexlm zones
-#        cfrc10353ap004:
-#        # serveur solaris 11 pour ACR350
-#        cfrc10353ap005:
-#        acars:
-#        hercule:
-#        madiran:
-#        neptune:
-#        pallas:
-#        phoebe:
-#        rennes:
-#        saphir:
-#
-#        
+        

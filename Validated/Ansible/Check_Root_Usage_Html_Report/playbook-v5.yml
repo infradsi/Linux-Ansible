@@ -54,7 +54,3 @@
 
 
            
-    - name: Clean up temporary folder and content
-      ansible.builtin.file:
-        path: /ansible-tmp
-        state: absent
