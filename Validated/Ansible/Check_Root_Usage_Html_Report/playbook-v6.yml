@@ -1,0 +1,38 @@
+- name: Run root usage audit and retrieve HTML report
+  hosts: all
+  become: true
+  gather_facts: false
+  vars:
+    report_path: /ansible-tmp/root_audit_{{ inventory_hostname }}_*.html
+  tasks:
+  - name: Create directory for daily logs
+    ansible.builtin.file:
+      path: /ansible-tmp
+      state: directory
+      mode: '0755'
+  - name: Copy audit script to remote host
+    copy:
+      src: files/check_root_usage_html-v2.sh
+      dest: /ansible-tmp/check_root_usage_html.sh
+      mode: '0755'
+  - name: Run audit script on remote host
+    shell: /ansible-tmp/check_root_usage_html.sh
+    args:
+      executable: /bin/bash
+  - name: Find generated HTML report
+    shell: find /ansible-tmp -name 'root_audit_{{ inventory_hostname }}_*.html' -printf
+      '%T@ %p\n' 2>/dev/null | sort -n | tail -1 | cut -d' ' -f2-
+    register: audit_report_path
+    changed_when: false
+  - name: Debug report path result
+    debug:
+      var: audit_report_path.stdout
+  - name: Fail if no report file was found
+    fail:
+      msg: No audit report found for host {{ inventory_hostname }}
+    when: audit_report_path.stdout == ""
+  - name: Fetch HTML report to control node
+    fetch:
+      src: '{{ audit_report_path.stdout }}'
+      dest: reports/
+      flat: true
