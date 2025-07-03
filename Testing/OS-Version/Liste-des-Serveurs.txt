@@ -1,0 +1,52 @@
+Elexis / Téléphonie
+bl726-0amdf-expca	 	
+bl726-0jmdf-unitya	 	
+bl726-0mdf-cmt
+blcm01
+
+bllinalmqa01
+bllinalmqa06
+bllinapp37 
+bllinapp49
+bllinapp53
+bllinapp54 
+
+BLLINELK01
+BLLINELK02
+BLLINELK03
+
+???
+bllinlabcyber01
+
+??? Monitoring du labo
+BLLINLABMON
+
+??? En decomission
+bllinocum01
+
+??? En decomission (RHEL 7)
+bllinpdmfcs01 
+
+??? Pas accéssible
+bllinproxyvsa01
+
+?? Old sat
+bllinsatel01	
+
+cfrc10353ap007
+cfrc10353ap009 
+cfrc10353ap010 	 
+cfrc10353ap012 	 
+cfrc10353ap013 	 
+cfrc10353ap014	 	 
+cfrc10353ap016
+cfrc10353ap017
+cfrc10353ap018
+cfrc10353aq002
+cfrc10353aq015
+cfrc10353bp001
+cfrc10353dq002
+
+FOMAX-RP10	 	
+
+fr-kubmgr01
