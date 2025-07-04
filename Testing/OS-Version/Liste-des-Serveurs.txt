@@ -1,19 +1,14 @@
-Elexis / Téléphonie
+Alexis / Téléphonie
 bl726-0amdf-expca	 	
 bl726-0jmdf-unitya	 	
 bl726-0mdf-cmt
 blcm01
 
-bllinalmqa01
-bllinalmqa06
-bllinapp37 
-bllinapp49
-bllinapp53
-bllinapp54 
-
-BLLINELK01
-BLLINELK02
-BLLINELK03
+bllinalmqa06 / Pas accès /
+bllinapp37 / Boucle sur password /
+bllinapp49 / Boucle sur password /
+bllinapp53 / ne répond pas /
+bllinapp54 / ne répond pas / 
 
 ???
 bllinlabcyber01
@@ -30,7 +25,7 @@ bllinpdmfcs01
 ??? Pas accéssible
 bllinproxyvsa01
 
-?? Old sat
+?? Old sat / En decomission
 bllinsatel01	
 
 cfrc10353ap007
