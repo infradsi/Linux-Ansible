@@ -1,35 +1,43 @@
 #!/bin/bash
 
 #=== CONFIGURATION ========================================================
-INVENTORY_FILE="inventaire-ok.yml"     # Ansible inventory file
-USERNAME="fr-726-ansible"          # User to test SSH access
-SSH_KEY=""                         # Optional: path to SSH private key (e.g., ~/.ssh/id_rsa)
-TIMEOUT=5                          # SSH timeout in seconds
+HOSTS_FILE="servers.txt"           # Fichier contenant la liste des hôtes (1 par ligne)
+USERNAME="fr-726-ansible"          # Compte à tester
+TIMEOUT=5                          # Timeout SSH en secondes
+NonASCIIChars-OK  = "🟢"
+NonASCIIChars-NOK = "🔴"
 #========================================================================
 
-#=== FUNCTIONS ===========================================================
-print_header() {
-    echo "==================================================================="
-    echo "🔍 SSH Access Check for User: $USERNAME"
-    echo "📁 Using Inventory: $INVENTORY_FILE"
-    echo "==================================================================="
-}
+# Demande du mot de passe avec masquage
+read -s -p "🔐 Entrez le mot de passe pour l'utilisateur '$USERNAME' : " PASSWORD
+echo
 
-parse_inventory() {
-    # Get all non-empty, non-comment, non-group lines (support for INI format)
-    grep -Ev '^\s*(#|$|\[)' "$INVENTORY_FILE" | awk '{print $1}' | sort -u
-}
+# Vérification fichier
+if [[ ! -f "$HOSTS_FILE" ]]; then
+    echo "❌ Fichier $HOSTS_FILE introuvable."
+    exit 1
+fi
 
-check_ssh_access() {
-    local host="$1"
-    local ssh_cmd="ssh -o ConnectTimeout=$TIMEOUT -o BatchMode=yes -o StrictHostKeyChecking=no"
+# Nettoyage des anciens logs
+rm -f ssh_access_success.log ssh_access_failed.log
 
-    [[ -n "$SSH_KEY" ]] && ssh_cmd="$ssh_cmd -i $SSH_KEY"
+echo "==================================================================="
+echo "🔍 Vérification de l'accès SSH pour l'utilisateur '$USERNAME'"
+echo "📁 Liste d'hôtes : $HOSTS_FILE"
+echo "==================================================================="
+echo
 
-    local full_cmd="$ssh_cmd $USERNAME@$host \"exit\""
-    echo "👉 Testing: $full_cmd"
+# Boucle sur chaque hôte
+while IFS= read -r host || [[ -n "$host" ]]; do
+    [[ -z "$host" || "$host" == \#* ]] && continue  # ignorer lignes vides ou commentées
 
-    eval $full_cmd >/dev/null 2>&1
+    echo "👉 Test SSH sur $host ..."
+
+    sshpass -p "$PASSWORD" ssh -o ConnectTimeout=$TIMEOUT \
+        -o StrictHostKeyChecking=no \
+        -o UserKnownHostsFile=/dev/null \
+        "$USERNAME@$host" "echo OK" >/dev/null 2>&1
+
     if [[ $? -eq 0 ]]; then
         echo "[✅ SUCCESS] $host"
         echo "$host" >> ssh_access_success.log
@@ -37,25 +45,11 @@ check_ssh_access() {
         echo "[❌ FAILURE] $host"
         echo "$host" >> ssh_access_failed.log
     fi
+
     echo
-}
+done < "$HOSTS_FILE"
 
-#=== MAIN =================================================================
-print_header
-rm -f ssh_access_success.log ssh_access_failed.log
-
-HOSTS=$(parse_inventory)
-if [[ -z "$HOSTS" ]]; then
-    echo "❗ No valid hosts found in inventory. Exiting."
-    exit 1
-fi
-
-for host in $HOSTS; do
-    check_ssh_access "$host"
-done
-
-#=== SUMMARY ==============================================================
-echo "✅ SSH Access Check Completed."
-echo "------------------------------"
-echo "🟢 Successes: $(wc -l < ssh_access_success.log 2>/dev/null || echo 0)"
-echo "🔴 Failures : $(wc -l < ssh_access_failed.log 2>/dev/null || echo 0)"
+# Résumé
+echo "🟢🟢🟢 Résumé :"
+echo "🟢 Succès : $(wc -l < ssh_access_success.log 2>/dev/null || echo 0)"
+echo "🔴 Échecs : $(wc -l < ssh_access_failed.log 2>/dev/null || echo 0)"
