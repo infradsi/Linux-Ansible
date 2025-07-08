@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# MGH / CIS Linux Audit Script - VERSION 26 du 2/6/2025
+# MGH / CIS Linux Audit Script - VERSION 27 du 7/7/2025
 #
 # Reference: https://www.cisecurity.org/benchmark/red_hat_linux
 #
