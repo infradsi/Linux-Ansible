@@ -50,6 +50,6 @@ while IFS= read -r host || [[ -n "$host" ]]; do
 done < "$HOSTS_FILE"
 
 # Résumé
-echo "🟢🟢🟢 Résumé :"
+echo "Résumé :"
 echo "🟢 Succès : $(wc -l < ssh_access_success.log 2>/dev/null || echo 0)"
 echo "🔴 Échecs : $(wc -l < ssh_access_failed.log 2>/dev/null || echo 0)"

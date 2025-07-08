@@ -1,0 +1,61 @@
+---
+- name: Audit Linux System
+  hosts: all
+  become: true
+  vars:
+    rapport_distant_dir: "/ansible-tmp"
+    rapport_local_dir: "/tmp/rapports_ansible"
+  tasks:
+    - name: Créer le répertoire local pour les rapports de cet hôte
+      delegate_to: localhost
+      run_once: false
+      file:
+        path: "{{ rapport_local_dir }}/{{ inventory_hostname }}"
+        state: directory
+        mode: '0755'
+
+    - name: Créer le répertoire temporaire distant
+      file:
+        path: "{{ rapport_distant_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Exécuter le script d'audit dans le dossier /ansible-tmp
+      shell: "cd {{ rapport_distant_dir }} && /opt/scripts/audit_securite.sh"
+      args:
+        executable: /bin/bash
+      register: audit_result
+
+    - name: Afficher le résultat brut du script
+      debug:
+        var: audit_result.stdout_lines
+
+    - name: Lister les fichiers générés par le script
+      shell: ls -l {{ rapport_distant_dir }}
+      register: liste_fichiers
+      ignore_errors: yes
+
+    - debug:
+        var: liste_fichiers.stdout_lines
+
+    - name: Forcer les droits sur les fichiers de rapport
+      shell: chmod 644 {{ rapport_distant_dir }}/rapport_audit.*
+      ignore_errors: yes
+
+    - name: Vérifier la présence des fichiers de rapport
+      shell: ls -lh {{ rapport_distant_dir }}/rapport_audit.*
+      register: fichiers_visibles
+      ignore_errors: yes
+
+    - debug:
+        var: fichiers_visibles.stdout_lines
+
+    - name: Copier les rapports HTML et CSV vers le serveur Ansible
+      fetch:
+        src: "{{ rapport_distant_dir }}/{{ item }}"
+        dest: "{{ rapport_local_dir }}/{{ inventory_hostname }}/"
+        flat: yes
+      loop:
+        - "rapport_audit.csv"
+        - "rapport_audit.html"
+      ignore_errors: yes
