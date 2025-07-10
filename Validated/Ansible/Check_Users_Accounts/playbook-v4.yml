@@ -39,11 +39,11 @@
         var: liste_fichiers.stdout_lines
 
     - name: Forcer les droits sur les fichiers de rapport
-      shell: chmod 644 {{ rapport_distant_dir }}/rapport_audit.*
+      shell: chmod 644 {{ rapport_distant_dir }}/user_rapport_audit.*
       ignore_errors: yes
 
     - name: Vérifier la présence des fichiers de rapport
-      shell: ls -lh {{ rapport_distant_dir }}/rapport_audit.*
+      shell: ls -lh {{ rapport_distant_dir }}/user_rapport_audit.*
       register: fichiers_visibles
       ignore_errors: yes
 
