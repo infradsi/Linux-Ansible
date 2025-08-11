@@ -1,0 +1,6 @@
+all:
+  hosts:
+    srv1:
+      ansible_host: 192.168.1.101
+    srv2:
+      ansible_host: 192.168.1.102

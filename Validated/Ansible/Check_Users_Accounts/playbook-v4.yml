@@ -1,61 +1,67 @@
----
-- name: Audit Linux System
+- name: Audit sécurité utilisateurs (password policy, comptes inactifs, etc.)
   hosts: all
-  become: true
+  become: yes
+  gather_facts: no
+
   vars:
-    rapport_distant_dir: "/ansible-tmp"
-    rapport_local_dir: "/tmp/rapports_ansible"
+    remote_script_path: /ansible-tmp/check_users_security_v3.sh
+    local_report_dir: /ansible-tmp
+
   tasks:
-    - name: Créer le répertoire local pour les rapports de cet hôte
-      delegate_to: localhost
-      run_once: false
-      file:
-        path: "{{ rapport_local_dir }}/{{ inventory_hostname }}"
+
+    - name: Créer le répertoire temporaire sur l’hôte
+      ansible.builtin.file:
+        path: /ansible-tmp
         state: directory
         mode: '0755'
 
-    - name: Créer le répertoire temporaire distant
-      file:
-        path: "{{ rapport_distant_dir }}"
-        state: directory
+    - name: Copier le script d’audit sur l’hôte
+      copy:
+        src: ./files/check_users_security_v3.sh
+        dest: "{{ remote_script_path }}"
         mode: '0755'
 
-    - name: Exécuter le script d'audit dans le dossier /ansible-tmp
-      shell: "cd {{ rapport_distant_dir }} && /opt/scripts/audit_securite.sh"
+    - name: Vérifier la valeur du chemin
+      debug:
+        var: remote_script_path
+
+    - name: Exécuter le script sur l’hôte distant
+      shell: "{{ remote_script_path }}"
+      become: true
       args:
         executable: /bin/bash
-      register: audit_result
 
-    - name: Afficher le résultat brut du script
-      debug:
-        var: audit_result.stdout_lines
+    - name: Créer le répertoire local pour les rapports de cet hôte
+      ansible.builtin.file:
+        path: "./reports/{{ inventory_hostname }}"
+        state: directory
+      delegate_to: localhost
+      become: true
+      
 
-    - name: Lister les fichiers générés par le script
-      shell: ls -l {{ rapport_distant_dir }}
-      register: liste_fichiers
-      ignore_errors: yes
 
-    - debug:
-        var: liste_fichiers.stdout_lines
-
-    - name: Forcer les droits sur les fichiers de rapport
-      shell: chmod 644 {{ rapport_distant_dir }}/user_rapport_audit.*
-      ignore_errors: yes
-
-    - name: Vérifier la présence des fichiers de rapport
-      shell: ls -lh {{ rapport_distant_dir }}/user_rapport_audit.*
-      register: fichiers_visibles
-      ignore_errors: yes
-
-    - debug:
-        var: fichiers_visibles.stdout_lines
-
-    - name: Copier les rapports HTML et CSV vers le serveur Ansible
+    - name: Récupérer le rapport CSV 
       fetch:
-        src: "{{ rapport_distant_dir }}/{{ item }}"
-        dest: "{{ rapport_local_dir }}/{{ inventory_hostname }}/"
+        src: /ansible-tmp/user_account_audit.csv
+        dest: "{{ local_report_dir }}/{{ inventory_hostname }}/user_account_audit.csv"
         flat: yes
+        become: true
+    
+    - name: Récupérer le rapport HTML
+      fetch:
+        src: /ansible-tmp/user_account_audit.html
+        dest: "{{ local_report_dir }}/{{ inventory_hostname }}/user_account_audit.html"
+        flat: yes
+        become: true
+
+
+    
+    - name: Nettoyer les fichiers temporaires
+      file:
+        path: "/ansible-tmp/{{ item }}"
+        state: absent
+        become: true
       loop:
-        - "rapport_audit.csv"
-        - "rapport_audit.html"
-      ignore_errors: yes
+        - check_users_security_v3.sh
+        - user_account_audit.csv
+        - user_account_audit.html  

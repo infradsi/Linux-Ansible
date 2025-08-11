@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CSV_REPORT="user_account_audit.csv"
-HTML_REPORT="user_account_audit.html"
+CSV_REPORT="/ansible-tmp/user_account_audit.csv"
+HTML_REPORT="/ansible-tmp/user_account_audit.html"
 
 # Prepare CSV/HTML header
 echo "Username,UID,Shell,MinPasswordAge,MaxPasswordAge,InactiveDays,InteractiveShell,PasswordComplexity,UserType,ComplianceSummary" > "$CSV_REPORT"

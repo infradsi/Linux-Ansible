@@ -23,6 +23,7 @@
 
     - name: Exécuter le script sur l’hôte distant
       shell: "{{ remote_script_path }}"
+      become: true
       args:
         executable: /bin/bash
 
