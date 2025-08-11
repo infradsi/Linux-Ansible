@@ -3,6 +3,8 @@
 # Find what's taking space on a Linux server (RHEL/CentOS/Alma/Rocky/Ubuntu).
 # Requires: coreutils (du, sort, head), findutils; optional: numfmt, journalctl, rpm.
 
+# Last version: 11/08/2025 - 17h12
+
 set -euo pipefail
 
 TARGET="/"
