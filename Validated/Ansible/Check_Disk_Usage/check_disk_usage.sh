@@ -33,7 +33,7 @@ while [[ $# -gt 0 ]]; do
     --all-mounts) ALL_MOUNTS=1; shift ;;
     -h|--help) usage ;;
     *) echo "Unknown arg: $1"; usage ;;
-  endcase
+  esac
 done 2>/dev/null || true
 
 [[ -d "$TARGET" ]] || { echo "Path not found: $TARGET" >&2; exit 1; }
