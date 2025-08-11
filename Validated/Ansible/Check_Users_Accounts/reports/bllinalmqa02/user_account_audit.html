@@ -24,24 +24,24 @@ th { background-color: #f2f2f2; }
   <th>UserType</th>
   <th>Compliance</th>
 </tr>
-<tr class="ok"><td>systemd-network</td><td>192</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>polkitd</td><td>999</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="warn"><td>systemd-network</td><td>192</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>polkitd</td><td>999</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
 <tr class="warn"><td>admindt</td><td>1000</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
 <tr class="ok"><td>splunk</td><td>1001</td><td>/bin/bash</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>OK</td></tr>
-<tr class="ok"><td>nfsnobody</td><td>65534</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Regular</td><td>OK</td></tr>
-<tr class="ok"><td>nagios</td><td>998</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>nrpe</td><td>997</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>nfsnobody</td><td>65534</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>OK</td></tr>
+<tr class="warn"><td>nagios</td><td>998</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>nrpe</td><td>997</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
 <tr class="warn"><td>confluence</td><td>1003</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
 <tr class="warn"><td>sisips</td><td>1009</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
-<tr class="ok"><td>dcscaf</td><td>1010</td><td>/sbin/nologin</td><td>1</td><td>60</td><td></td><td>NO</td><td>Partial</td><td>Regular</td><td>OK</td></tr>
-<tr class="ok"><td>systemd-coredump</td><td>996</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>systemd-resolve</td><td>193</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>chrony</td><td>995</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>unbound</td><td>994</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>sssd</td><td>993</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>Partial</td><td>Service</td><td>OK</td></tr>
+<tr class="ok"><td>dcscaf</td><td>1010</td><td>/sbin/nologin</td><td>1</td><td>60</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>OK</td></tr>
+<tr class="warn"><td>systemd-coredump</td><td>996</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>systemd-resolve</td><td>193</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>chrony</td><td>995</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>unbound</td><td>994</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>sssd</td><td>993</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
 <tr class="ok"><td>splunkfwd</td><td>1011</td><td>/bin/bash</td><td>1</td><td>60</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>OK</td></tr>
 <tr class="ok"><td>monuser</td><td>1012</td><td>/bin/bash</td><td>1</td><td>90</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>OK</td></tr>
 </table><br>
 <b>Global password inactivity default (useradd):</b> -1<br>
 <b>Password complexity PAM status:</b> PARTIAL<br>
-<hr><i>Report generated on mer. juin 25 16:07:27 CEST 2025</i></body></html>
+<hr><i>Report generated on lun. août 11 10:13:37 CEST 2025</i></body></html>

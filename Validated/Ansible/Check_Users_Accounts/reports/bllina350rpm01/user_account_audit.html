@@ -24,26 +24,26 @@ th { background-color: #f2f2f2; }
   <th>UserType</th>
   <th>Compliance</th>
 </tr>
-<tr class="warn"><td>nobody</td><td>65534</td><td>/usr/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
-<tr class="ok"><td>syslog</td><td>101</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>messagebus</td><td>102</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>landscape</td><td>103</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>sshd</td><td>104</td><td>/usr/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
+<tr class="warn"><td>nobody</td><td>65534</td><td>/usr/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="warn"><td>syslog</td><td>101</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>messagebus</td><td>102</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>landscape</td><td>103</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>sshd</td><td>104</td><td>/usr/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
 <tr class="warn"><td>vmware</td><td>1000</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
-<tr class="ok"><td>statd</td><td>105</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>ntp</td><td>106</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>snmp</td><td>107</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>postfix</td><td>108</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>colord</td><td>109</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>systemd-timesync</td><td>110</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>systemd-network</td><td>111</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>systemd-resolve</td><td>112</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>uuidd</td><td>100</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>nagios</td><td>114</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>_apt</td><td>115</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>Debian-snmp</td><td>113</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>saned</td><td>116</td><td>/usr/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Service</td><td>OK</td></tr>
-<tr class="warn"><td>splunk</td><td>1806</td><td>/usr/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="warn"><td>statd</td><td>105</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>ntp</td><td>106</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>snmp</td><td>107</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>postfix</td><td>108</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>colord</td><td>109</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>systemd-timesync</td><td>110</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>systemd-network</td><td>111</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>systemd-resolve</td><td>112</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>uuidd</td><td>100</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>nagios</td><td>114</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>_apt</td><td>115</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>Debian-snmp</td><td>113</td><td>/bin/false</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>saned</td><td>116</td><td>/usr/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>splunk</td><td>1806</td><td>/usr/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
 <tr class="warn"><td>dmechain</td><td>1332</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
 <tr class="warn"><td>ecadic</td><td>208</td><td>/bin/bash</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>NOT_SET</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
 <tr class="warn"><td>fdeweulf</td><td>1660</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
@@ -68,10 +68,10 @@ th { background-color: #f2f2f2; }
 <tr class="warn"><td>fblanche</td><td>1512</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
 <tr class="ok"><td>C95046141</td><td>1885</td><td>/bin/bash</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>OK</td></tr>
 <tr class="warn"><td>sisips</td><td>19002</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
-<tr class="warn"><td>dcscaf</td><td>19003</td><td>/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>NO</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="warn"><td>dcscaf</td><td>19003</td><td>/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
 <tr class="warn"><td>e40014808</td><td>19004</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
 <tr class="warn"><td>E10687444</td><td>19005</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>NOT_SET</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
 </table><br>
 <b>Global password inactivity default (useradd):</b> -1<br>
 <b>Password complexity PAM status:</b> NOT_SET<br>
-<hr><i>Report generated on mercredi 25 juin 2025, 16:07:32 (UTC+0200)</i></body></html>
+<hr><i>Report generated on lundi 11 août 2025, 10:13:44 (UTC+0200)</i></body></html>

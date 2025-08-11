@@ -24,37 +24,37 @@ th { background-color: #f2f2f2; }
   <th>UserType</th>
   <th>Compliance</th>
 </tr>
-<tr class="warn"><td>nobody</td><td>65534</td><td>/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>NO</td><td>OK</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
-<tr class="ok"><td>systemd-coredump</td><td>999</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>systemd-resolve</td><td>193</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>polkitd</td><td>998</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>unbound</td><td>997</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>sssd</td><td>996</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>chrony</td><td>995</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>pesign</td><td>994</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="warn"><td>nobody</td><td>65534</td><td>/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>YES</td><td>OK</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="warn"><td>systemd-coredump</td><td>999</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>systemd-resolve</td><td>193</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>polkitd</td><td>998</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>unbound</td><td>997</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>sssd</td><td>996</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>chrony</td><td>995</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>pesign</td><td>994</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
 <tr class="warn"><td>splunk</td><td>899</td><td>/bin/bash</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
-<tr class="ok"><td>qemu</td><td>107</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>rtkit</td><td>172</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>pipewire</td><td>897</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>usbmuxd</td><td>113</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>gluster</td><td>896</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>saslauth</td><td>895</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>geoclue</td><td>894</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>libstoragemgmt</td><td>893</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>pulse</td><td>171</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>dnsmasq</td><td>989</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>clevis</td><td>892</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>cockpit-ws</td><td>891</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>cockpit-wsinstance</td><td>890</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>flatpak</td><td>889</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>colord</td><td>888</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>setroubleshoot</td><td>887</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>gnome-initial-setup</td><td>886</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
-<tr class="ok"><td>nrpe</td><td>885</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>NO</td><td>OK</td><td>Service</td><td>OK</td></tr>
+<tr class="warn"><td>qemu</td><td>107</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>rtkit</td><td>172</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>pipewire</td><td>897</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>usbmuxd</td><td>113</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>gluster</td><td>896</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>saslauth</td><td>895</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>geoclue</td><td>894</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>libstoragemgmt</td><td>893</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>pulse</td><td>171</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>dnsmasq</td><td>989</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>clevis</td><td>892</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>cockpit-ws</td><td>891</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>cockpit-wsinstance</td><td>890</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>flatpak</td><td>889</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>colord</td><td>888</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>setroubleshoot</td><td>887</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>gnome-initial-setup</td><td>886</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>nrpe</td><td>885</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>OK</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
 <tr class="warn"><td>sisips</td><td>1000</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>OK</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
-<tr class="ok"><td>dcscaf</td><td>1003</td><td>/sbin/nologin</td><td>1</td><td>60</td><td></td><td>NO</td><td>OK</td><td>Regular</td><td>OK</td></tr>
+<tr class="ok"><td>dcscaf</td><td>1003</td><td>/sbin/nologin</td><td>1</td><td>60</td><td></td><td>YES</td><td>OK</td><td>Regular</td><td>OK</td></tr>
 </table><br>
 <b>Global password inactivity default (useradd):</b> -1<br>
 <b>Password complexity PAM status:</b> OK<br>
 <pre>minlen = 14</pre>
-<hr><i>Report generated on mer. juin 25 16:07:30 CEST 2025</i></body></html>
+<hr><i>Report generated on lun. août 11 10:13:40 CEST 2025</i></body></html>
