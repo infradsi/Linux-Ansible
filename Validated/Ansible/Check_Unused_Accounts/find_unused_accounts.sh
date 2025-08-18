@@ -13,7 +13,7 @@ set -o nounset
 set -o pipefail
 
 DAYS=90
-CSV_OUT=""
+CSV_OUT="unused_accounts.csv"
 INCLUDE_NONINTERACTIVE=0      # 0 = only real shells; 1 = include nologin/false
 SKIP_USERS="root"             # comma-separated usernames to exclude
 
