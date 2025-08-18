@@ -3,6 +3,11 @@
 # List local login-capable accounts unused for more than N days.
 # Works on RHEL/CentOS/Alma/Rocky/Ubuntu/Debian.
 
+# Script to get unused logings on Linux Systems
+# By defaults return accounts (with shell) not logged in for more than 90 days
+
+
+
 set -o errexit
 set -o nounset
 set -o pipefail
