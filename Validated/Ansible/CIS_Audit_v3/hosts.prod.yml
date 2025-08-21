@@ -1,32 +1,34 @@
 # production inventory
-# hosts can be in multiple groups
+# hosts can be in multiple groups 
 # example: we could create a group pdm: including pdm_prod and pdm_dev
 # you can also define variables here
 all:
   children:
     satellite:
       hosts:
-#        bllinsatel01:
+        bllinsatel01:
         cfrc10353ap008:
     svn_prod:
       hosts:
         bllinsvn02:
     pdm_qa:
       hosts:
-#         cfrc10353aq012:   # Ping NOK !
-#         cfrc10353aq013:   # Ping NOK !
-#         cfrc10353aq014:   # Ping NOK !
-#         cfrc10353aq016:   # Ping NOK !
-#         cfrc10353aq017:   # Ping NOK !
-#         cfrc10353dq003:   # Ping NOK !
+        cfrc10353aq012:
+        cfrc10353aq013:
+        cfrc10353aq014:
+        cfrc10353aq016:
+        cfrc10353aq017:
+        cfrc10353dq003:
+        cfrc10353ap011:
     pdm_prod:
       hosts: 
-#          cfrc10353ap012:   # Ping NOK !
-#          cfrc10353ap013:   # Ping NOK !
-#          cfrc10353ap014:   # Ping NOK !
-#          cfrc10353ap016:   # Ping NOK !
-#          cfrc10353ap017:   # Ping NOK !
-#          cfrc10353dp003:   # Ping NOK !
+         cfrc10353ap022:
+         cfrc10353ap012:
+         cfrc10353ap013:
+         cfrc10353ap014:
+         cfrc10353ap016:
+         cfrc10353ap017:
+         cfrc10353dp003:
     alm_prod:
       hosts:
         bllinalm01:
@@ -61,13 +63,11 @@ all:
         bllinapp42:
         bllinapp45:
         bllinapp46:
-#        bllinapp47:
+        bllinapp47:
         bllinapp48:
-#         bllinapp49:   # Ping NOK !
         bllinapp50:
         #bllinapp52:
-#         bllinapp53:   # Ping NOK !
-        bllinapp55:
+        bllinapp55: 
         bllinapp56:
         bllinapp57:
         bllinapp58:
@@ -86,20 +86,18 @@ all:
         cfrc10353ap007:
         cfrc10353ap009:
         cfrc10353ap010:
-        cfrc10353ap011:
         cfrc10353ap018:
-#         cfrc10353aq019:   # Ping NOK !
-#         cfrc10353aq022:   # Ping NOK !
+        cfrc10353aq019:
+        cfrc10353aq020:
+        cfrc10353aq021:
+        cfrc10353aq022:
         pallas-new:
     centos_hosts:
       hosts:
         buzet:
-#         bllinapp49:   # Ping NOK !
-#         bllinapp53:   # Ping NOK !
-#         bllinapp54:   # Ping NOK !
     rhel_tmpl:
       hosts:
-#         blvmware-tmpl:   # Ping NOK !
+        blvmware-tmpl:
     sec_hosts:
       hosts:
         fr7ulr7se01:
@@ -121,3 +119,4 @@ all:
 #        rennes:
 #        saphir:
 #
+#        
