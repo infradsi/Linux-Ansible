@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# MGH / CIS Linux Audit Script - VERSION 27 du 7/7/2025
+# MGH / CIS Linux Audit Script - VERSION 40 du 20/8/2025
 #
 # Reference: https://www.cisecurity.org/benchmark/red_hat_linux
 #
@@ -22,6 +22,14 @@
 # Updated to include host FQDN in lofgile name
 LOG_FILE="cis_audit_report_$(hostname -f)_$(date +%F).log"
 
+#Exceptions comment files folder
+CIS_EXEPTIONS_FOLDER="/cis/"
+
+#Exception comment file namming format
+# cis-ID.txt
+# cis-1.1.0.txt
+# cis-3.5.1.txt
+# file can contain up to 4000 Char
 
 
 echo "Starting CIS audit on $(date)" > "$LOG_FILE"
