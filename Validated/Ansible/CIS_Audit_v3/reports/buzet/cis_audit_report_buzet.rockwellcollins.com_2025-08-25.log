@@ -1,4 +1,4 @@
-Starting CIS audit on lun. août 25 10:07:31 CEST 2025
+Starting CIS audit on lun. août 25 16:45:04 CEST 2025
 =========================================
 Auditing: 1.10 Ensure system-wide crypto policy is not legacy
 Result: OK
@@ -153,15 +153,23 @@ Result: NOT COMPLIANT
 -----------------------------------------
 Auditing: 1.7.1.5 Ensure no unconfined services exist
 ❌ Unconfined services found:
-unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 23409 ? 00:00:00 sshd
-unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 23423 pts/0 00:00:00 sh
-unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 23425 pts/0 00:00:00 sudo
-unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 23432 pts/0 00:00:00 sh
-unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 23433 pts/0 00:00:00 python
-unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 23438 pts/0 00:00:00 linux_cis_audit
-unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 23627 pts/0 00:00:00 linux_cis_audit
-unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 23628 pts/0 00:00:00 ps
-unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 23629 pts/0 00:00:00 awk
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 12942 ? 00:00:00 sshd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 12946 pts/0 00:00:00 bash
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 13005 pts/0 00:00:00 sudo
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 13075 pts/0 00:00:00 su
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 13077 pts/0 00:00:00 bash
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 20948 ? 00:00:00 sshd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 20956 pts/1 00:00:00 bash
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 25871 pts/0 00:00:00 tail
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 27015 ? 00:00:00 sshd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 28413 pts/2 00:00:00 sh
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 28414 pts/2 00:00:00 sudo
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 28424 pts/2 00:00:00 sh
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 28425 pts/2 00:00:00 python
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 28430 pts/2 00:00:00 linux_cis_audit
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 29168 pts/2 00:00:00 linux_cis_audit
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 29169 pts/2 00:00:00 ps
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 29170 pts/2 00:00:00 awk
 Result: NOT COMPLIANT
 -----------------------------------------
 Auditing: 1.7.1.6 Ensure SETroubleshoot is not installed

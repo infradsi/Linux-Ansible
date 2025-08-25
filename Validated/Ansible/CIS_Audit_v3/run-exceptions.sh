@@ -1,1 +1,6 @@
-python3 build_cis_exceptions.py --root /home/C95059561/ansible/CIS_Audit_v3/reports --dry-run --verbose
+#python3 build_cis_exceptions.py --root /home/C95059561/ansible/CIS_Audit_v3/reports --dry-run --verbose
+
+python3 build_cis_exceptions.py --root /home/C95059561/ansible/CIS_Audit_v3/reports --verbose
+
+
+
