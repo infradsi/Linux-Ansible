@@ -1,0 +1,54 @@
+Starting CIS audit on ven. août 22 14:01:52 CEST 2025
+=========================================
+Auditing: 1.10 Ensure system-wide crypto policy is not legacy
+Result: OK
+-----------------------------------------
+Auditing: 1.1.10 Ensure noexec option set on /var/tmp partition
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.1.1 Ensure mounting of cramfs filesystems is disabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.11 Ensure separate partition exists for /var/log
+Result: OK
+-----------------------------------------
+Auditing: 1.1.1.2 Ensure mounting of vFAT filesystems is limited
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.12 Ensure separate partition exists for /var/log/audit
+Result: OK
+-----------------------------------------
+Auditing: 1.1.1.3 Ensure mounting of squashfs filesystems is disabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.13 Ensure separate partition exists for /home
+Result: OK
+-----------------------------------------
+Auditing: 1.1.1.4 Ensure mounting of udf filesystems is disabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.14 Ensure nodev option set on /home partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.15 Ensure nodev option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.16 Ensure nosuid option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.17 Ensure noexec option set on /dev/shm partition
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.18 Ensure nodev option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.1.19 Ensure nosuid option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.11 Ensure system-wide crypto policy is FUTURE or FIPS
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.20 Ensure noexec option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.1.21 Ensure sticky bit is set on all world-writable directories
