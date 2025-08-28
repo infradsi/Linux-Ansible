@@ -1,0 +1,1 @@
+//192.168.1.10/data  /mnt/syntony_data  cifs  username=user,password=syntony,_netdev,x-systemd.automount,noauto,nofail,x-systemd.requires=network-online.target,x-systemd.after=network-online.target  0  0
