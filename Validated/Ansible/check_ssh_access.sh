@@ -8,6 +8,7 @@ set -euo pipefail
 HOSTS_FILE="servers.txt"
 USERNAME="fr-726-ansible"
 TIMEOUT=5
+
 SSH_OPTS=(
   -n                                   # ne lit pas sur stdin (important)
   -T                                   # pas de pseudo-tty
