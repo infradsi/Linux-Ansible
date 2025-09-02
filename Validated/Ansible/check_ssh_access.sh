@@ -26,13 +26,10 @@ echo "==================================================================="
 echo
 
 # Boucle sur chaque hôte
-while IFS= read -r host || [[ -n "$host" ]]; do
-    [[ -z "$host" || "$host" == \#* ]] && continue  # ignorer lignes vides ou commentées - qui commencent par # ou *
-
+while IFS= read -r host; do
+    [[ -z "$host" || "$host" == \#* ]] && continue
     echo "Test SSH sur $host ..."
-
     sshpass -p "$PASSWORD" ssh -o ConnectTimeout=$TIMEOUT "$USERNAME@$host" "echo OK" >/dev/null 2>&1
-
     if [[ $? -eq 0 ]]; then
         echo "[✅ SUCCESS] $host"
         echo "$host" >> ssh_access_success.log
@@ -40,9 +37,9 @@ while IFS= read -r host || [[ -n "$host" ]]; do
         echo "[❌ FAILURE] $host"
         echo "$host" >> ssh_access_failed.log
     fi
-
     echo
 done < "$HOSTS_FILE"
+
 
 # Résumé
 echo "Résumé :"
