@@ -1,54 +1,46 @@
 #!/bin/bash
+set -euo pipefail
 
+HOSTS_FILE="servers.txt"
+USERNAME="fr-726-ansible"
+TIMEOUT=5
+SSH_OPTS=(
+  -n                                   # NE PAS lire sur stdin
+  -o ConnectTimeout=${TIMEOUT}
+  -o BatchMode=no
+  -o PreferredAuthentications=password
+  -o PubkeyAuthentication=no
+  -o StrictHostKeyChecking=no
+  -o UserKnownHostsFile=/dev/null
+  -o NumberOfPasswordPrompts=1
+  -o ConnectionAttempts=1
+)
 
-touch ./ssh_access_failed.log
-touch ./ssh_access_success.log
+[[ -f "$HOSTS_FILE" ]] || { echo "❌ $HOSTS_FILE introuvable"; exit 1; }
+command -v sshpass >/dev/null || { echo "❌ sshpass manquant"; exit 1; }
 
-#=== CONFIGURATION ========================================================
-HOSTS_FILE="servers.txt"           # Fichier contenant la liste des hôtes (1 par ligne)
-USERNAME="fr-726-ansible"          # Compte à tester
-TIMEOUT=5                          # Timeout SSH en secondes
-#========================================================================
+read -s -p "Mot de passe pour '$USERNAME' : " PASSWORD; echo
 
-# Demande du mot de passe avec masquage
-read -s -p "Entrez le mot de passe pour l'utilisateur '$USERNAME' : " PASSWORD
-echo
+: > ssh_access_success.log
+: > ssh_access_failed.log
 
-# Vérification fichier hosts
-if [[ ! -f "$HOSTS_FILE" ]]; then
-    echo "❌ Fichier $HOSTS_FILE introuvable."
-    exit 1
-fi
+CLEAN_HOSTS="$(mktemp)"
+sed 's/\r$//' "$HOSTS_FILE" \
+ | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' \
+ | awk 'NF>0 && $0 !~ /^[#]/' > "$CLEAN_HOSTS"
 
-# Nettoyage des anciens logs
-rm -f ssh_access_success.log ssh_access_failed.log
+while IFS= read -r host; do
+  [[ -z "$host" ]] && continue
+  echo "Test SSH sur $host ..."
+  if sshpass -p "$PASSWORD" ssh "${SSH_OPTS[@]}" "$USERNAME@$host" "echo OK" </dev/null >/dev/null 2>&1; then
+    echo "[✅ SUCCESS] $host"; echo "$host" >> ssh_access_success.log
+  else
+    echo "[❌ FAILURE] $host"; echo "$host" >> ssh_access_failed.log
+  fi
+  echo
+done < "$CLEAN_HOSTS"
 
-echo "==================================================================="
-echo " Vérification de l'accès SSH pour l'utilisateur '$USERNAME'"
-echo " Liste d'hôtes : $HOSTS_FILE"
-echo "==================================================================="
-echo
-
-# Boucle sur chaque hôte
-while IFS= read -r host || [[ -n "$host" ]]; do
-    [[ -z "$host" || "$host" == \#* ]] && continue  # ignorer lignes vides ou commentées - qui commencent par # ou *
-
-    echo "Test SSH sur $host ..."
-
-    sshpass -p "$PASSWORD" ssh -o ConnectTimeout=$TIMEOUT "$USERNAME@$host" "echo OK" >/dev/null 2>&1
-
-    if [[ $? -eq 0 ]]; then
-        echo "[✅ SUCCESS] $host"
-        echo "$host" >> ssh_access_success.log
-    else
-        echo "[❌ FAILURE] $host"
-        echo "$host" >> ssh_access_failed.log
-    fi
-
-    echo
-done < "$HOSTS_FILE"
-
-# Résumé
 echo "Résumé :"
-#echo "Succès : $(wc -l < ssh_access_success.log 2>/dev/null || echo 0)"
-#echo "Échecs : $(wc -l < ssh_access_failed.log 2>/dev/null || echo 0)"
+echo "  Succès : $(wc -l < ssh_access_success.log 2>/dev/null || echo 0)"
+echo "  Échecs : $(wc -l < ssh_access_failed.log 2>/dev/null || echo 0)"
+rm -f "$CLEAN_HOSTS"
