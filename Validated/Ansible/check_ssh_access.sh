@@ -45,6 +45,7 @@ sed 's/\r$//' "$HOSTS_FILE" \
   | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' \
   | awk 'NF>0 && $0 !~ /^[#]/' \
   > "$CLEAN_HOSTS"
+  
 
 echo "==================================================================="
 echo " Vérification de l'accès SSH pour l'utilisateur '$USERNAME'"
