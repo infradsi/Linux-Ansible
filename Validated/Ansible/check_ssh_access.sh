@@ -2,6 +2,8 @@
 # check_ssh_access_csv.sh – Test d'accès SSH par mot de passe depuis un servers.txt au format CSV
 # Format attendu de servers.txt : host1,host2,host3,... (espaces optionnels, CRLF/retours ligne acceptés)
 
+# Last version !
+
 set -euo pipefail
 
 #=== CONFIG ===============================================================
