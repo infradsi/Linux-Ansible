@@ -8,5 +8,9 @@ ansible-playbook -K -k -u fr-726-ansible -i mini-inventaire.yml playbook.yml --e
 # Sans création du compte
 ansible-playbook -K -k -u fr-726-ansible -i mini-inventaire.yml playbook.yml
 
+# Script en direct
+./Lx_Add_Account_As_Sudo_And_SSH_v2.sh fr-726-ansible --no-create
+
+
 
 
