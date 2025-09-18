@@ -1,0 +1,95 @@
+---
+- name: Gather OS information from RHEL 7/8/9 hosts
+  hosts: all
+  gather_facts: yes
+  vars:
+    report_dir: "./reports"
+    html_report: "{{ report_dir }}/os_report.html"
+    csv_report:  "{{ report_dir }}/os_report.csv"
+  tasks:
+    - name: Ensure report dir exists on control node
+      file:
+        path: "{{ report_dir }}"
+        state: directory
+        mode: '0755'
+      delegate_to: localhost
+      run_once: true
+
+    - name: Compute per-host fields (OS, patchlevel, kernel, arch, uptime)
+      set_fact:
+        os_dist: "{{ ansible_distribution | default('unknown') }}"
+        os_ver:  "{{ ansible_distribution_version | default('') }}"
+        patchlevel: >-
+          {{ (ansible_distribution_version.split('.') | length > 1)
+             | ternary(ansible_distribution_version.split('.')[1], '') }}
+        kernel: "{{ ansible_kernel | default('') }}"
+        arch:   "{{ ansible_architecture | default('') }}"
+        uptime_seconds: "{{ ansible_uptime_seconds | default(0) }}"
+      tags: collect
+
+    - name: Build human readable uptime
+      set_fact:
+        uptime_human: >-
+          {% set s = uptime_seconds | int %}
+          {% set d = s // 86400 %}
+          {% set h = (s % 86400) // 3600 %}
+          {% set m = (s % 3600) // 60 %}
+          {{ d }}d {{ h }}h {{ m }}m
+
+    - name: Add host result to accumulator on controller
+      local_action:
+        module: copy
+        content: "{{ inventory_hostname }},{{ os_dist }},{{ os_ver }},{{ patchlevel }},{{ kernel }},{{ arch }},{{ uptime_human }},\n"
+        dest: "/tmp/ansible_os_tmp_{{ inventory_hostname }}.txt"
+      delegate_to: localhost
+
+- name: Aggregate results and render reports on control node
+  hosts: localhost
+  gather_facts: false
+  vars:
+    report_dir: "./reports"
+    html_report: "{{ report_dir }}/os_report.html"
+    csv_report:  "{{ report_dir }}/os_report.csv"
+  tasks:
+    - name: Ensure report dir exists
+      file:
+        path: "{{ report_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Read per-host temporary files
+      find:
+        paths: /tmp
+        patterns: 'ansible_os_tmp_*.txt'
+      register: tmp_files
+
+    - name: Build list of host lines
+      set_fact:
+        host_lines: |
+          {% for f in tmp_files.files %}
+          {{ lookup('file', f.path) }}
+          {% endfor %}
+
+    - name: Write consolidated CSV using template
+      template:
+        src: templates/report.csv.j2
+        dest: "{{ csv_report }}"
+      vars:
+        host_lines: "{{ host_lines.splitlines() }}"
+
+    - name: Write HTML report using template
+      template:
+        src: templates/report.html.j2
+        dest: "{{ html_report }}"
+      vars:
+        host_lines: "{{ host_lines.splitlines() }}"
+
+    - name: Cleanup temporary per-host files
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ tmp_files.files }}"
+
+    - name: Show final report paths
+      debug:
+        msg: "Reports generated: {{ csv_report }} and {{ html_report }}"

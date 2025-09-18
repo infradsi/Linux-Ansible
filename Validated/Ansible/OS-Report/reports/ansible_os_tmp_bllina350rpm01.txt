@@ -1,0 +1,1 @@
+bllina350rpm01,Ubuntu,18.04,04,4.15.0-206-generic,x86_64,    37d 2h 32m,
