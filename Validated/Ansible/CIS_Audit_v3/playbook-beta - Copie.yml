@@ -6,7 +6,7 @@
 
   vars:
     remote_workdir: "/ansible-tmp"
-    audit_script: "linux_cis_audit_v41.sh"
+    audit_script: "linux_cis_audit_v40.sh"
     local_reports_dir: "./reports"
     report_patterns:
       - "cis_audit_report_*.log"
