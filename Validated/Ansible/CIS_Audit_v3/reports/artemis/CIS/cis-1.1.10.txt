@@ -1,1 +1,1 @@
-Specify reason for not compliant
+NC because ALM put some scripts in this folder and run them from this place.
