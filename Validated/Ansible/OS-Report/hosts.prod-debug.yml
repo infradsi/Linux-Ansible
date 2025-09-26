@@ -6,7 +6,7 @@ all:
   children:
     satellite:
       hosts:
-#        cfrc10353ap008:
+        cfrc10353ap008:
     svn_prod:
       hosts:
         bllinsvn02:
@@ -92,7 +92,7 @@ all:
         buzet:
     rhel_tmpl:
       hosts:
-#        blvmware-tmpl:
+        blvmware-tmpl:
     sec_hosts:
       hosts:
         fr7ulr7se01:
