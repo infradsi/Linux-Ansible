@@ -1,0 +1,20 @@
+echo "Auditing: 1.1.19 Ensure nosuid option set on removable media partitions" >> "$LOG_FILE"
+RESULT="OK"
+
+# Détection des points de montage amovibles
+REMOVABLE_MOUNTS=$(lsblk -o MOUNTPOINT,RM | awk '$2 == 1 && $1 ~ /^\// {print $1}')
+if [ -z "$REMOVABLE_MOUNTS" ]; then
+    REMOVABLE_MOUNTS=$(find /media /run/media -mindepth 1 -maxdepth 2 -type d 2>/dev/null)
+fi
+
+for mp in $REMOVABLE_MOUNTS; do
+    if mount | grep -E "\s$mp\s" | grep -vq nosuid; then
+        echo "❌ $mp is mounted without nosuid" >> "$LOG_FILE"
+        RESULT="NOT COMPLIANT"
+    else
+        echo "✔️  $mp has nosuid option set" >> "$LOG_FILE"
+    fi
+done
+
+echo "Result: $RESULT" >> "$LOG_FILE"
+echo "-----------------------------------------" >> "$LOG_FILE"

@@ -1,0 +1,89 @@
+
+###########################################################################################################
+# Génération du rapport final - Formats CSV et HTML
+###########################################################################################################
+
+# Génération des rapports CSV/HTML (robuste) avec colonne Exception
+CSV_REPORT="cis_audit_report_$(hostname -f)_$(date +%F).csv"
+HTML_REPORT="cis_audit_report_$(hostname -f)_$(date +%F).html"
+
+# Répertoire des fichiers d'exception : /cis/cis-<control>.txt (ex: /cis/cis-1.1.10.txt)
+EXC_DIR="${EXC_DIR:-/cis}"
+
+# Extraire libellés et résultats depuis le log
+grep '^Auditing:' "$LOG_FILE" | cut -d':' -f2- > /tmp/tmp_audit_descs
+grep '^Result:'   "$LOG_FILE" | cut -d':' -f2- > /tmp/tmp_audit_results
+
+# Construire les colonnes ID + Exception à partir des IDs (premier token du champ 'Check')
+> /tmp/tmp_audit_exceptions
+> /tmp/tmp_audit_ids
+while IFS= read -r check; do
+  # Trim leading/trailing whitespace
+  check="${check#${check%%[![:space:]]*}}"; check="${check%${check##*[![:space:]]}}"
+  cid="${check%% *}"                         # ex: 1.1.10
+  printf '%s\n' "$cid" >> /tmp/tmp_audit_ids
+
+  exc_file="${EXC_DIR}/cis-${cid}.txt"
+  if [[ -s "$exc_file" ]]; then
+    exc="$(head -c 4000 "$exc_file")"
+    if [[ $(wc -c < "$exc_file") -gt 4000 ]]; then
+      exc="${exc} … (tronqué)"
+    fi
+  else
+    exc=""
+  fi
+  printf '%s\n' "$exc" >> /tmp/tmp_audit_exceptions
+done < /tmp/tmp_audit_descs
+
+# Utiliser un séparateur sûr (Unit Separator) pour assembler les colonnes sans conflit avec les virgules
+DEL=$'\x1f'
+paste -d "$DEL" /tmp/tmp_audit_ids /tmp/tmp_audit_descs /tmp/tmp_audit_results /tmp/tmp_audit_exceptions > /tmp/tmp_joined_cis
+
+# -- Générer le CSV avec quoting correct --
+{
+  echo "ID,Check,Result,Exception"
+  while IFS=$'\x1f' read -r cid check result exc; do
+    # Trim
+    check="${check#"${check%%[![:space:]]*}"}"; check="${check%"${check##*[![:space:]]}"}"
+    result="${result#"${result%%[![:space:]]*}"}"; result="${result%"${result##*[![:space:]]}"}"
+    # Escape CSV quotes
+    esc() { printf '%s' "$1" | sed 's/"/""/g'; }
+    printf "\"%s\",\"%s\",\"%s\",\"%s\"\n" "$(esc "$cid")" "$(esc "$check")" "$(esc "$result")" "$(esc "$exc")"
+  done < /tmp/tmp_joined_cis
+} > "$CSV_REPORT"
+
+# -- Générer le HTML (avec badge Exception) --
+{
+  cat <<HTML_HEAD
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8"/>
+<title>CIS Audit Report</title>
+<style>
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid #ddd;padding:8px;vertical-align:top}
+th{background:#f5f5f5}
+.excbadge{display:inline-block;padding:2px 6px;border-radius:10px;font-size:12px;font-weight:600;background:#fff3cd;border:1px solid #ffeeba;color:#856404;margin-bottom:4px}
+.exc{background:#fff8e1}
+.pre{white-space:pre-wrap;margin:0}
+</style>
+</head><body>
+<h2>CIS Audit Report for host $(hostname -f)</h2>
+<table><tr><th>ID</th><th>Check</th><th>Result</th><th>Exception</th></tr>
+HTML_HEAD
+  awk -v FS="$DEL" '
+    function htmlesc(s){ gsub(/&/,"&amp;",s); gsub(/</,"&lt;",s); gsub(/>/,"&gt;",s); return s }
+    {
+      cid=$1; check=$2; result=$3; exc=$4;
+      badge = (length(exc)>0 ? "<div class=\"excbadge\">EXCEPTION</div><br/>" : "");
+      cellc = (length(exc)>0 ? " class=\"exc\"" : "");
+      print "<tr><td>" htmlesc(cid) "</td><td>" htmlesc(check) "</td><td>" htmlesc(result) "</td><td" cellc ">" badge "<pre class=\"pre\">" htmlesc(exc) "</pre></td></tr>";
+    }
+  ' /tmp/tmp_joined_cis
+  cat <<'HTML_TAIL'
+</table></body></html>
+HTML_TAIL
+} > "$HTML_REPORT"
+
+# Nettoyage
+rm -f /tmp/tmp_audit_descs /tmp/tmp_audit_results /tmp/tmp_audit_exceptions /tmp/tmp_audit_ids /tmp/tmp_joined_cis
