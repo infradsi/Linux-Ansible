@@ -1,5 +1,6 @@
 #!/bin/bash
-# check_ssh_access_anyfmt.sh — lit servers.txt au format:
+#
+# check_ssh_access-v3.sh — lit servers.txt au format:
 #   - CSV: host1,host2,host3,...
 #   - OU un hôte par ligne
 # Il normalise les deux formats, enlève CRLF/BOM/espaces, déduplique, puis teste l'accès SSH (mot de passe).
