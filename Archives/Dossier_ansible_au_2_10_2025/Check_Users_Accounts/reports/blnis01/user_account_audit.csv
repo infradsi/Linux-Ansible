@@ -1,0 +1,13 @@
+Username,UID,Shell,MinPasswordAge,MaxPasswordAge,InactiveDays,InteractiveShell,PasswordComplexity,UserType,ComplianceSummary
+nobody,65534,/sbin/nologin,0,99999,,YES,OK,Regular,"MinPwdAge_NOT_SET"
+systemd-coredump,999,/sbin/nologin,-1,-1,,YES,OK,Service,"ServiceAccount_InteractiveShell"
+systemd-resolve,193,/sbin/nologin,-1,-1,,YES,OK,Service,"ServiceAccount_InteractiveShell"
+polkitd,998,/sbin/nologin,-1,-1,,YES,OK,Service,"ServiceAccount_InteractiveShell"
+unbound,997,/sbin/nologin,-1,-1,,YES,OK,Service,"ServiceAccount_InteractiveShell"
+sssd,996,/sbin/nologin,-1,-1,,YES,OK,Service,"ServiceAccount_InteractiveShell"
+chrony,995,/sbin/nologin,-1,-1,,YES,OK,Service,"ServiceAccount_InteractiveShell"
+pesign,994,/sbin/nologin,-1,-1,,YES,OK,Service,"ServiceAccount_InteractiveShell"
+splunk,899,/sbin/nologin,-1,-1,,YES,OK,Service,"ServiceAccount_InteractiveShell"
+nrpe,898,/sbin/nologin,-1,-1,,YES,OK,Service,"ServiceAccount_InteractiveShell"
+sisips,1000,/bin/bash,0,99999,,YES,OK,Regular,"MinPwdAge_NOT_SET"
+dcscaf,1003,/sbin/nologin,1,60,,YES,OK,Regular,"OK"

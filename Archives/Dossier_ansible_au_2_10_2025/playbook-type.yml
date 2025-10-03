@@ -1,0 +1,52 @@
+- name: Global Playbook Template v1
+  hosts: all
+  become: true
+  gather_facts: false
+
+  vars:
+    # On ansible server (local)    
+    script_name: /fait_le_job.sh
+    report_path: reports
+    # On remote host(s)
+    remote_ansible_dir: /ansible-tmp
+    remote_script_name: fait_le_job.sh
+    remote_csv: /ansible-tmp/report.csv
+    remote_html: /ansible-tmp/report.html   
+    
+
+  tasks:
+    - name: Créer le répertoire temporaire ansible sur remote
+      ansible.builtin.file:
+        path: "{{ remote_ansible_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Créer le répertoire local pour les rapports
+      delegate_to: localhost
+      become: false
+      ansible.builtin.file:
+        path: "{{ report_path }}/{{ inventory_hostname }}"
+        state: directory
+        mode: '0755'
+      
+
+    - name: Copier le script d'audit sur l'hôte
+      ansible.builtin.copy:
+        src: "{{ script_name }}"  
+        dest: "{{ remote_script_name }}"
+        mode: '0755'
+
+    - name: Exécuter le script d'audit
+      ansible.builtin.shell: >
+        "{{ remote_script_name }}"
+      args:
+        executable: /bin/bash
+      register: job_run
+      changed_when: job.rc == 0
+      failed_when: job.rc != 0
+
+    - name: Afficher la sortie du script
+      ansible.builtin.debug:
+        var: audit_run.stdout_lines
+
+   

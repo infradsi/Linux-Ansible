@@ -1,0 +1,40 @@
+---
+- name: Collect Linux version from all servers
+  hosts: all
+  gather_facts: no
+  tasks:
+
+    - name: Ensure report directory exists on control node
+      delegate_to: localhost
+      run_once: true
+      ansible.builtin.file:
+        path: ./linux_versions_reports
+        state: directory
+        mode: '0755'
+
+    - name: Create ansible working folder
+      become: true
+      ansible.builtin.file:
+        path: /ansible-tmp
+        state: directory
+        owner: fr-726-ansible
+        mode: '0755'
+
+
+    - name: Copy script to remote host
+      copy:
+        src: get_linux_version.sh
+        dest: /ansible-tmp/get_linux_version.sh
+        mode: '0755'
+
+    - name: Run version script
+      shell: /ansible-tmp/get_linux_version.sh
+      register: version_output
+
+    - name: Save result to file on control node
+      delegate_to: localhost
+      run_once: false
+      lineinfile:
+        path: ./linux_versions_reports/linux_versions.csv
+        create: yes
+        line: "{{ version_output.stdout }}"

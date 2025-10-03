@@ -1,0 +1,2223 @@
+Starting CIS audit on ven. sept. 26 10:13:23 CEST 2025
+=========================================
+Auditing: 1.10 Ensure system-wide crypto policy is not legacy
+Result: OK
+-----------------------------------------
+Auditing: 1.1.10 Ensure noexec option set on /var/tmp partition
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.1.1 Ensure mounting of cramfs filesystems is disabled
+Result: OK
+-----------------------------------------
+Auditing: 1.1.11 Ensure separate partition exists for /var/log
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.1.2 Ensure mounting of vFAT filesystems is limited
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.12 Ensure separate partition exists for /var/log/audit
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.1.3 Ensure mounting of squashfs filesystems is disabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.13 Ensure separate partition exists for /home
+Result: OK
+-----------------------------------------
+Auditing: 1.1.1.4 Ensure mounting of udf filesystems is disabled
+Result: OK
+-----------------------------------------
+Auditing: 1.1.14 Ensure nodev option set on /home partition
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.15 Ensure nodev option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.16 Ensure nosuid option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.17 Ensure noexec option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.18 Ensure nodev option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.1.19 Ensure nosuid option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.11 Ensure system-wide crypto policy is FUTURE or FIPS
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.20 Ensure noexec option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.1.21 Ensure sticky bit is set on all world-writable directories
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.22 Disable Automounting
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.23 Disable USB Storage
+Result: OK
+-----------------------------------------
+Auditing: 1.1.2 Ensure /tmp is configured
+✔️  /tmp has nodev option
+✔️  /tmp has noexec option
+✔️  /tmp has nosuid option
+Result: OK
+-----------------------------------------
+Auditing: 1.1.6 Ensure separate partition exists for /var
+✔️  /var is on a separate partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.7 Ensure separate partition exists for /var/tmp
+❌ /var/tmp is NOT on a separate partition
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.2.1 Ensure Red Hat Subscription Manager connection is configured
+❌ subscription-manager is not installed
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.2.2 Disable the rhnsd Daemon
+✔️  rhnsd service not present
+Result: OK
+-----------------------------------------
+Auditing: 1.2.3 Ensure GPG keys are configured
+✔️  GPG public keys are installed
+Result: OK
+-----------------------------------------
+Auditing: 1.2.4 Ensure gpgcheck is globally activated
+✔️  gpgcheck is enabled in yum/dnf configuration
+Result: OK
+-----------------------------------------
+Auditing: 1.2.5 Ensure package manager repositories are configured
+✔️  Package manager repositories are correctly configured
+Result: OK
+-----------------------------------------
+Auditing: 1.3.1 Ensure sudo is installed
+Result: OK
+-----------------------------------------
+Auditing: 1.3.2 Ensure sudo commands use pty
+Result: OK
+-----------------------------------------
+Auditing: 1.3.3 Ensure sudo log file exists
+❌ sudo log file path defined as "/var/log/sudo.log" but file does not exist
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.4.1 Ensure AIDE is installed
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.4.2 Ensure filesystem integrity is regularly checked
+❌ AIDE is not installed
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.5.1 Ensure permissions on bootloader config are configured
+⚠️  /boot/grub2/grub.cfg not found (possibly not used on this system)
+⚠️  /boot/efi/EFI/redhat/grub.cfg not found (possibly not used on this system)
+Result: OK
+-----------------------------------------
+Auditing: 1.5.2 Ensure bootloader password is set
+❌ GRUB config file not found at expected location: /boot/efi/EFI/redhat/grub.cfg
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.5.3 Ensure authentication required for single user mode
+❌ /usr/lib/systemd/system/rescue.service allows shell access without authentication
+❌ /usr/lib/systemd/system/emergency.service allows shell access without authentication
+❌ /etc/sysconfig/init does not enforce sulogin for single-user mode
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.6.1 Ensure core dumps are restricted
+✔️  fs.suid_dumpable is set to 0
+✔️  Core dump limit is set to 0 in PAM limits
+Result: OK
+-----------------------------------------
+Auditing: 1.6.2 Ensure address space layout randomization (ASLR) is enabled
+✔️  ASLR is fully enabled (kernel.randomize_va_space = 2)
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.1 Ensure SELinux is installed
+✔️  SELinux package is installed (libselinux)
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.2 Ensure SELinux is not disabled in bootloader configuration
+✔️  SELinux is not disabled in GRUB config
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.3 Ensure SELinux policy is configured
+✔️  SELinux policy is set (targeted or mls)
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.4 Ensure the SELinux state is enforcing
+❌ SELinux is not enforcing (runtime: Permissive / config: permissive)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.7.1.5 Ensure no unconfined services exist
+❌ Unconfined services found:
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 6102 ? 00:00:00 sshd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 6117 pts/0 00:00:00 sh
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 6118 pts/0 00:00:00 sudo
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 6143 pts/0 00:00:00 sh
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 6144 pts/0 00:00:00 python
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 6152 pts/0 00:00:00 linux_cis_audit
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 6351 pts/0 00:00:00 linux_cis_audit
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 6352 pts/0 00:00:00 ps
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 6353 pts/0 00:00:00 awk
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.7.1.6 Ensure SETroubleshoot is not installed
+✔️  setroubleshoot is not installed
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.7 Ensure the MCS Translation Service (mcstrans) is not installed
+✔️  mcstrans is not installed
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.1 Ensure message of the day is configured properly
+✔️  /etc/motd is properly configured (no system info disclosure)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.2 Ensure local login warning banner is configured properly
+❌ /etc/issue contains system information variables (\v, \r, \m, \s)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.8.1.3 Ensure remote login warning banner is configured properly
+❌ /etc/issue.net contains system information variables (\v, \r, \m, \s)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.8.1.4 Ensure permissions on /etc/motd are configured
+✔️  /etc/motd permissions are secure (644, owned by root:root)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.5 Ensure permissions on /etc/issue are configured
+✔️  /etc/issue permissions are secure (444, owned by root:root)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.6 Ensure permissions on /etc/issue.net are configured
+✔️  /etc/issue.net permissions are secure (444, owned by root:root)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.2 Ensure GDM login banner is configured
+✔️  GDM is not installed — not applicable
+Result: OK
+-----------------------------------------
+Auditing: 1.9 Ensure updates, patches, and additional security software are installed
+✔️  No pending security updates
+Result: OK
+-----------------------------------------
+Auditing: 2.1.1 Ensure xinetd is not installed
+✔️  xinetd is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.10 Ensure FTP Server is not enabled
+✔️  vsftpd is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.1.1 Ensure time synchronization is in use
+✔️  chronyd is installed and enabled
+Result: OK
+-----------------------------------------
+Auditing: 2.2.11 Ensure DNS Server is not enabled
+✔️  bind is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.12 Ensure NFS is not enabled
+❌ nfs-server is installed and enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 2.2.13 Ensure RPC is not enabled
+❌ rpcbind is installed and enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 2.2.14 Ensure LDAP server is not enabled
+✔️  LDAP server is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.15 Ensure DHCP Server is not enabled
+✔️  DHCP server is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.16 Ensure CUPS is not enabled
+✔️  cups is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.17 Ensure NIS Server is not enabled
+❌ ypserv is installed and enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 2.2.18 Ensure mail transfer agent is configured for local-only mode
+✔️  Postfix is restricted to localhost or not running
+Result: OK
+-----------------------------------------
+Auditing: 2.2.2 Ensure X Window System is not installed
+❌ X Window System packages are installed (xorg-x11-server-*)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 2.2.3 Ensure rsync service is not enabled
+✔️  rsync is installed but rsyncd is disabled
+Result: OK
+-----------------------------------------
+Auditing: 2.2.4 Ensure Avahi Server is not enabled
+✔️  avahi is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.5 Ensure SNMP Server is not enabled (if not required)
+❌ snmpd is enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 2.2.6 Ensure HTTP Proxy Server is not enabled
+✔️  squid is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.7 Ensure Samba is not enabled
+✔️  Samba is not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.8 Ensure IMAP and POP3 server is not enabled
+✔️  IMAP/POP3 server not installed
+Result: OK
+-----------------------------------------
+Auditing: 2.2.9 Ensure HTTP server is not enabled (if not web server)
+✔️  httpd is installed but disabled
+Result: OK
+-----------------------------------------
+Auditing: 2.3.1 Ensure NIS client is not installed
+❌ ypbind (NIS client) is installed
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 2.3.2 Ensure rsh client is not installed
+❌ rsh client is installed
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 2.3.3 Ensure talk client is not installed
+✔️  talk client is not installed
+Result: OK
+-----------------------------------------
+Auditing: 3.1.1 Ensure IP forwarding is disabled
+✔️  IPv4 forwarding is disabled
+✔️  IPv6 forwarding is disabled
+Result: OK
+-----------------------------------------
+Auditing: 3.1.2 Ensure packet redirect sending is disabled
+❌ net.ipv4.conf.all.send_redirects is not set to 0
+❌ net.ipv4.conf.default.send_redirects is not set to 0
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.2.1 Ensure wireless interfaces are disabled (if not used)
+✔️  No wireless interfaces detected
+Result: OK
+-----------------------------------------
+Auditing: 3.2.2 Ensure IPv6 router advertisements are not accepted
+✔️  net.ipv6.conf.all.accept_ra is set to 0
+✔️  net.ipv6.conf.default.accept_ra is set to 0
+Result: OK
+-----------------------------------------
+Auditing: 3.2.3 Ensure IPv6 redirects are not accepted
+❌ net.ipv6.conf.all.accept_redirects is set to 1 (should be 0)
+❌ net.ipv6.conf.default.accept_redirects is set to 1 (should be 0)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.2.4 Ensure suspicious packets are logged
+✔️  log_martians is enabled for all and default
+Result: OK
+-----------------------------------------
+Auditing: 3.2.5 Ensure broadcast ICMP requests are ignored
+✔️  Broadcast ICMP requests are ignored
+Result: OK
+-----------------------------------------
+Auditing: 3.2.6 Ensure bogus ICMP responses are ignored
+✔️  Bogus ICMP error responses are ignored
+Result: OK
+-----------------------------------------
+Auditing: 3.2.7 Ensure Reverse Path Filtering is enabled
+✔️  net.ipv4.conf.all.rp_filter is set to 1
+✔️  net.ipv4.conf.default.rp_filter is set to 1
+Result: OK
+-----------------------------------------
+Auditing: 3.2.8 Ensure TCP SYN Cookies is enabled
+✔️  TCP SYN cookies are enabled
+Result: OK
+-----------------------------------------
+Auditing: 3.2.9 Ensure IPv6 is disabled (if required)
+⚠️  IPv6 is enabled (this may be acceptable if IPv6 is in use)
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.3.1 Ensure DCCP is disabled
+✔️  DCCP module is not loaded
+✔️  DCCP module is blacklisted in modprobe config
+Result: OK
+-----------------------------------------
+Auditing: 3.3.2 Ensure SCTP is disabled
+✔️  SCTP module is not loaded
+❌ SCTP module is not blacklisted in /etc/modprobe.d
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.3.3 Ensure RDS is disabled
+✔️  RDS module is not loaded
+❌ RDS module is not blacklisted in /etc/modprobe.d
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.3.4 Ensure TIPC is disabled
+✔️  TIPC module is not loaded
+❌ TIPC module is not blacklisted in /etc/modprobe.d
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.1.1 Ensure a Firewall package is installed
+✔️  At least one firewall package is installed (nftables, firewalld, or iptables)
+Result: OK
+-----------------------------------------
+Auditing: 3.4.2.1 Ensure nftables is installed
+❌ nftables is not installed
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.2.2 Ensure iptables is not enabled
+✔️  iptables service is disabled
+Result: OK
+-----------------------------------------
+Auditing: 3.4.2.3 Ensure nftables is enabled
+❌ nftables service is not enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.2.4 Ensure default zone is set in firewalld
+⚠️  firewalld not running — test skipped
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.2.5 Ensure firewalld interfaces are assigned to zones
+⚠️  firewalld not running — cannot check zone assignment
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.2.6 Ensure unnecessary services and ports are not accepted
+⚠️  firewalld not running — skipping port/service evaluation
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.3.1 Ensure iptables are flushed
+✔️  iptables is not enabled — no rules to flush
+Result: OK
+-----------------------------------------
+Auditing: 3.4.3.2 Ensure a nftables table exists
+⚠️  nftables not running or not installed — skipping check
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.3.3 Ensure base chains exist in nftables
+⚠️  nftables not running or not installed — skipping check
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.3.4 Ensure loopback traffic is configured in nftables
+⚠️  nftables not running or not installed — check skipped
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.3.5 Ensure outbound and established connections are configured in nftables
+⚠️  nftables not running or not installed — check skipped
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.3.6 Ensure default deny firewall policy in nftables
+⚠️  nftables not active — check skipped
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.3.7 Ensure nftables service is enabled
+❌ nftables package is not installed
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 3.4.3.8 Ensure nftables rules are permanent
+⚠️  nft command not available — cannot check persistence
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.4.1.1 Ensure default deny firewall policy in firewalld
+⚠️  firewalld is not active — skipping check
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.4.1.2 Ensure loopback traffic is configured in firewalld
+⚠️  firewalld is not running — skipping check
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.4.1.3 Ensure outbound and established connections are configured in firewalld
+⚠️  firewalld is not active — check skipped
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.4.1.4 Ensure firewall rules exist for all open ports
+⚠️  firewalld not running — cannot validate open ports coverage
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.4.2.1 Ensure IPv6 default deny firewall policy in firewalld
+⚠️  firewalld is not running — skipping IPv6 deny policy check
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.4.2.2 Ensure IPv6 loopback traffic is configured in firewalld
+⚠️  firewalld is not active — check skipped
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.4.2.3 Ensure IPv6 outbound and established connections are configured in firewalld
+⚠️  firewalld is not running — skipping IPv6 connection checks
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.4.4.2.4 Ensure IPv6 firewall rules exist for all open ports
+⚠️  firewalld is not running — check skipped
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 3.5 Ensure wireless interfaces are disabled
+✔️  No wireless interfaces detected
+Result: OK
+-----------------------------------------
+Auditing: 3.6 Ensure IPv6 is disabled
+❌ IPv6 sysctl disable flags are not correctly set
+Current values: all=0, default=0
+❌ IPv6 module is not explicitly blocked in modprobe config
+✔️  No active IPv6 addresses detected on interfaces
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.10 Ensure unsuccessful unauthorized file access attempts are collected
+❌ Missing audit rule for syscall 'creat' with -EACCES or -EPERM
+✔️  Audit rule found for 'open' (access denied logging)
+❌ Missing audit rule for syscall 'openat' with -EACCES or -EPERM
+❌ Missing audit rule for syscall 'truncate' with -EACCES or -EPERM
+❌ Missing audit rule for syscall 'ftruncate' with -EACCES or -EPERM
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.1.1 Ensure auditd is installed
+✔️  auditd package is installed
+Result: OK
+-----------------------------------------
+Auditing: 4.1.11 Ensure events that modify user/group information are collected
+❌ Missing audit rule for /usr/sbin/useradd
+❌ Missing audit rule for /usr/sbin/userdel
+❌ Missing audit rule for /usr/sbin/usermod
+❌ Missing audit rule for /usr/sbin/groupadd
+❌ Missing audit rule for /usr/sbin/groupdel
+❌ Missing audit rule for /usr/sbin/groupmod
+❌ Missing audit rule for /usr/bin/passwd
+❌ Missing audit rule for /usr/bin/gpasswd
+❌ Missing audit rule for /usr/bin/chage
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.1.2 Ensure auditd service is enabled
+✔️  auditd service is enabled
+Result: OK
+-----------------------------------------
+Auditing: 4.1.12 Ensure successful file system mounts are collected
+✔️  Audit rule found for syscall mount
+Result: OK
+-----------------------------------------
+Auditing: 4.1.1.3 Ensure auditing for processes that start prior to auditd is enabled
+✔️  'audit=1' found in GRUB_CMDLINE_LINUX in /etc/default/grub
+⚠️  audit=1 is not active in current kernel boot — system reboot may be required
+Result: OK
+-----------------------------------------
+Auditing: 4.1.13 Ensure use of privileged commands is collected
+Result: OK
+-----------------------------------------
+Auditing: 4.1.1.4 Ensure audit_backlog_limit is sufficient
+❌ audit_backlog_limit is not set in /proc/cmdline
+❌ audit_backlog_limit is NOT defined in /etc/default/grub
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.14 Ensure file deletion events by users are collected
+❌ Missing audit rule for unlink on b64
+❌ Missing audit rule for unlinkat on b64
+❌ Missing audit rule for rename on b64
+❌ Missing audit rule for renameat on b64
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.15 Ensure kernel module loading and unloading is collected
+❌ Missing audit rule for init_module on b64
+❌ Missing audit rule for finit_module on b64
+❌ Missing audit rule for delete_module on b64
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.16 Ensure system administrator actions (sudo log) are collected
+❌ No audit rule for /var/log/sudo.log (but file exists)
+❌ No audit rule for /var/log/auth.log (but file exists)
+❌ No audit rule for /var/log/secure (but file exists)
+⚠️  No known sudo log file found or audited — verify sudoers or syslog config
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 4.1.17 Ensure audit configuration is immutable
+❌ Missing '-e 2' in audit configuration files (audit rules are not immutable)
+Tip: Add '-e 2' as the last line in your /etc/audit/rules.d/*.rules file
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.2.1 Ensure audit log storage size is configured
+✔️  max_log_file is set to 100 MB in /etc/audit/auditd.conf
+Result: OK
+-----------------------------------------
+Auditing: 4.1.2.2 Ensure audit logs are not automatically deleted
+❌ max_log_file_action is set to 'rotate' (should be 'keep_logs')
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.2.3 Ensure system is disabled when audit logs are full
+❌ space_left_action is 'syslog' (should be 'email')
+✔️  action_mail_acct is set to 'root'
+❌ admin_space_left_action is 'syslog' (should be 'halt')
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.3 Ensure changes to sudoers configuration are collected
+❌ Missing audit rule for /etc/sudoers
+❌ Missing audit rule for /etc/sudoers.d
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.4 Ensure login and logout events are collected
+ℹ️  File /var/log/faillog does not exist on this system — skipped
+✔️  Audit rule exists for /var/log/lastlog
+❌ Missing audit rule for /var/log/tallylog
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.6 Ensure events that modify date and time information are collected
+❌ Missing audit rule for /usr/bin/date
+❌ Missing audit rule for /usr/sbin/hwclock
+❌ Missing audit rule for /usr/bin/timedatectl
+✔️  Audit rule exists for /etc/localtime
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.7 Ensure events that modify the system's MAC are collected
+❌ Missing audit rule for /etc/selinux/
+❌ Missing audit rule for /usr/sbin/setsebool
+❌ Missing audit rule for /usr/sbin/semanage
+❌ Missing audit rule for /usr/sbin/setenforce
+❌ Missing audit rule for /usr/sbin/sestatus
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.8 Ensure events that modify the system's network environment are collected
+✔️  Audit rule exists for /etc/issue
+✔️  Audit rule exists for /etc/issue.net
+✔️  Audit rule exists for /etc/hosts
+✔️  Audit rule exists for /etc/sysconfig/network
+ℹ️  /usr/bin/nmcli not found — skipped
+❌ Missing audit rule for /usr/sbin/ifconfig
+❌ Missing audit rule for /usr/sbin/ip
+❌ Missing audit rule for /usr/sbin/route
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.1.9 Ensure DAC permission modification events are collected
+❌ Missing audit rule for syscall chmod on b64
+❌ Missing audit rule for syscall fchmod on b64
+❌ Missing audit rule for syscall fchmodat on b64
+❌ Missing audit rule for syscall chown on b64
+❌ Missing audit rule for syscall fchown on b64
+❌ Missing audit rule for syscall fchownat on b64
+❌ Missing audit rule for syscall lchown on b64
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.2.1.1 Ensure rsyslog is installed
+❌ rsyslog package is NOT installed
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.2.1.2 Ensure rsyslog Service is enabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.2.1.3 Ensure rsyslog default file permissions are configured
+❌ No $FileCreateMode directive found in rsyslog configuration
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.2.1.4 Ensure logging is configured
+❌ rsyslog is active but no local file logging destination is configured
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.2.1.5 Ensure rsyslog is configured to send logs to a remote log host
+❌ No remote log forwarding configuration found in rsyslog
+Expected lines like: '*.* @@loghost.example.com'
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.2.1.6 Ensure remote rsyslog messages are only accepted on designated log hosts
+❌ This system is listening on port 514 (rsyslog default)
+Only designated log servers should accept remote logs
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.2.2.1 Ensure journald is configured to send logs to rsyslog
+❌ ForwardToSyslog is not set to 'yes' (value: )
+ℹ️  Cannot verify runtime status of ForwardToSyslog — manual check recommended
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.2.2.2 Ensure journald is configured to compress large log files
+❌ Compress is not set to 'yes' (value: )
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.2.2.3 Ensure journald is configured to write logfiles to persistent disk
+❌ Storage is not set to 'persistent' (value: )
+❌ /var/log/journal is missing — journald logs may not persist after reboot
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.2.3 Ensure permissions on all logfiles are configured
+❌ /var/log/metriquesNas.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/MFEdx-6.0.3-441-1633012815.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/tuned/tuned.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/tuned/tuned.log.2 has permissions 644 (should be 640 or stricter)
+❌ /var/log/tuned/tuned.log.1 has permissions 644 (should be 640 or stricter)
+❌ /var/log/compress.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/grubby_prune_debug has permissions 644 (should be 640 or stricter)
+❌ /var/log/.gxsetup/sh/detect/sh.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/.gxsetup/sh/detect/cvlog.ini has permissions 664 (should be 640 or stricter)
+❌ /var/log/.gxsetup/sh/cvpkgadd/sh.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/.gxsetup/sh/cvpkgadd/cvlog.ini has permissions 644 (should be 640 or stricter)
+❌ /var/log/.gxsetup/sh/silent_install/sh.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/.gxsetup/sh/silent_install/cvlog.ini has permissions 664 (should be 640 or stricter)
+❌ /var/log/MFEdx-6.0.0-241-1616515347.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/slurm/slurmctld.log is owned by slurm (should be root or syslog)
+❌ /var/log/httpd24/access_log-20250831.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/httpd24/error_log-20250914.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/httpd24/error_log-20250907.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/httpd24/error_log-20250831.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/httpd24/error_log-20250921.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/httpd24/error_log has permissions 644 (should be 640 or stricter)
+❌ /var/log/httpd24/access_log-20250921.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/httpd24/access_log has permissions 644 (should be 640 or stricter)
+❌ /var/log/httpd24/access_log-20250907.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/httpd24/access_log-20250914.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/dmesg has permissions 644 (should be 640 or stricter)
+❌ /var/log/glpi/glpi-error.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/glpi/glpi-error.log is owned by apache (should be root or syslog)
+❌ /var/log/glpi/glpi_cron_ldap.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/glpi/glpi_cron_ldap.log is owned by apache (should be root or syslog)
+❌ /var/log/glpi/glpi_cron.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/glpi/glpi_cron.log is owned by apache (should be root or syslog)
+❌ /var/log/nrpe/nrpe3.pid has permissions 644 (should be 640 or stricter)
+❌ /var/log/nrpe/nrpe3.pid is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231008.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231008.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240919.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240919.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250525.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250525.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20240314.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20240314.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231115.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231115.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231108.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231108.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250223.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250223.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241027.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241027.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20220330.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20220330.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250627.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250627.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240701.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240701.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240804.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240804.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250912 has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250912 is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241013.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241013.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250706.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250706.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241117.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241117.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250218.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250218.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250812.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250812.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231022.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231022.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20230929.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20230929.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250126.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250126.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241222.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241222.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240106.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240106.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240911.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240911.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240530.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240530.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20241221.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20241221.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231119.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231119.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240606.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240606.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250627.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250627.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240606.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240606.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241005.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241005.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241208.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241208.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231020.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231020.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241110.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241110.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240305.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240305.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241124.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241124.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20230506.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20230506.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250516.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250516.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241215.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241215.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20241130.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20241130.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240818.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240818.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240203.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240203.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20230119.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20230119.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240919.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240919.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250704.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250704.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240818.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240818.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240903.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240903.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240616.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240616.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20231025.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20231025.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250912 has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250912 is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250706.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250706.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240413.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240413.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20231220.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20231220.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241124.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241124.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241103.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241103.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240406.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240406.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250119.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250119.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241021.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241021.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240522.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240522.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240826.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240826.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20220424.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20220424.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20241010.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20241010.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241012.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241012.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250220.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250220.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250706.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250706.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250523.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250523.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250112.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250112.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240623.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240623.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240709.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240709.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250126.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250126.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241208.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241208.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250516.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250516.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20220420.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20220420.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20230321.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20230321.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250409.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250409.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241229.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241229.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240721.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240721.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231001.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231001.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250105.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250105.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250105.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250105.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250119.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250119.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231129.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231129.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240313.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240313.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240717.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240717.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240718.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240718.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241201.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241201.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240609.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240609.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240826.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240826.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240126.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240126.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250619.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250619.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240806.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240806.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231219.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231219.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250912 has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250912 is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20231117.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20231117.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240811.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240811.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240911.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240911.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241201.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241201.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250119.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250119.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20221111.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20221111.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20241214.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20241214.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250409.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250409.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20230326.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20230326.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250202.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250202.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250223.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250223.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241215.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241215.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20241022.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20241022.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250525.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250525.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231209.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231209.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240616.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240616.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250112.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250112.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20210730.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20210730.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250523.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250523.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250202.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250202.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250619.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250619.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241021.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241021.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250109.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250109.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250516.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250516.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20241027.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20241027.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241229.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241229.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250627.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250627.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231224.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231224.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20210417.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20210417.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250812.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250812.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250819.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250819.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240804.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240804.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240420.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240420.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240728.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240728.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250210.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250210.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240728.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240728.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20250627.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20250627.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250819.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250819.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20240607.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20240607.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250525.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250525.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250812.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250812.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240530.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240530.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240927.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240927.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250704.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250704.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20221118.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20221118.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250713.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250713.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250126.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250126.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240216.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240216.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240609.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240609.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241110.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241110.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240721.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240721.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241005.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241005.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250704.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250704.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20250705.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20250705.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20220916.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20220916.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250218.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250218.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20241013.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20241013.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20250812.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20250812.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240903.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240903.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20231029.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20231029.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240709.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240709.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20241123.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20241123.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240113.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240113.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250409.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250409.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241012.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241012.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20230924.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20230924.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250619.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250619.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241222.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241222.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240927.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240927.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240317.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240317.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250210.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250210.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20241207.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20241207.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241027.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241027.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250819.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20250819.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241117.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241117.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240623.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240623.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20250523.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20250523.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240701.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240701.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240717.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240717.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240609.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20240609.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20230810.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20230810.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20250819 has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20250819 is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20250112.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20250112.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20220918.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20220918.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/watchdog.log-20240606.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/watchdog.log-20240606.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241103.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-rrd-master.log-20241103.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/centreon-broker/central-module-master.log-20221207.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-module-master.log-20221207.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-broker/central-broker-master.log-20240811.gz has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-broker/central-broker-master.log-20240811.gz is owned by centreon-broker (should be root or syslog)
+❌ /var/log/sum/sum.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/sum/SUM_Execution_Details_10-18-2019_16-39-12.xml has permissions 644 (should be 640 or stricter)
+❌ /var/log/sum/sum_execution_log_10-18-2019_16-39-12.raw has permissions 644 (should be 640 or stricter)
+❌ /var/log/sum/RunRecord0_0_0_0 has permissions 644 (should be 640 or stricter)
+❌ /var/log/quotasOnOff.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/MFEdx-6.0.3-551-1642693386.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/MFEdx-6.0.3-278-1616689078.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/mysql/mariadb.err has permissions 660 (should be 640 or stricter)
+❌ /var/log/mysql/mariadb.err is owned by mysql (should be root or syslog)
+❌ /var/log/mcupdater_buzet.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/munge/munged.log-20210430 is owned by munge (should be root or syslog)
+❌ /var/log/munge/munged.log-20210225 is owned by munge (should be root or syslog)
+❌ /var/log/munge/munged.log-20210709 is owned by munge (should be root or syslog)
+❌ /var/log/munge/munged.log-20210418 is owned by munge (should be root or syslog)
+❌ /var/log/munge/munged.log is owned by munge (should be root or syslog)
+❌ /var/log/sdcss-caflog/cve.log is owned by dcscaf (should be root or syslog)
+❌ /var/log/sdcss-caflog/cafagent.log is owned by dcscaf (should be root or syslog)
+❌ /var/log/sdcss-caflog/cafagent_install.log is owned by dcscaf (should be root or syslog)
+❌ /var/log/centreon-engine/status.dat is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/retention.dat has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-engine/retention.dat is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/centengine.debug has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-engine/centengine.debug is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/centengine.debug.old has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon-engine/centengine.debug.old is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/centengine.log is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241117.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250127.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250728.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241003.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241103.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250921.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250110.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250211.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250205.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250411.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20240928.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241105.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250129.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250228.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250712.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250403.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241224.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250609.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241223.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241006.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250207.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250801.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20240929.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241022.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241107.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250829.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241231.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250510.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250217.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250422.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250727.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241205.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241112.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250818.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250114.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241216.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241023.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241012.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250620.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250726.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250825.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250705.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250530.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250619.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250616.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241222.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250520.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241226.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250330.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250212.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250716.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250103.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241030.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250524.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250519.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241215.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250406.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241102.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241108.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241221.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250905.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250502.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250626.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250305.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241126.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241211.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250724.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250328.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250501.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250601.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250611.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250826.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241206.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250827.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250714.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250910.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250221.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241114.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250108.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250208.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250417.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250822.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250130.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241228.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250514.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250312.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250506.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241013.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250709.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250418.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250324.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250225.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250218.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250423.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241027.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241219.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250815.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250407.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250210.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250623.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250618.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241031.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250201.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250706.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250831.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250426.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250401.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250311.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250302.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250907.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250410.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250602.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250713.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250703.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250729.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250629.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250310.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250322.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250804.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241011.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241005.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250118.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250402.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250415.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250405.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250628.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241220.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250906.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250607.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250227.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241001.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241214.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250707.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250823.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250614.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250708.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250222.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250101.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250317.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250128.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250731.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250808.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250507.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250314.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250112.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250811.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241130.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250701.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250226.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250327.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241116.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241123.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250104.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250515.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250812.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250523.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250819.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250624.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250323.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250605.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250421.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250926 is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250608.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250224.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241124.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250711.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241113.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250828.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250308.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250630.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241128.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250513.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250320.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250215.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250503.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241208.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250309.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250531.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250803.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250504.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241115.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241110.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250807.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241229.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241106.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250321.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241203.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250720.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241120.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250325.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250902.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241101.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241212.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250115.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250430.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241225.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250414.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250627.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241025.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241127.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250116.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250802.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250511.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241111.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250213.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250903.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250909.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241004.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250526.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250126.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250301.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250923.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250409.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250916.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241207.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250329.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250509.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250528.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241014.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250516.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250408.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241009.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250604.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241008.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250522.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250303.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250622.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250809.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250119.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250214.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250810.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241019.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241230.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250106.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241018.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241029.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250319.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250610.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250111.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241109.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250917.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250911.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20240930.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250612.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250702.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250912.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250925.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241118.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250429.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250922.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250331.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250625.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241129.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250220.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250717.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250326.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250304.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250313.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250219.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250710.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250413.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241201.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241020.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241026.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250412.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250908.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250125.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250117.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241121.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250525.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250621.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250924.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250723.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250613.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250722.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250512.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250918.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250316.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250203.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250124.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250216.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250919.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241213.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250816.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250107.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250113.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250820.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250715.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250102.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250914.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250817.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241015.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250725.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241021.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250904.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250505.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241210.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241217.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250202.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241017.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250718.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250419.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241122.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250805.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250428.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250719.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250913.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250427.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241016.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250109.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250122.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250120.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250209.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250920.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250425.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241204.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250730.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241218.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250307.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241002.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250813.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250105.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241119.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250617.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250306.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241007.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241209.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250404.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250206.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250123.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250424.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250121.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250606.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250814.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20240927.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250821.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241024.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250915.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250721.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241125.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241227.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250527.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250704.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250223.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250315.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250521.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241010.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250901.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241104.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241028.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250131.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20241202.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250420.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250529.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250517.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250508.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250806.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250603.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250824.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250204.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250318.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250615.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250518.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250830.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/centreon-engine/archives/centengine.log-20250416.gz is owned by centreon-engine (should be root or syslog)
+❌ /var/log/firewalld has permissions 644 (should be 640 or stricter)
+❌ /var/log/pcp/pmlogger/pmlogger_daily.stamp.prev has permissions 644 (should be 640 or stricter)
+❌ /var/log/pcp/pmlogger/pmlogger_daily.stamp.prev is owned by pcp (should be root or syslog)
+❌ /var/log/pcp/pmlogger/pmlogger_daily.stamp has permissions 644 (should be 640 or stricter)
+❌ /var/log/pcp/pmlogger/pmlogger_daily.stamp is owned by pcp (should be root or syslog)
+❌ /var/log/nagios/nagios.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/nagios.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-28-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-28-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-06-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-06-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-23-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-23-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-29-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-29-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-22-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-22-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-05-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-05-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-16-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-16-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-03-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-03-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-19-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-19-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-11-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-11-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-10-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-10-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-30-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-30-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-18-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-18-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-21-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-21-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-24-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-24-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-06-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-06-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-15-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-15-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-13-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-13-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-15-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-15-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-09-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-09-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-09-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-09-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-14-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-14-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-23-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-23-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-02-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-02-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-30-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-30-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-04-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-04-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-16-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-16-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-13-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-13-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-21-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-21-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-05-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-05-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-24-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-24-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-17-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-17-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-26-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-26-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-26-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-26-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-23-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-23-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-08-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-08-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-04-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-04-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-22-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-22-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-12-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-12-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-19-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-19-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-22-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-22-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-10-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-10-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-30-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-30-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-11-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-11-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-19-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-19-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-24-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-24-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-20-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-20-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-12-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-12-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-26-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-26-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-07-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-07-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-21-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-21-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-01-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-01-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-13-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-13-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-31-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-31-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-29-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-29-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-07-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-07-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-26-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-26-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-17-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-17-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-25-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-25-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-18-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-18-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-01-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-01-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-18-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-18-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-20-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-20-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-02-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-02-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-30-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-30-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-06-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-06-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-27-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-27-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-20-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-20-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-24-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-24-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-28-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-28-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-14-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-14-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-19-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-19-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-29-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-29-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-17-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-17-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-10-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-10-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-28-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-28-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-27-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-27-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-07-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-07-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-11-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-11-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-25-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-25-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-23-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-23-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-25-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-25-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-21-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-21-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-16-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-16-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-12-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-12-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-03-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-03-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-01-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-01-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-14-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-14-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-08-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-08-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-20-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-20-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-22-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-22-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-09-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-09-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-27-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-27-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-18-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-18-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-04-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-04-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-27-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-27-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-08-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-08-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-05-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-05-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-02-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-02-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-05-29-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-05-29-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-15-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-15-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-06-28-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-06-28-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-07-03-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-07-03-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/nagios/archives/nagios-04-25-2021-00.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/nagios/archives/nagios-04-25-2021-00.log is owned by nagios (should be root or syslog)
+❌ /var/log/MFEdx-6.0.3-356-1624992459.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/hp-health/hpasmd.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/MFEdx-6.0.3-646-1652107553.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/fusioninventory-agent/fusioninventory-agent.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/fusioninventory-agent/fusioninventory-agent.log-20250817.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/fusioninventory-agent/fusioninventory-agent.log-20250810.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/fusioninventory-agent/fusioninventory-agent.log-20250921.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/fusioninventory-agent/fusioninventory-agent.log-20250914.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/fusioninventory-agent/fusioninventory-agent.log-20250907.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/fusioninventory-agent/fusioninventory-agent.log-20250831.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/fusioninventory-agent/fusioninventory-agent.log-20250824.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/wtmp has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/centreon_auto_discovery.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/centreon_auto_discovery.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/knowledgebase.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/knowledgebase.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/centreon_service_discovery.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/centreon_service_discovery.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/centreon-backup.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/centreon-backup.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/centcore.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/centcore.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/ldap.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/ldap.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/centreon_host_discovery.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/centreon_host_discovery.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/centreontrapd.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/centreontrapd.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/centreon-php-error.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/centreon/centreon-php-error.log is owned by apache (should be root or syslog)
+❌ /var/log/centreon/statistics.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/statistics.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/centreon-partitioning.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/centreon-partitioning.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/downtimeManager.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/downtimeManager.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/centreon-purge.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/centreon-purge.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/rrdtool.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/rrdtool.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/dashboardBuilder.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/dashboardBuilder.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/nagiosPerfTrace.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/nagiosPerfTrace.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/ldapsearch.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/ldapsearch.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/login.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/login.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/sql-error.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/sql-error.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/license-manager.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/centreon/license-manager.log is owned by apache (should be root or syslog)
+❌ /var/log/centreon/centAcl.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/centAcl.log is owned by centreon (should be root or syslog)
+❌ /var/log/centreon/eventReportBuilder.log has permissions 664 (should be 640 or stricter)
+❌ /var/log/centreon/eventReportBuilder.log is owned by centreon (should be root or syslog)
+❌ /var/log/dpkg.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/MFEdx-6.0.3-847-1659984523.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa05 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa31 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar17 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa06 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa23 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa24 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa01 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar30 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa13 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa14 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa04 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar14 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar28 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar10 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar02 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar21 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa07 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa22 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar01 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar12 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa09 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa21 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa20 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa18 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar25 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar23 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar22 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa29 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar09 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa19 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa17 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar27 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa08 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar08 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa12 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar11 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar05 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar16 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa16 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar15 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar19 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa02 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa26 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar29 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa15 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar13 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa30 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar24 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa11 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa25 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar18 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa28 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar04 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar03 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa03 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar07 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar31 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar20 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sa10 has permissions 644 (should be 640 or stricter)
+❌ /var/log/sa/sar06 has permissions 644 (should be 640 or stricter)
+❌ /var/log/wtmp-20250906 has permissions 664 (should be 640 or stricter)
+❌ /var/log/lastlog has permissions 644 (should be 640 or stricter)
+❌ /var/log/hp-snmp-agents/cma.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/hp-snmp-agents/cmaX.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/dmesg.old has permissions 644 (should be 640 or stricter)
+❌ /var/log/rubrik/scripts.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/rubrik/scripts.log.3.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/rubrik/scripts.log.2.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/rubrik/db2/vendorlib.log has permissions 644 (should be 640 or stricter)
+❌ /var/log/rubrik/scripts.log.1.gz has permissions 644 (should be 640 or stricter)
+❌ /var/log/sdcsslog/SISIDSEvents.csv has permissions 660 (should be 640 or stricter)
+❌ /var/log/sdcsslog/startup.log has permissions 660 (should be 640 or stricter)
+❌ /var/log/sdcsslog/startup.log is owned by sisips (should be root or syslog)
+❌ /var/log/sdcsslog/SAEPRTEvents.csv has permissions 660 (should be 640 or stricter)
+❌ /var/log/sdcsslog/agent_install.log is owned by sisips (should be root or syslog)
+❌ /var/log/sdcsslog/sisipsdaemon.log has permissions 660 (should be 640 or stricter)
+❌ /var/log/sdcsslog/sisipsdaemon.log is owned by sisips (should be root or syslog)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 4.3 Ensure logrotate is configured
+✔️  logrotate package is installed
+✔️  /etc/logrotate.conf exists
+✔️  logrotate includes 26 custom configuration(s) in /etc/logrotate.d/
+Result: OK
+-----------------------------------------
+Auditing: 5.1.1 Ensure cron daemon is enabled
+✔️  cronie package is installed
+✔️  crond service is enabled at boot
+✔️  crond service is currently running
+Result: OK
+-----------------------------------------
+Auditing: 5.1.2 Ensure permissions on /etc/crontab are configured
+✔️  /etc/crontab is owned by root
+❌ /etc/crontab permissions are 644 (should be 600, 640, or stricter)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.1.3 Ensure permissions on /etc/cron.hourly are configured
+✔️  /etc/cron.hourly is owned by root
+✔️  /etc/cron.hourly permissions are 700 (OK)
+Result: OK
+-----------------------------------------
+Auditing: 5.1.4 Ensure permissions on /etc/cron.daily are configured
+✔️  /etc/cron.daily is owned by root
+✔️  /etc/cron.daily permissions are 700 (OK)
+Result: OK
+-----------------------------------------
+Auditing: 5.1.5 Ensure permissions on /etc/cron.weekly are configured
+✔️  /etc/cron.weekly is owned by root
+✔️  /etc/cron.weekly permissions are 700 (OK)
+Result: OK
+-----------------------------------------
+Auditing: 5.1.6 Ensure permissions on /etc/cron.monthly are configured
+✔️  /etc/cron.monthly is owned by root
+✔️  /etc/cron.monthly permissions are 700 (OK)
+Result: OK
+-----------------------------------------
+Auditing: 5.1.7 Ensure permissions on /etc/cron.d are configured
+✔️  /etc/cron.d is owned by root
+❌ /etc/cron.d permissions are 755 (should be 0700 or stricter)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.1.8 Ensure at/cron is restricted to authorized users
+❌ /etc/cron.allow is missing (should exist to restrict access)
+❌ /etc/at.allow is missing (should exist to restrict access)
+❌ /etc/cron.deny exists (should be removed)
+❌ /etc/at.deny exists (should be removed)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.10 Ensure SSH root login is disabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.11 Ensure SSH PermitEmptyPasswords is disabled
+Result: PermitEmptyPasswords no
+OK
+-----------------------------------------
+Auditing: 5.2.12 Ensure SSH PermitUserEnvironment is disabled
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.13 Ensure SSH Idle Timeout Interval is configured
+❌ ClientAliveInterval is missing or > 300 (current: )
+❌ ClientAliveCountMax is missing or != 0 (current: )
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.14 Ensure SSH LoginGraceTime is set to one minute or less
+✔️  LoginGraceTime is set to 60 seconds
+Result: OK
+-----------------------------------------
+Auditing: 5.2.15 Ensure SSH Banner is set to /etc/issue.net
+✔️  Banner is correctly set to /etc/issue.net
+Result: OK
+-----------------------------------------
+Auditing: 5.2.16 Ensure SSH UsePAM is set to yes
+✔️  UsePAM is correctly set to yes
+Result: OK
+-----------------------------------------
+Auditing: 5.2.17 Ensure SSH AllowTcpForwarding is set to no
+❌ AllowTcpForwarding is set to  (expected: no)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.18 Ensure SSH MaxStartups is configured
+❌ MaxStartups format is invalid or missing (value: 10:30:60)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.19 Ensure SSH MaxSessions is set to 4 or less
+✔️  MaxSessions is set to 4 (OK)
+Result: OK
+-----------------------------------------
+Auditing: 5.2.20 Ensure system-wide crypto policy is not over-ridden
+✔️  No system-wide crypto override in /etc/sysconfig/sshd
+Result: OK
+-----------------------------------------
+Auditing: 5.2.1 Ensure permissions on /etc/ssh/sshd_config are configured
+✔️  /etc/ssh/sshd_config is owned by root and permissions are OK (400)
+Result: OK
+-----------------------------------------
+Auditing: 5.2.2 Ensure SSH access is limited
+✔️  SSH access limitation directive is configured
+Result: OK
+-----------------------------------------
+Auditing: 5.2.3 Ensure permissions on SSH private host key files are configured
+❌ /etc/ssh/ssh_host_ecdsa_key has incorrect ownership or permissions (root:640)
+❌ /etc/ssh/ssh_host_ed25519_key has incorrect ownership or permissions (root:640)
+❌ /etc/ssh/ssh_host_rsa_key has incorrect ownership or permissions (root:640)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.4 Ensure permissions on SSH public host key files are configured
+✔️  /etc/ssh/ssh_host_ed25519_key.pub ownership and permissions are OK
+✔️  /etc/ssh/ssh_host_ecdsa_key.pub ownership and permissions are OK
+✔️  /etc/ssh/ssh_host_rsa_key.pub ownership and permissions are OK
+Result: OK
+-----------------------------------------
+Auditing: 5.2.5 Ensure SSH LogLevel is appropriate
+❌ LogLevel is set to verbose (expected: INFO)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.6 Ensure SSH X11 forwarding is disabled
+❌ X11Forwarding is set to yes (expected: no)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.2.7 Ensure SSH MaxAuthTries is set to 4 or less
+✔️  MaxAuthTries is set to 4 (OK)
+Result: OK
+-----------------------------------------
+Auditing: 5.2.8 Ensure SSH IgnoreRhosts is enabled
+✔️  IgnoreRhosts is set to yes
+Result: OK
+-----------------------------------------
+Auditing: 5.2.9 Ensure SSH HostbasedAuthentication is disabled
+❌ HostbasedAuthentication is set to  (expected: no)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.3.1 Ensure custom authselect profile is used
+⚠️  authselect command not found (not applicable)
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 5.3.2 Ensure correct authselect profile is selected
+⚠️  authselect command not found (not applicable)
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 5.3.3 Ensure authselect includes with-faillock
+⚠️  authselect not found (not applicable)
+Result: MANUAL CHECK REQUIRED
+-----------------------------------------
+Auditing: 5.4.1 Ensure password creation requirements are configured
+❌ pam_pwquality is configured, but minlen < 8 or missing in pwquality.conf
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.4.2 Ensure lockout for failed password attempts is configured
+❌ pam_faillock is not properly configured in PAM stack
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.4.3 Ensure password reuse is limited
+❌ pam_pwhistory is not configured in PAM stack
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.4.4 Ensure password hashing algorithm is SHA-512
+✔️  ENCRYPT_METHOD is set to SHA512 in /etc/login.defs
+Result: OK
+-----------------------------------------
+Auditing: 5.5.1.1 Ensure password expiration is 365 days or less
+✔️  PASS_MAX_DAYS is set to 90 in /etc/login.defs
+Result: OK
+-----------------------------------------
+Auditing: 5.5.1.2 Ensure minimum days between password changes is 7 or more
+❌ PASS_MIN_DAYS is not compliant (value: 1)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.5.1.3 Ensure password expiration warning days is 7 or more
+✔️  PASS_WARN_AGE is set to 15 in /etc/login.defs
+Result: OK
+-----------------------------------------
+Auditing: 5.5.1.4 Ensure inactive password lock is 30 days or less
+❌ INACTIVE is not compliant (value: -1)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.5.1.5 Ensure all users last password change date is in the past
+✔️  All users have valid (past) last password change dates
+Result: OK
+-----------------------------------------
+Auditing: 5.5.2 Ensure system accounts are secured (non-login)
+❌ Some system accounts have login shells:
+ - sync (/bin/sync)
+ - shutdown (/sbin/shutdown)
+ - halt (/sbin/halt)
+ - centreon-broker (/bin/bash)
+ - centreon-engine (/bin/bash)
+ - blcm01bkp (/bin/bash)
+ - centreon-connector-as400 (/bin/bash)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.5.3 Ensure default user shell timeout is 900 seconds or less
+❌ TMOUT is not configured or is greater than 900 seconds (value: unset)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.5.4 Ensure default group for the root account is GID 0
+✔️  root account has GID 0
+Result: OK
+-----------------------------------------
+Auditing: 5.5.5 Ensure default user umask is 027 or more restrictive
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.6 Ensure root login is restricted to system console
+❌ /etc/securetty contains non-console TTY entries:
+console
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 5.7 Ensure access to the su command is restricted to authorized groups
+❌ pam_wheel is not properly configured in /etc/pam.d/su
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.1.10 Ensure no world writable files exist
+✔️  No world-writable files found
+Result: OK
+-----------------------------------------
+Auditing: 6.1.11 Ensure no unowned files or directories exist
+✔️  No unowned files or directories found
+Result: OK
+-----------------------------------------
+Auditing: 6.1.12 Ensure no ungrouped files or directories exist
+✔️  No ungrouped files or directories found
+Result: OK
+-----------------------------------------
+Auditing: 6.1.13 Audit SUID executables
+✔️  No SUID executables found
+Result: OK (Review output manually)
+-----------------------------------------
+Auditing: 6.1.14 Audit SGID executables
+✔️  No SGID executables found
+Result: OK (Review output manually)
+-----------------------------------------
+Auditing: 6.1.1 Audit system file permissions (AIDE)
+❌ AIDE is not installed
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.1.2 Ensure permissions on /etc/passwd are configured
+✔️  /etc/passwd permissions are correct (644, root:root)
+Result: OK
+-----------------------------------------
+Auditing: 6.1.3 Ensure permissions on /etc/shadow are configured
+❌ /etc/shadow has permissions 0 and owner root:root (expected: 000 or 640, root:shadow)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.1.4 Ensure permissions on /etc/group are configured
+✔️  /etc/group permissions are correct (644, root:root)
+Result: OK
+-----------------------------------------
+Auditing: 6.1.5 Ensure permissions on /etc/gshadow are configured
+❌ /etc/gshadow has permissions 0 and owner root:root (expected: 000 or 640, root:shadow)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.1.6 Ensure permissions on /etc/passwd- are configured
+❌ /etc/passwd- has permissions 644 and owner root:root (expected: 600, root:root)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.1.7 Ensure permissions on /etc/shadow- are configured
+❌ /etc/shadow- has permissions 0 and owner root:root (expected: 000 or 640, root:shadow)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.1.8 Ensure permissions on /etc/group- are configured
+❌ /etc/group- has permissions 644 and owner root:root (expected: 600, root:root)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.1.9 Ensure permissions on /etc/gshadow- are configured
+❌ /etc/gshadow- has permissions 0 and owner root:root (expected: 000 or 640, root:shadow)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.2.10 Ensure no users have .forward files
+❌ The following users have a .forward file:
+/home/adeniau/.forward
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.2.11 Ensure no users have .netrc files
+✔️  No user has a .netrc file
+Result: OK
+-----------------------------------------
+Auditing: 6.2.12 Ensure users .netrc Files are not group or world accessible
+✔️  All .netrc files are not group/world accessible
+Result: OK
+-----------------------------------------
+Auditing: 6.2.13 Ensure no users have .rhosts files
+❌ The following users have a .rhosts file:
+/home/lvidal/.rhosts
+/home/ldemont/.rhosts
+/home/rblondin/.rhosts
+/home/odallaro/.rhosts
+/home/recette/tmp/tmp/.rhosts
+/home/recette/.rhosts
+/home/nane/.rhosts
+/home/smontroz/.rhosts
+/home/nmoutrou/.rhosts
+/home/acrdev2/.rhosts
+/home/fbousson/.rhosts
+/home/integre/.rhosts
+/home/pdubois/A_ARCHIVER_LYNXOS_ATOS/OB/obrethes/.rhosts
+/home/acr_cof/.rhosts
+/home/olafourc/.rhosts
+/home/abrossar/.rhosts
+/home/acrdev1/.rhosts
+/home/cterrat/.rhosts
+/home/plombard/.rhosts
+/home/ravsec/.rhosts
+/home/sdagosti/.rhosts
+/home/aoc900/.rhosts
+/home/llamonta/.rhosts
+/home/mfremau2/.rhosts
+/home/fjouhaud/.rhosts
+/home/fmaison/.rhosts
+/home/pmonnie/.rhosts
+/home/acradm/.rhosts
+/home/dmechain/.rhosts
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.2.14 Ensure all groups in /etc/passwd exist in /etc/group
+❌ The following GIDs are missing in /etc/group:
+0
+1
+2
+4
+7
+0
+0
+0
+12
+0
+100
+50
+99
+65
+192
+81
+998
+996
+32
+173
+993
+59
+992
+48
+991
+29
+65534
+74
+89
+38
+990
+72
+16
+988
+987
+986
+985
+983
+10580
+981
+982
+57
+51000
+50000
+979
+70
+977
+976
+975
+974
+50000
+1003
+1005
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.2.15 Ensure no duplicate UIDs exist
+✔️  No duplicate UIDs found
+Result: OK
+-----------------------------------------
+Auditing: 6.2.16 Ensure no duplicate GIDs exist
+✔️  No duplicate GIDs found
+Result: OK
+-----------------------------------------
+Auditing: 6.2.17 Ensure no duplicate user names exist
+✔️  No duplicate usernames found
+Result: OK
+-----------------------------------------
+Auditing: 6.2.18 Ensure no duplicate group names exist
+✔️  No duplicate group names found
+Result: OK
+-----------------------------------------
+Auditing: 6.2.19 Ensure shadow group is empty
+✔️  shadow group is empty
+Result: OK
+-----------------------------------------
+Auditing: 6.2.20 Ensure all users home directories exist
+❌ Some users lack home directories:
+root: /root
+sync: /sbin
+shutdown: /sbin
+halt: /sbin
+centreon-broker: /var/lib/centreon-broker
+centreon-engine: /var/lib/centreon-engine
+slurm: /usr/local/slurm
+nut: /var/lib/ups
+blcm01bkp: /admin/backups/cisco-cucm
+centreon-connector-as400: /usr/share/centreon-connector-as400
+sisips: /opt/Symantec/sdcssagent/IPS
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.2.2 Ensure no legacy '+' entries exist in /etc/passwd
+✔️  No legacy '+' entries found in /etc/passwd
+Result: OK
+-----------------------------------------
+Auditing: 6.2.3 Ensure root PATH Integrity
+❌ PATH directory /sbin is world-writable
+❌ PATH directory /bin is world-writable
+❌ PATH contains non-existent directory: /root/bin
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 6.2.4 Ensure no legacy '+' entries exist in /etc/shadow
+✔️  No legacy '+' entries found in /etc/shadow
+Result: OK
+-----------------------------------------
+Auditing: 6.2.5 Ensure no legacy '+' entries exist in /etc/group
+✔️  No legacy '+' entries found in /etc/group
+Result: OK
+-----------------------------------------
+Auditing: 6.2.6 Ensure root is the only UID 0 account
+✔️  Only 'root' has UID 0
+Result: OK
+-----------------------------------------
+Auditing: 6.2.7 Ensure users home directories permissions are 750 or more restrictive
+✔️  All user home directories have permissions 750 or more restrictive
+Result: OK
+-----------------------------------------
+Auditing: 6.2.8 Ensure users own their home directories
+✔️  All users own their home directories
+Result: OK
+-----------------------------------------
+Auditing: 6.2.9 Ensure users dot files are not group or world writable
+✔️  No user dot files are group or world writable
+Result: OK
+-----------------------------------------

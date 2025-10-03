@@ -1,0 +1,207 @@
+Starting CIS audit on jeu. juin 12 16:08:48 CEST 2025
+=========================================
+Auditing: 1.10 Ensure system-wide crypto policy is not legacy
+Result: OK
+-----------------------------------------
+Auditing: 1.1.10 Ensure noexec option set on /var/tmp partition
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.1.1 Ensure mounting of cramfs filesystems is disabled
+Result: OK
+-----------------------------------------
+Auditing: 1.1.11 Ensure separate partition exists for /var/log
+Result: OK
+-----------------------------------------
+Auditing: 1.1.1.2 Ensure mounting of vFAT filesystems is limited
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.12 Ensure separate partition exists for /var/log/audit
+Result: OK
+-----------------------------------------
+Auditing: 1.1.1.3 Ensure mounting of squashfs filesystems is disabled
+Result: OK
+-----------------------------------------
+Auditing: 1.1.13 Ensure separate partition exists for /home
+Result: OK
+-----------------------------------------
+Auditing: 1.1.1.4 Ensure mounting of udf filesystems is disabled
+Result: OK
+-----------------------------------------
+Auditing: 1.1.14 Ensure nodev option set on /home partition
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.15 Ensure nodev option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.16 Ensure nosuid option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.17 Ensure noexec option set on /dev/shm partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.18 Ensure nodev option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.1.19 Ensure nosuid option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.11 Ensure system-wide crypto policy is FUTURE or FIPS
+Result: OK
+-----------------------------------------
+Auditing: 1.1.20 Ensure noexec option set on removable media partitions
+Result: OK
+-----------------------------------------
+Auditing: 1.1.21 Ensure sticky bit is set on all world-writable directories
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.22 Disable Automounting
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.1.23 Disable USB Storage
+Result: OK
+-----------------------------------------
+Auditing: 1.1.2 Ensure /tmp is configured
+✔️  /tmp has nodev option
+✔️  /tmp has noexec option
+✔️  /tmp has nosuid option
+Result: OK
+-----------------------------------------
+Auditing: 1.1.6 Ensure separate partition exists for /var
+✔️  /var is on a separate partition
+Result: OK
+-----------------------------------------
+Auditing: 1.1.7 Ensure separate partition exists for /var/tmp
+✔️  /var/tmp is on a separate partition
+Result: OK
+-----------------------------------------
+Auditing: 1.2.1 Ensure Red Hat Subscription Manager connection is configured
+❌ System is NOT registered or not current with Red Hat
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.2.2 Disable the rhnsd Daemon
+✔️  rhnsd service not present
+Result: OK
+-----------------------------------------
+Auditing: 1.2.3 Ensure GPG keys are configured
+✔️  GPG public keys are installed
+Result: OK
+-----------------------------------------
+Auditing: 1.2.4 Ensure gpgcheck is globally activated
+✔️  gpgcheck is enabled in yum/dnf configuration
+Result: OK
+-----------------------------------------
+Auditing: 1.2.5 Ensure package manager repositories are configured
+✔️  Package manager repositories are correctly configured
+Result: OK
+-----------------------------------------
+Auditing: 1.3.1 Ensure sudo is installed
+Result: OK
+-----------------------------------------
+Auditing: 1.3.2 Ensure sudo commands use pty
+Result: OK
+-----------------------------------------
+Auditing: 1.3.3 Ensure sudo log file exists
+❌ sudo log file path defined as "/var/log/sudo.log" but file does not exist
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.4.1 Ensure AIDE is installed
+Result: OK
+-----------------------------------------
+Auditing: 1.4.2 Ensure filesystem integrity is regularly checked
+❌ No scheduled AIDE check found (neither cron nor systemd timer)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.5.1 Ensure permissions on bootloader config are configured
+⚠️  /boot/grub2/grub.cfg not found (possibly not used on this system)
+❌ /boot/efi/EFI/redhat/grub.cfg permissions are 700, should be 600 or more restrictive
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.5.2 Ensure bootloader password is set
+❌ GRUB password is NOT configured in /boot/efi/EFI/redhat/grub.cfg
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.5.3 Ensure authentication required for single user mode
+✔️  /usr/lib/systemd/system/rescue.service requires sulogin for authentication
+✔️  /usr/lib/systemd/system/emergency.service requires sulogin for authentication
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.6.1 Ensure core dumps are restricted
+✔️  fs.suid_dumpable is set to 0
+✔️  Core dump limit is set to 0 in PAM limits
+Result: OK
+-----------------------------------------
+Auditing: 1.6.2 Ensure address space layout randomization (ASLR) is enabled
+✔️  ASLR is fully enabled (kernel.randomize_va_space = 2)
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.1 Ensure SELinux is installed
+✔️  SELinux package is installed (libselinux)
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.2 Ensure SELinux is not disabled in bootloader configuration
+✔️  SELinux is not disabled in GRUB config
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.3 Ensure SELinux policy is configured
+✔️  SELinux policy is set (targeted or mls)
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.4 Ensure the SELinux state is enforcing
+❌ SELinux is not enforcing (runtime: Permissive / config: permissive)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.7.1.5 Ensure no unconfined services exist
+❌ Unconfined services found:
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 8982 ? 00:00:00 systemd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 8989 ? 00:00:00 sshd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 9398 pts/0 00:00:00 sh
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 9399 pts/0 00:00:00 sudo
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 9403 pts/1 00:00:00 sudo
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 9404 pts/1 00:00:00 sh
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 9405 pts/1 00:00:00 platform-python
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 9407 pts/1 00:00:00 linux_cis_audit
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 10556 pts/1 00:00:00 linux_cis_audit
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 10557 pts/1 00:00:00 ps
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 10558 pts/1 00:00:00 awk
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3575716 ? 00:00:23 systemd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3575728 ? 00:00:00 sshd
+unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 3575730 pts/2 00:00:00 bash
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.7.1.6 Ensure SETroubleshoot is not installed
+✔️  setroubleshoot is not installed
+Result: OK
+-----------------------------------------
+Auditing: 1.7.1.7 Ensure the MCS Translation Service (mcstrans) is not installed
+✔️  mcstrans is not installed
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.1 Ensure message of the day is configured properly
+✔️  /etc/motd is properly configured (no system info disclosure)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.2 Ensure local login warning banner is configured properly
+❌ /etc/issue contains system information variables (\v, \r, \m, \s)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.8.1.3 Ensure remote login warning banner is configured properly
+❌ /etc/issue.net contains system information variables (\v, \r, \m, \s)
+Result: NOT COMPLIANT
+-----------------------------------------
+Auditing: 1.8.1.4 Ensure permissions on /etc/motd are configured
+✔️  /etc/motd permissions are secure (644, owned by root:root)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.5 Ensure permissions on /etc/issue are configured
+✔️  /etc/issue permissions are secure (444, owned by root:root)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.1.6 Ensure permissions on /etc/issue.net are configured
+✔️  /etc/issue.net permissions are secure (444, owned by root:root)
+Result: OK
+-----------------------------------------
+Auditing: 1.8.2 Ensure GDM login banner is configured
+✔️  GDM is not installed — not applicable
+Result: OK
+-----------------------------------------
+Auditing: 1.9 Ensure updates, patches, and additional security software are installed
