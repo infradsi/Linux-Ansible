@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# MGH / CIS Linux Audit Script - VERSION 41 beta du 25/9/2025
+# MGH / CIS Linux Audit Script - VERSION 42 beta du 30/9/2025
 #
 # Reference: https://www.cisecurity.org/benchmark/red_hat_linux
 #
