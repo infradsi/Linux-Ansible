@@ -1,0 +1,65 @@
+---
+- name: CIS Linux Audit multi-format - /ansible-tmp sur chaque serveur
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  vars:
+    remote_workdir: "/ansible-tmp"
+    audit_script: "linux_cis_audit_v41.sh"
+    local_reports_dir: "./reports"
+    report_patterns:
+      - "cis_audit_report_*.log"
+      - "cis_audit_report_*.csv"
+      - "cis_audit_report_*.html"
+
+  tasks:
+    - name: Créer le répertoire /ansible-tmp si absent
+      file:
+        path: "{{ remote_workdir }}"
+        state: directory
+        mode: '0755'
+ 
+    - name: Copier le script d'audit dans /ansible-tmp
+      copy:
+        src: "{{ audit_script }}"
+        dest: "{{ remote_workdir }}/{{ audit_script }}"
+        mode: '0755'
+       
+
+    - name: Lancer le script d'audit depuis /ansible-tmp
+      command: "./{{ audit_script }}"
+      args:
+        chdir: "{{ remote_workdir }}"
+      register: audit_run
+      changed_when: false
+
+    - name: Chercher tous les fichiers de rapport générés (log, csv, html)
+      find:
+        paths: "{{ remote_workdir }}"
+        patterns: "{{ report_patterns }}"
+      register: report_files
+
+    - name: Créer le dossier local pour les rapports de ce serveur
+      delegate_to: localhost
+      become: no
+      file:
+        path: "{{ local_reports_dir }}/{{ inventory_hostname }}"
+        state: directory
+        mode: '0755'
+
+    - name: Rapatrier tous les fichiers de rapport
+      fetch:
+        src: "{{ item.path }}"
+        dest: "{{ local_reports_dir }}/{{ inventory_hostname }}/"
+        flat: yes
+      with_items: "{{ report_files.files }}"
+
+    - name: Nettoyer le dossier /ansible-tmp (optionnel, commenter pour garder)
+      file:
+        path: "{{ remote_workdir }}"
+        state: absent
+
+    - name: Afficher le résultat de l’exécution du script d’audit
+      debug:
+        var: audit_run.stdout_lines

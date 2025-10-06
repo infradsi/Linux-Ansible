@@ -1,0 +1,4 @@
+# Inventaire De Test
+all:
+  bllintestboot
+  bllintestboot3

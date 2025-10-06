@@ -1,0 +1,50 @@
+# Playbook pour l'audit du compte root
+# Version 3 - 6/6/2025 - 10H
+# Etat: (Prod / Test): Test
+#
+#
+
+- name: Run root usage audit and retrieve HTML report
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  vars:
+    report_path: "/ansible-tmp/root_audit_{{ inventory_hostname }}_*.html"
+
+  tasks:
+  
+    - name: Create directory for daily logs
+      ansible.builtin.file:
+        path: /ansible-tmp
+        state: directory
+        mode: '0755'
+
+    - name: Copy audit script to remote host
+      copy:
+        src: files/check_root_usage_html.sh
+        dest: /ansible-tmp/check_root_usage_html.sh
+        mode: '0755'
+
+    - name: Run audit script on remote host
+      shell: "/ansible-tmp/check_root_usage_html.sh"
+      args:
+        executable: /bin/bash
+
+    - name: Find generated HTML report
+      shell: "ls -1t /ansible-tmp/root_audit_{{ inventory_hostname }}_*.html | head -n 1"
+      register: audit_report_path
+      changed_when: false
+
+    - name: Fetch HTML report to control node
+      fetch:
+        src: "{{ audit_report_path.stdout }}"
+        dest: "reports/"
+        flat: yes
+
+
+           
+    - name: Clean up temporary folder and content
+      ansible.builtin.file:
+        path: /ansible-tmp
+        state: absent

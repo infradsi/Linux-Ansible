@@ -1,0 +1,5 @@
+Host,Distribution,Version,Patchlevel,Kernel,Arch,Uptime
+{% for line in host_lines if line|trim %}
+{% set parts = line.split(',') %}
+{{ parts[0] | trim }},{{ parts[1] | trim }},{{ parts[2] | trim }},{{ parts[3] | trim }},{{ parts[4] | trim }},{{ parts[5] | trim }},{{ parts[6] | trim }}
+{% endfor %}
