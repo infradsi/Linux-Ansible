@@ -14,6 +14,17 @@ def display_csv_pandas(file_path):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+
+def hello():
+    """
+    Display script infos
+    """
+    print("This script display CSV file",'\n')
+
+
+
 # Example usage:
 # Assuming 'test.csv' is in the same directory as your Python script
+
+hello()
 display_csv_pandas('test.csv')
