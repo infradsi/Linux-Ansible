@@ -5,7 +5,7 @@
   gather_facts: false
 
   vars:
-    script_dest: /ansible-tmp/find_unused_accounts_plus.sh
+    script_dest: /ansible-tmp/find_unused_accounts_plus-v3.sh
     reports_root_local: "{{ playbook_dir }}/reports/{{ inventory_hostname }}"
 
   tasks:
@@ -17,7 +17,7 @@
 
     - name: Deploy audit script
       copy:
-        src: "{{ playbook_dir }}/../find_unused_accounts_plus.sh"
+        src: "{{ playbook_dir }}/../find_unused_accounts_plus-v3.sh"
         dest: "{{ script_dest }}"
         mode: "0755"
 
