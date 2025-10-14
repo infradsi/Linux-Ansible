@@ -1,12 +1,3 @@
-#
-#
-#
-# Script to convert Linux Versions Report from CSV to HTML
-# Updated 7/10/2025
-#
-#
-#
-
 import pandas as pd
 from datetime import datetime
 

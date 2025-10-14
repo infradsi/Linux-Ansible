@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>User Account Audit Report</title>
+<style>
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ccc; padding: 6px; }
+th { background-color: #f2f2f2; }
+.ok { color: green; }
+.warn { color: red; font-weight: bold; }
+</style>
+</head>
+<body>
+<h2>User Account Audit Report (bllinelk02.rockwellcollins.com)</h2>
+<table>
+<tr>
+  <th>Username</th>
+  <th>UID</th>
+  <th>Shell</th>
+  <th>MinPwdAge</th>
+  <th>MaxPwdAge</th>
+  <th>InactiveDays</th>
+  <th>InteractiveShell</th>
+  <th>PasswordComplexity</th>
+  <th>UserType</th>
+  <th>Compliance</th>
+</tr>
+<tr class="warn"><td>nobody</td><td>65534</td><td>/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="warn"><td>systemd-coredump</td><td>999</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>systemd-resolve</td><td>193</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>polkitd</td><td>998</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>unbound</td><td>997</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>sssd</td><td>996</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>chrony</td><td>994</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>splunk</td><td>990</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>nrpe</td><td>989</td><td>/sbin/nologin</td><td>-1</td><td>-1</td><td></td><td>YES</td><td>Partial</td><td>Service</td><td>ServiceAccount_InteractiveShell</td></tr>
+<tr class="warn"><td>sisips</td><td>1000</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="warn"><td>dcscaf</td><td>1003</td><td>/sbin/nologin</td><td>0</td><td>99999</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="warn"><td>splunkfwd</td><td>1004</td><td>/bin/bash</td><td>0</td><td>99999</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>MinPwdAge_NOT_SET</td></tr>
+<tr class="ok"><td>monuser</td><td>1006</td><td>/bin/bash</td><td>1</td><td>90</td><td></td><td>YES</td><td>Partial</td><td>Regular</td><td>OK</td></tr>
+</table><br>
+<b>Global password inactivity default (useradd):</b> -1<br>
+<b>Password complexity PAM status:</b> PARTIAL<br>
+<hr><i>Report generated on ven. oct.  3 16:50:13 CEST 2025</i></body></html>

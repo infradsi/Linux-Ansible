@@ -1,0 +1,6 @@
+Utilisateur cobaye01 déjà existant.
+Droits sudo accordés à cobaye01 via /etc/sudoers.d/cobaye01
+Backup de /etc/ssh/sshd_config -> /root/backup_sudo_ssh_20250513_121106/
+Ajout de cobaye01 à la directive AllowUsers.
+Redémarrage du service SSH...
+Opération terminée. Backup dans : /root/backup_sudo_ssh_20250513_121106

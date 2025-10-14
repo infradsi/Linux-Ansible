@@ -1,0 +1,12 @@
+threshold_days: 90
+remote_csv: /tmp/unused_accounts_enriched.csv
+remote_json: /tmp/unused_accounts_enriched.json
+skip_users: "root,ansible"
+include_system: 0
+max_uid: ""
+include_noninteractive: 0
+verbose: 1
+
+consolidated_dir: "{{ playbook_dir }}/reports/_consolidated"
+consolidated_csv: "{{ consolidated_dir }}/consolidated_unused_accounts.csv"
+consolidated_html: "{{ consolidated_dir }}/consolidated_unused_accounts.html"

@@ -1,0 +1,21 @@
+# production inventory
+# hosts can be in multiple groups 
+# example: we could create a group pdm: including pdm_prod and pdm_dev
+# you can also define variables here
+all:
+  children:
+    linux_hosts:
+      hosts:
+        artemis:
+        bllinelk03:
+        bllinelk04:
+        bllinelk05:
+        bllintestboot:
+        bllintestboot3:
+        bllina350rpm01:
+        blnis01:
+        buzet:
+        cfrc10353ap007:
+        cfrc10353ap009:
+        cfrc10353ap010:
+        cfrc10353ap011:

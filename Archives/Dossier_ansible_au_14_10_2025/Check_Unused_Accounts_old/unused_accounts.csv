@@ -1,0 +1,4 @@
+user,uid,gid,threshold_days,days_since_last_activity,last_login,last_password_change,status,shell,home
+"splunk","899","899","90","1763","Never","2020-11-19 00:00:00 +0100","STALE","/bin/bash","/opt/splunkforwarder"
+"splunkfwd","1009","1007","90","350","Never","2024-10-02 00:00:00 +0200","STALE","/bin/bash","/opt/splunkforwarder"
+"sisips","1010","1008","90","299","Never","2024-11-22 00:00:00 +0100","STALE","/bin/bash","/opt/Symantec/sdcssagent/IPS"

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Rapport OS — Ansible</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f3f3f3; position: sticky; top: 0; }
+    tbody tr:nth-child(even){ background: #fafafa; }
+    .small { color: #666; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Rapport OS — Ansible</h1>
+  <p class="small">Généré le: {{ lookup('pipe','date -R') }}</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Host</th>
+        <th>Distribution</th>
+        <th>Version</th>
+        <th>Patchlevel</th>
+        <th>Kernel</th>
+        <th>Arch</th>
+        <th>Uptime</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for line in host_lines if line|trim %}
+      {% set parts = line.split(',') %}
+      <tr>
+        <td>{{ parts[0] | trim | e }}</td>
+        <td>{{ parts[1] | trim | e }}</td>
+        <td>{{ parts[2] | trim | e }}</td>
+        <td>{{ parts[3] | trim | e }}</td>
+        <td>{{ parts[4] | trim | e }}</td>
+        <td>{{ parts[5] | trim | e }}</td>
+        <td>{{ parts[6] | trim | e }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,56 @@
+---
+- name: Déployer utilisateur sudo + ssh
+  hosts: all
+  become: true
+  gather_facts: false
+
+  vars:
+    utilisateur: monuser
+    no_create: false        # true => n'essaie pas de créer l'utilisateur
+    remote_log_dir: /tmp/ansible_logs
+    local_log_file: logs/deploiement.log
+
+  tasks:
+
+    - name: Créer le dossier de log sur le serveur distant
+      file:
+        path: "{{ remote_log_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Copier le script sur les serveurs
+      copy:
+        src: files/Lx_Add_Account_As_Sudo_And_SSH_v2.sh
+        dest: /home/fr-726-ansible/Lx_Add_Account_As_Sudo_And_SSH_v2.sh
+        mode: '0755'
+        
+    - name: Rendre le script exécutable car parfois pb avec droit après copie
+      ansible.builtin.file:
+        path: /home/fr-726-ansible/Lx_Add_Account_As_Sudo_And_SSH_v2.sh
+        mode: '0755'
+
+    - name: Exécuter le script sur le serveur
+      shell: |
+        /home/fr-726-ansible/Lx_Add_Account_As_Sudo_And_SSH_v2.sh {{ utilisateur }} {% if no_create %}--no-create{% endif %} > {{ remote_log_dir }}/{{ inventory_hostname }}.log 2>&1
+      register: resultat_script
+      ignore_errors: true
+      args:
+        executable: /bin/bash
+
+    - name: Vérifier succès/échec
+      debug:
+        msg: "Serveur {{ inventory_hostname }} : {{ 'SUCCÈS' if resultat_script.rc == 0 else 'ÉCHEC' }}"
+
+    - name: Récupérer le fichier de log de chaque serveur
+      fetch:
+        src: "{{ remote_log_dir }}/{{ inventory_hostname }}.log"
+        dest: logs/
+        flat: yes
+
+    - name: Consolider les logs dans un fichier unique
+      run_once: true
+      delegate_to: localhost
+      shell: |
+        echo "===== Déploiement effectué le $(date) =====" > {{ local_log_file }}
+        cat logs/*.log >> {{ local_log_file }}
+        echo "" >> {{ local_log_file }}
