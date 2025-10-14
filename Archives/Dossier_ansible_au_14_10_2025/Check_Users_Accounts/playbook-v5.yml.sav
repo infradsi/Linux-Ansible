@@ -1,0 +1,67 @@
+- name: Audit sécurité utilisateurs (password policy, comptes inactifs, etc.)
+  hosts: all
+  become: true
+  gather_facts: false
+
+  vars:
+    remote_tmp_dir: /ansible-tmp
+    remote_script_path: /ansible-tmp/check_users_security_v3.sh
+    remote_csv: /ansible-tmp/user_account_audit.csv
+    remote_html: /ansible-tmp/user_account_audit.html
+    # Dossier LOCAL (contrôleur Ansible) où stocker les rapports
+    local_report_base: /tmp/rapports_ansible
+
+  tasks:
+    - name: Créer le répertoire temporaire distant
+      ansible.builtin.file:
+        path: "{{ remote_tmp_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Créer le répertoire local pour les rapports de cet hôte
+      ansible.builtin.file:
+        path: "{{ local_report_base }}/{{ inventory_hostname }}"
+        state: directory
+        mode: '0755'
+      delegate_to: localhost
+      become: false
+
+    - name: Copier le script d'audit sur l'hôte
+      ansible.builtin.copy:
+        src: files/check_users_security_v3.sh   # adapte le chemin si besoin
+        dest: "{{ remote_script_path }}"
+        mode: '0755'
+
+    - name: Exécuter le script d'audit
+      ansible.builtin.shell: >
+        "{{ remote_script_path }}"
+      args:
+        executable: /bin/bash
+      register: audit_run
+      changed_when: audit_run.rc == 0
+      failed_when: audit_run.rc != 0
+
+    - name: Afficher la sortie du script
+      ansible.builtin.debug:
+        var: audit_run.stdout_lines
+
+    - name: Rapatrier le rapport CSV
+      ansible.builtin.fetch:
+        src: "{{ remote_csv }}"
+        dest: "{{ local_report_base }}/{{ inventory_hostname }}/user_account_audit.csv"
+        flat: yes
+
+    - name: Rapatrier le rapport HTML
+      ansible.builtin.fetch:
+        src: "{{ remote_html }}"
+        dest: "{{ local_report_base }}/{{ inventory_hostname }}/user_account_audit.html"
+        flat: yes
+
+    - name: Nettoyer les fichiers temporaires distants
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ remote_script_path }}"
+        - "{{ remote_csv }}"
+        - "{{ remote_html }}"

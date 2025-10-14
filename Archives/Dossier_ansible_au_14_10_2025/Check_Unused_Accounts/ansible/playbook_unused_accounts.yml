@@ -1,0 +1,87 @@
+---
+- name: Audit unused accounts and collect reports
+  hosts: all
+  become: true
+  gather_facts: false
+
+  vars:
+    script_dest: /ansible-tmp/find_unused_accounts_plus-v3.sh
+    reports_root_local: "{{ playbook_dir }}/reports/{{ inventory_hostname }}"
+
+  tasks:
+    - name: Ensure destination directory exists for script
+      file:
+        path: "{{ script_dest | dirname }}"
+        state: directory
+        mode: "0755"
+
+    - name: Deploy audit script
+      copy:
+        src: "{{ playbook_dir }}/../find_unused_accounts_plus-v3.sh"
+        dest: "{{ script_dest }}"
+        mode: "0755"
+
+    - name: Run audit script
+      command: >
+        {{ script_dest }}
+        -d {{ threshold_days }}
+        -o {{ remote_csv }}
+        --json {{ remote_json }}
+        -s "{{ skip_users }}"
+        {{ '-I' if (include_system | int) == 1 else '' }}
+        {{ ('-M ' ~ max_uid) if (max_uid | string) | length > 0 else '' }}
+        {{ '-i' if (include_noninteractive | int) == 1 else '' }}
+        {{ '-v' if (verbose | int) == 1 else '' }}
+      register: audit_run
+      changed_when: false
+
+    - name: Show summary (stdout)
+      debug:
+        msg: "{{ audit_run.stdout_lines | default([]) }}"
+
+    - name: Ensure local reports dir exists
+      delegate_to: localhost
+      run_once: false
+      file:
+        path: "{{ reports_root_local }}"
+        state: directory
+        mode: "0755"
+
+    - name: Fetch CSV report
+      fetch:
+        src: "{{ remote_csv }}"
+        dest: "{{ reports_root_local }}/"
+        flat: true
+
+    - name: Fetch JSON report
+      fetch:
+        src: "{{ remote_json }}"
+        dest: "{{ reports_root_local }}/"
+        flat: true
+      ignore_errors: true
+
+- name: Consolidate reports on control node
+  hosts: localhost
+  gather_facts: false
+  vars:
+    tools_path: "{{ playbook_dir }}/../tools/consolidate_unused_accounts.py"
+
+  tasks:
+    - name: Ensure consolidated directory exists
+      file:
+        path: "{{ consolidated_dir }}"
+        state: directory
+        mode: "0755"
+
+    - name: Run consolidation (CSV + HTML)
+      command: >
+        {{ tools_path }}
+        "{{ playbook_dir }}/reports"
+        "{{ consolidated_csv }}"
+        "{{ consolidated_html }}"
+      register: consolidate_run
+      changed_when: false
+
+    - name: Show consolidation result
+      debug:
+        var: consolidate_run.stdout

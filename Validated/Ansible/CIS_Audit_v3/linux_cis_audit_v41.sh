@@ -16,7 +16,7 @@
 ########################################################################
 
 
-# LOG FILE Nammed using date
+
 #LOG_FILE="cis_audit_report_$(date +%F).log"
 
 # Updated to include host FQDN in lofgile name

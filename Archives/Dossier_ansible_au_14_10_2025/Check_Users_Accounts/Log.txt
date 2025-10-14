@@ -1,0 +1,346 @@
+
+PLAY [Audit sécurité utilisateurs (password policy, comptes inactifs, etc.)] ***
+
+TASK [Créer le répertoire temporaire sur l’hôte] *******************************
+fatal: [bllinsatel01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname bllinsatel01: Name or service not known", "unreachable": true}
+ok: [bllinalm03]
+ok: [bllinalm02]
+ok: [bllinalm01]
+ok: [bllinsvn02]
+ok: [cfrc10353ap008]
+ok: [bllinalm04]
+ok: [bllinalm05]
+ok: [bllinalmqa02]
+ok: [bllinalmqa04]
+ok: [bllinalmqa05]
+ok: [bllinalmqa03]
+ok: [bllinelk02]
+fatal: [bllinalmqa06]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: ***************************************************************************\n                RTX Corporation Computing System\n**************************************************************************\nWarning:  Use of this System is Restricted to Authorized Users\nThe computers, devices, information systems, networks, and storage and\ncomputer environments (whether on premises or in the cloud) (collectively,\n“assets”), owned by or managed on behalf of, RTX Corporation and its\nsubsidiaries and affiliates (collectively, “RTX”), are only for use by\nauthorized users for RTX business purposes and limited personal use as\npermitted by RTX policy.\nUnauthorized use is prohibited and may result in disciplinary action\nas well as civil and criminal penalties. Unless otherwise provided by\napplicable law, you have no reasonable expectation of privacy regarding\nany communications or data transmitted through or stored on RTX assets,\nincluding personal communications via third party email systems or other\nservices accessed via RTX assets. Where permitted by applicable law,\nRTX may monitor, intercept, search, and seize any information transiting\nor stored on RTX assets without further notice and provide such information,\nincluding user identification, to third parties consistent with our Binding\nCorporate Rules, which may include government officials.\nThe following is applicable only to those users in legal jurisdictions\nwhere consent is required to make the notice above enforceable: By using\nRTX assets, you are deemed to have consented to the terms in the notice above.\nFor additional information regarding RTX’s use of personal information,\nallowable use, and content accessibility, please visit the RTX links below.\nPrivacy notice - https://www.rtx.com/privacy\nTerms of Use - https://www.rtx.com/Terms-of-Use\nAccessibility - https://www.rtx.com/accessibility-statement\n*************************************************************************\n                RTX Corporation Computing System\n************************************************************************", "unreachable": true}
+ok: [bllinelk01]
+ok: [bllinelk03]
+ok: [bllinelk04]
+ok: [bllinelk05]
+ok: [bllincdr03]
+ok: [artemis]
+ok: [blcflin03]
+ok: [bllinapp40]
+ok: [bllinapp38]
+ok: [bllinapp37]
+ok: [bllinapp42]
+ok: [bllinapp47]
+ok: [bllinapp45]
+ok: [bllinapp50]
+ok: [bllinapp46]
+ok: [bllinapp55]
+ok: [bllinapp48]
+ok: [bllinapp58]
+ok: [bllinapp57]
+ok: [bllinapp56]
+ok: [bllinsvnqa01]
+ok: [bllintestboot]
+ok: [bllintestboot3]
+ok: [bllina350rpm01]
+ok: [cfrc10353ap007]
+ok: [bllinalmqa01]
+ok: [blnis01]
+ok: [buzet]
+ok: [cfrc10353ap009]
+ok: [cfrc10353ap010]
+ok: [cfrc10353ap011]
+ok: [pallas-new]
+ok: [cfrc10353ap018]
+ok: [fr7ulr7se01]
+ok: [fr7ulr7se02]
+
+TASK [Copier le script d’audit sur l’hôte] *************************************
+ok: [bllinalm01]
+ok: [bllinalm03]
+ok: [bllinalm02]
+ok: [cfrc10353ap008]
+ok: [bllinalm04]
+ok: [bllinalm05]
+ok: [bllinsvn02]
+ok: [bllinalmqa02]
+ok: [bllinalmqa01]
+ok: [bllinalmqa04]
+ok: [bllinalmqa05]
+ok: [bllinalmqa03]
+ok: [bllinelk02]
+ok: [bllinelk01]
+ok: [bllinelk04]
+ok: [bllinelk03]
+ok: [bllincdr03]
+ok: [bllinelk05]
+ok: [blcflin03]
+ok: [artemis]
+ok: [bllinapp38]
+ok: [bllinapp37]
+ok: [bllinapp45]
+ok: [bllinapp40]
+ok: [bllinapp42]
+ok: [bllinapp47]
+ok: [bllinapp55]
+ok: [bllinapp50]
+ok: [bllinapp57]
+ok: [bllinapp56]
+ok: [bllinapp46]
+ok: [bllinapp58]
+ok: [bllinapp48]
+ok: [bllintestboot]
+ok: [bllintestboot3]
+ok: [bllina350rpm01]
+ok: [bllinsvnqa01]
+ok: [cfrc10353ap007]
+ok: [blnis01]
+ok: [cfrc10353ap011]
+ok: [buzet]
+ok: [cfrc10353ap009]
+ok: [cfrc10353ap018]
+ok: [cfrc10353ap010]
+ok: [pallas-new]
+ok: [fr7ulr7se01]
+ok: [fr7ulr7se02]
+
+TASK [Vérifier la valeur du chemin] ********************************************
+ok: [cfrc10353ap008] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinsvn02] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinalm01] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinalm02] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinalm03] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinalm04] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinalm05] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinalmqa01] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinalmqa02] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinalmqa03] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinalmqa04] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinalmqa05] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinelk01] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinelk02] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinelk03] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinelk04] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinelk05] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [blcflin03] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllincdr03] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [artemis] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp37] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp38] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp40] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp42] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp45] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp46] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp47] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp48] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp50] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp55] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp56] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp57] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinapp58] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllinsvnqa01] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllintestboot] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllintestboot3] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [bllina350rpm01] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [blnis01] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [buzet] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [cfrc10353ap007] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [cfrc10353ap009] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [cfrc10353ap010] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [cfrc10353ap011] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [cfrc10353ap018] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [pallas-new] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [fr7ulr7se01] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+ok: [fr7ulr7se02] => {
+    "remote_script_path": "/ansible-tmp/check_users_security_v3.sh"
+}
+
+TASK [Exécuter le script sur l’hôte distant] ***********************************
+fatal: [bllinalm03]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.005685", "end": "2025-09-04 15:01:21.224468", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:21.218783", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory"], "stdout": "", "stdout_lines": []}
+fatal: [bllinalm01]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.010259", "end": "2025-09-04 15:01:21.220787", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:21.210528", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory"], "stdout": "", "stdout_lines": []}
+fatal: [cfrc10353ap008]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.008051", "end": "2025-09-04 15:01:21.395413", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:21.387362", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinalm02]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.009095", "end": "2025-09-04 15:01:21.412591", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:21.403496", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory"], "stdout": "", "stdout_lines": []}
+fatal: [bllinsvn02]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.010080", "end": "2025-09-04 15:01:21.609143", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:21.599063", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinalm05]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.007510", "end": "2025-09-04 15:01:21.738749", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:21.731239", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory"], "stdout": "", "stdout_lines": []}
+fatal: [bllinalm04]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.007520", "end": "2025-09-04 15:01:21.754707", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:21.747187", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory"], "stdout": "", "stdout_lines": []}
+fatal: [bllinalmqa02]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.002733", "end": "2025-09-04 15:01:21.923464", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:21.920731", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory"], "stdout": "", "stdout_lines": []}
+fatal: [bllinalmqa01]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.005371", "end": "2025-09-04 15:01:21.971516", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:21.966145", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory"], "stdout": "", "stdout_lines": []}
+fatal: [bllinalmqa03]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.007128", "end": "2025-09-04 15:01:22.239096", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:22.231968", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory"], "stdout": "", "stdout_lines": []}
+fatal: [bllinalmqa04]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.003792", "end": "2025-09-04 15:01:22.242177", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:22.238385", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory"], "stdout": "", "stdout_lines": []}
+fatal: [bllinalmqa05]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.004069", "end": "2025-09-04 15:01:22.292149", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:22.288080", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: No such file or directory"], "stdout": "", "stdout_lines": []}
+fatal: [bllinelk02]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.002416", "end": "2025-09-04 15:01:22.381327", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:22.378911", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinelk01]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.002099", "end": "2025-09-04 15:01:22.503638", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:22.501539", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinelk04]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.002210", "end": "2025-09-04 15:01:22.888316", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:22.886106", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinelk03]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.002232", "end": "2025-09-04 15:01:23.214420", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:23.212188", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllincdr03]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.010466", "end": "2025-09-04 15:01:23.226961", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:23.216495", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinelk05]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.004756", "end": "2025-09-04 15:01:23.436962", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:23.432206", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [blcflin03]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.004649", "end": "2025-09-04 15:03:25.428181", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:03:25.423532", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [artemis]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.007066", "end": "2025-09-04 15:01:23.912884", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:23.905818", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp38]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.007260", "end": "2025-09-04 15:01:24.477698", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:24.470438", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp37]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.007784", "end": "2025-09-04 15:01:24.482027", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:24.474243", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp40]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.004462", "end": "2025-09-04 15:01:24.624948", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:24.620486", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp42]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.007668", "end": "2025-09-04 15:01:24.713807", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:24.706139", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp45]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.006261", "end": "2025-09-04 15:01:24.779066", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:24.772805", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp47]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.004788", "end": "2025-09-04 15:01:25.095691", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:25.090903", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp55]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.004807", "end": "2025-09-04 15:01:24.312091", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:24.307284", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp50]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.014478", "end": "2025-09-04 15:01:25.438086", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:25.423608", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp46]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.005334", "end": "2025-09-04 15:01:25.816231", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:25.810897", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp56]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.008304", "end": "2025-09-04 15:01:25.866354", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:25.858050", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp57]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.004803", "end": "2025-09-04 15:01:25.927796", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:25.922993", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp48]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.006355", "end": "2025-09-04 15:01:26.012658", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:26.006303", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinapp58]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.004894", "end": "2025-09-04 15:01:26.084760", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:26.079866", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllintestboot]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.004188", "end": "2025-09-04 15:01:26.206162", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:26.201974", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllintestboot3]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.010352", "end": "2025-09-04 15:01:26.721088", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:26.710736", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllina350rpm01]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.006342", "end": "2025-09-04 15:01:26.665128", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:26.658786", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [bllinsvnqa01]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.005486", "end": "2025-09-04 15:01:27.030532", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:27.025046", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [cfrc10353ap007]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.005154", "end": "2025-09-04 15:01:27.209486", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:27.204332", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [blnis01]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.006023", "end": "2025-09-04 15:01:27.304635", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:27.298612", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [cfrc10353ap011]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.002973", "end": "2025-09-04 15:01:27.719750", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:27.716777", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [cfrc10353ap009]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.007949", "end": "2025-09-04 15:00:45.469737", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:00:45.461788", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [cfrc10353ap018]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.009782", "end": "2025-09-04 15:01:27.676737", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:27.666955", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [buzet]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.008541", "end": "2025-09-04 15:01:27.843248", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:27.834707", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [cfrc10353ap010]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.009094", "end": "2025-09-04 15:01:27.897791", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:27.888697", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [pallas-new]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.009295", "end": "2025-09-04 15:01:25.386153", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:25.376858", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [fr7ulr7se01]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.003623", "end": "2025-09-04 15:01:28.586641", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:28.583018", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+fatal: [fr7ulr7se02]: FAILED! => {"changed": true, "cmd": "/ansible-tmp/check_users_security_v3.sh", "delta": "0:00:00.003663", "end": "2025-09-04 15:01:28.646586", "msg": "non-zero return code", "rc": 126, "start": "2025-09-04 15:01:28.642923", "stderr": "/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type", "stderr_lines": ["/bin/bash: /ansible-tmp/check_users_security_v3.sh : /bin/bash^M : mauvais interpréteur: Aucun fichier ou dossier de ce type"], "stdout": "", "stdout_lines": []}
+
+PLAY RECAP *********************************************************************
+artemis                    : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+blcflin03                  : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllina350rpm01             : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalm01                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalm02                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalm03                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalm04                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalm05                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalmqa01               : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalmqa02               : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalmqa03               : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalmqa04               : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalmqa05               : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinalmqa06               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+bllinapp37                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp38                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp40                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp42                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp45                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp46                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp47                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp48                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp50                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp55                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp56                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp57                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinapp58                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllincdr03                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinelk01                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinelk02                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinelk03                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinelk04                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinelk05                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinsatel01               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+bllinsvn02                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllinsvnqa01               : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllintestboot              : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+bllintestboot3             : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+blnis01                    : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+buzet                      : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+cfrc10353ap007             : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+cfrc10353ap008             : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+cfrc10353ap009             : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+cfrc10353ap010             : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+cfrc10353ap011             : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+cfrc10353ap018             : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+fr7ulr7se01                : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+fr7ulr7se02                : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+pallas-new                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+

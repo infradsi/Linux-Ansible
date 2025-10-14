@@ -1,0 +1,57 @@
+- name: Audit sécurité utilisateurs (password policy, comptes inactifs, etc.)
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  vars:
+    remote_script_path: /ansible-tmp/check_users_security_v2.sh
+    local_report_dir: ./reports
+
+  tasks:
+
+    - name: Créer le répertoire temporaire sur l’hôte
+      ansible.builtin.file:
+        path: /ansible-tmp
+        state: directory
+        mode: '0755'
+
+    - name: Copier le script d’audit sur l’hôte
+      copy:
+        src: ./check_users_security_v2.sh
+        dest: "{{ remote_script_path }}"
+        mode: '0755'
+
+    - name: Exécuter le script sur l’hôte distant
+      shell: "{{ remote_script_path }}"
+      args:
+        executable: /bin/bash
+
+    - name: Créer le répertoire local pour les rapports de cet hôte
+      ansible.builtin.file:
+        path: "./reports/{{ inventory_hostname }}"
+        state: directory
+      delegate_to: localhost
+      become: false
+      
+
+
+    - name: Récupérer le rapport CSV
+      fetch:
+        src: /ansible-tmp/user_account_audit.csv
+        dest: "{{ local_report_dir }}/{{ inventory_hostname }}/user_account_audit.csv"
+        flat: yes
+
+    - name: Récupérer le rapport HTML
+      fetch:
+        src: /ansible-tmp/user_account_audit.html
+        dest: "{{ local_report_dir }}/{{ inventory_hostname }}/user_account_audit.html"
+        flat: yes
+
+    - name: Supprimer les fichiers temporaires sur l’hôte (optionnel)
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - /ansible-tmp/user_account_audit.csv
+        - /ansible-tmp/user_account_audit.html
+        - "{{ remote_script_path }}"
