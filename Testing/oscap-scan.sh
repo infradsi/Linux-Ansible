@@ -1,0 +1,1 @@
+sudo oscap xccdf remediate --profile xccdf_org.ssgproject.content_profile_cis_server_l1 --report /var/tmp/bllintestboot.rockwellcollins.com_cis_server_l1.html --results-arf /var/tmp/bllintestboot.rockwellcollins.com_cis_server_l1.arf /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml

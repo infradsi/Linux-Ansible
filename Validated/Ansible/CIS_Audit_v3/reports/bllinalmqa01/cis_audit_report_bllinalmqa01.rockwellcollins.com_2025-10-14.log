@@ -1,4 +1,4 @@
-Starting CIS audit on mar. oct. 14 10:44:04 CEST 2025
+Starting CIS audit on mar. oct. 14 14:57:56 CEST 2025
 =========================================
 Auditing: 1.10 Ensure system-wide crypto policy is not legacy
 Result: OK
@@ -1108,8 +1108,9 @@ Auditing: 6.2.12 Ensure users .netrc Files are not group or world accessible
 Result: OK
 -----------------------------------------
 Auditing: 6.2.13 Ensure no users have .rhosts files
-✔️  No user has a .rhosts file
-Result: OK
+❌ The following users have a .rhosts file:
+/home/dmechain/.rhosts
+Result: NOT COMPLIANT
 -----------------------------------------
 Auditing: 6.2.14 Ensure all groups in /etc/passwd exist in /etc/group
 ❌ The following GIDs are missing in /etc/group:

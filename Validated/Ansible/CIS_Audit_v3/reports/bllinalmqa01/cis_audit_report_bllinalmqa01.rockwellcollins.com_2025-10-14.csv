@@ -209,7 +209,7 @@ ID,Check,Result,Exception
 "6.2.10","6.2.10 Ensure no users have .forward files","OK",""
 "6.2.11","6.2.11 Ensure no users have .netrc files","OK",""
 "6.2.12","6.2.12 Ensure users .netrc Files are not group or world accessible","OK",""
-"6.2.13","6.2.13 Ensure no users have .rhosts files","OK",""
+"6.2.13","6.2.13 Ensure no users have .rhosts files","NOT COMPLIANT",""
 "6.2.14","6.2.14 Ensure all groups in /etc/passwd exist in /etc/group","NOT COMPLIANT",""
 "6.2.15","6.2.15 Ensure no duplicate UIDs exist","OK",""
 "6.2.16","6.2.16 Ensure no duplicate GIDs exist","OK",""
