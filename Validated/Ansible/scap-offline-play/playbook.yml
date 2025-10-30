@@ -1,6 +1,6 @@
 ---
 - name: Install OpenSCAP offline, run scan, fetch reports (RHEL 8.x)
-  hosts: scap_targets
+  hosts: all
   gather_facts: true
   become: true
 
