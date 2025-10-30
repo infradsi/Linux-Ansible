@@ -1,0 +1,31 @@
+# Dossier de décompression du pack RPM sur les hôtes
+rpm_pack_unpack_dir: /ansible-tmp/openscap-offline-pack
+
+# Nom du tar offline présent dans files/
+rpm_pack_archive: openscap-offline-pack-rhel8.tar.gz
+
+# Paquets à garantir « installés » via le pack offline
+offline_packages:
+  - openscap
+  - openscap-scanner
+  - scap-security-guide
+
+# Répertoire de résultats sur les hôtes
+scap_results_dir: /ansible-tmp/openscap
+
+ 
+# Répertoire de collecte côté contrôleur
+reports_root_local: ./reports
+
+# Profil SCAP (CIS Server L1 pour RHEL 8)
+scap_profile_id: xccdf_org.ssgproject.content_profile_cis_server_l1
+
+
+# Datastream par défaut pour RHEL 8 (fourni par scap-security-guide)
+scap_ds_path: /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+
+# Args supplémentaires éventuels (laisser vide)
+scap_extra_args: ""
+
+# Échouer si oscap manquant après install offline (true)
+fail_if_oscap_missing: true

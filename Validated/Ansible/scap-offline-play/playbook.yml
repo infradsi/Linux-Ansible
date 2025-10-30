@@ -1,0 +1,161 @@
+---
+- name: Install OpenSCAP offline, run scan, fetch reports (RHEL 8.x)
+  hosts: scap_targets
+  gather_facts: true
+  become: true
+
+  vars:
+    run_id: "{{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+    rpm_glob: "{{ rpm_pack_unpack_dir }}/*.rpm"
+
+  pre_tasks:
+    - name: Assert RHEL 8.x
+      ansible.builtin.assert:
+        that:
+          - ansible_facts['os_family'] == 'RedHat'
+          - ansible_facts['distribution_major_version'] | int == 8
+        fail_msg: "Ce playbook cible RHEL 8.x uniquement."
+        success_msg: "Hôte RHEL 8.x OK."
+
+  tasks:
+    - name: Créer le dossier d’accueil du pack RPM
+      ansible.builtin.file:
+        path: "{{ rpm_pack_unpack_dir }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Copier le pack RPM offline vers l'hôte
+      ansible.builtin.copy:
+        src: "files/{{ rpm_pack_archive }}"
+        dest: "/tmp/{{ rpm_pack_archive }}"
+        mode: "0644"
+
+    - name: Décompresser le pack RPM sur l'hôte
+      ansible.builtin.unarchive:
+        src: "/tmp/{{ rpm_pack_archive }}"
+        dest: "{{ rpm_pack_unpack_dir | dirname }}"
+        remote_src: true
+        extra_opts:
+          - "--no-same-owner"
+      # Résultat attendu : {{ rpm_pack_unpack_dir }} contient uniquement des .rpm
+      # Si vous avez une sous-structure, adaptez dest/pattern.
+
+    - name: Vérifier la présence de RPM dans le pack
+      ansible.builtin.find:
+        paths: "{{ rpm_pack_unpack_dir }}"
+        patterns: "*.rpm"
+      register: rpm_files
+
+    - name: Échouer si aucun RPM n’a été trouvé
+      ansible.builtin.fail:
+        msg: "Aucun RPM trouvé dans {{ rpm_pack_unpack_dir }}. Vérifiez votre archive {{ rpm_pack_archive }}."
+      when: rpm_files.matched | int == 0
+
+    - name: Installer/mettre à niveau les paquets offline fournis (sans dépôt réseau)
+      ansible.builtin.dnf:
+        name: "{{ rpm_glob }}"
+        state: present
+        disable_gpg_check: true
+        disablerepo: "*"
+      register: dnf_offline_install
+
+    - name: Vérifier la présence d'oscap
+      ansible.builtin.command: bash -lc 'command -v oscap'
+      register: oscap_check
+      changed_when: false
+      failed_when: false
+
+    - name: Échouer si oscap est manquant après installation offline
+      ansible.builtin.fail:
+        msg: >
+          'oscap' introuvable après installation offline.
+          Contenu du pack insuffisant ? Assurez-vous d'avoir inclus openscap, openscap-scanner,
+          scap-security-guide et toutes leurs dépendances pour RHEL 8.10 (x86_64).
+      when: fail_if_oscap_missing and (oscap_check.rc != 0)
+
+    - name: Créer le dossier résultats sur l’hôte
+      ansible.builtin.file:
+        path: "{{ scap_results_dir }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Définir les chemins de rapports sur l’hôte
+      ansible.builtin.set_fact:
+        scap_results_xml: "{{ scap_results_dir }}/oscap_results_{{ inventory_hostname }}.xml"
+        scap_report_html: "{{ scap_results_dir }}/oscap_report_{{ inventory_hostname }}.html"
+        scap_arf_xml: "{{ scap_results_dir }}/oscap_arf_{{ inventory_hostname }}.xml"
+
+    - name: Vérifier la présence du datastream SCAP
+      ansible.builtin.stat:
+        path: "{{ scap_ds_path }}"
+      register: ds_stat
+
+    - name: Échouer si le datastream est absent
+      ansible.builtin.fail:
+        msg: "Datastream absent: {{ scap_ds_path }}. L’installation du paquet scap-security-guide a-t-elle réussi ?"
+      when: not ds_stat.stat.exists
+
+    - name: Afficher les infos du contenu SCAP
+      ansible.builtin.command: >
+        oscap info {{ scap_ds_path }}
+      register: oscap_info
+      changed_when: false
+
+    - name: Debug - résumé du contenu
+      ansible.builtin.debug:
+        var: oscap_info.stdout_lines
+
+    - name: Exécuter l’évaluation OpenSCAP (HTML + XML + ARF)
+      ansible.builtin.command: >
+        oscap xccdf eval
+        --profile {{ scap_profile_id }}
+        --results {{ scap_results_xml }}
+        --report {{ scap_report_html }}
+        --arf {{ scap_arf_xml }}
+        {{ scap_extra_args }}
+        {{ scap_ds_path }}
+      args:
+        warn: false
+      register: oscap_run
+      changed_when: true
+
+    - name: Afficher le code retour oscap (0=OK, 2=non conforme, autre=erreur)
+      ansible.builtin.debug:
+        msg: "oscap rc={{ oscap_run.rc }}"
+
+    - name: Créer le répertoire local de collecte (contrôleur)
+      ansible.builtin.file:
+        path: "{{ reports_root_local }}/{{ run_id }}/{{ inventory_hostname }}"
+        state: directory
+        mode: "0755"
+      delegate_to: localhost
+      run_once: false
+
+    - name: Rapatrier le rapport HTML
+      ansible.builtin.fetch:
+        src: "{{ scap_report_html }}"
+        dest: "{{ reports_root_local }}/{{ run_id }}/{{ inventory_hostname }}/"
+        flat: true
+
+    - name: Rapatrier les résultats XML
+      ansible.builtin.fetch:
+        src: "{{ scap_results_xml }}"
+        dest: "{{ reports_root_local }}/{{ run_id }}/{{ inventory_hostname }}/"
+        flat: true
+
+    - name: Rapatrier l’ARF XML
+      ansible.builtin.fetch:
+        src: "{{ scap_arf_xml }}"
+        dest: "{{ reports_root_local }}/{{ run_id }}/{{ inventory_hostname }}/"
+        flat: true
+
+  post_tasks:
+    - name: Emplacement des rapports (contrôleur)
+      ansible.builtin.debug:
+        msg: "Rapports : {{ reports_root_local }}/{{ run_id }}/<host>/*.html|*.xml"
+      delegate_to: localhost
+      run_once: true
